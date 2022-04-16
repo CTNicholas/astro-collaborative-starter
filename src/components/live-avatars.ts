@@ -1,25 +1,13 @@
-import { html, css, LitElement } from 'lit'
+import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import globals from '../globals'
-import { User } from '../types'
-import { whenRoomReady } from './utils/whenRoomReady'
+import { SelfAndOthers } from './utils/SelfAndOthers'
 
 export const tagName = 'live-avatars'
 
 @customElement(tagName)
-class MyElement extends LitElement {
-  @property()
-  user: User = {
-    name: '',
-    color: '',
-    picture: ''
-  }
-
-  @property()
-  otherUsers: User[] = []
-
-  @property()
-  unsubscribeFunctions = []
+class MyElement extends SelfAndOthers {
+  @property({ reflect: true })
+  size: number = 40
 
   static styles = css`
     .main {
@@ -32,7 +20,8 @@ class MyElement extends LitElement {
 
     .avatars {
       display: flex;
-      flex-direction: row;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
       padding-left: 0.75rem;
     }
 
@@ -42,15 +31,13 @@ class MyElement extends LitElement {
     }
 
     .avatar {
-      border-width: 4px;
       border-radius: 9999px;
-      border-color: white;
-      background-color: #9ca3af;
-      margin-left: -0.5rem;
       position: relative;
+      box-shadow: 2px 0 0 #fff;
+      margin-left: -6px;
     }
 
-    .avatar:before {
+    .avatar::before {
       content: attr(data-tooltip);
       position: absolute;
       opacity: 0;
@@ -63,10 +50,11 @@ class MyElement extends LitElement {
       background: black;
       white-space: nowrap;
       top: 50%;
-      transform: translate(115%, -50%);
+      transform: translate(100%, -50%);
+      pointer-events: none;
     }
 
-    .avatar:hover:before {
+    .avatar:hover::before {
       opacity: 1;
     }
 
@@ -90,54 +78,26 @@ class MyElement extends LitElement {
     }
   `
 
-  connectedCallback () {
-    super.connectedCallback()
-    whenRoomReady(() => {
-      this.subscribePresence()
-    })
-  }
-
-  subscribePresence () {
-    this.user = globals.room.getPresence()
-    const unsub1 = globals.room.subscribe('my-presence', presence => {
-      console.log('presence', presence)
-      this.user = presence as User
-    })
-
-    const unsub2 = globals.room.subscribe('others', others => {
-      this.otherUsers = others
-        .toArray()
-        .filter(({ presence }) => presence)
-        .map(({ presence }) => presence as User)
-    })
-
-    this.unsubscribeFunctions.push(unsub1, unsub2)
-  }
-
-  disconnectedCallback () {
-    super.disconnectedCallback()
-    this.unsubscribeFunctions.forEach(func => func())
-  }
-
   render () {
     return html`
       <div class="avatars">
-        <div class="avatar" data-tooltip=${this.user.name}>
+        <div class="avatar" data-tooltip=${this.self.name}>
           <img
-            src=${this.user.picture}
-            height="48"
-            width="48"
+            alt=${this.self.name}
+            src=${this.self.picture}
+            height=${this.size}
+            width=${this.size}
             class="avatar_picture"
           />
         </div>
-        ${this.otherUsers.map(user => 
+        ${this.others.map(user => 
           html`
             <div class="avatar" data-tooltip=${user.name}>
               <img
                 alt=${user.name}
                 src=${user.picture}
-                height="48"
-                width="48"
+                height=${this.size}
+                width=${this.size}
                 class="avatar_picture"
               />
             </div>

@@ -61,6 +61,7 @@ class MyElement extends LitElement {
       white-space: nowrap;
       margin-top: 10px;
       margin-left: 52px;
+      pointer-events: none;
     }
 
     .avatar:hover:before {

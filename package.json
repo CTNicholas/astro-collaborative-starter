@@ -2,6 +2,7 @@
   "name": "@example/minimal",
   "version": "0.0.1",
   "private": true,
+  "main": "",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "@liveblocks/client": "^0.15.11",
-    "@liveblocks/react": "^0.15.11"
+    "@liveblocks/react": "^0.15.11",
+    "perfect-cursors": "^1.0.5"
   }
 }
