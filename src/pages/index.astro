@@ -1,0 +1,32 @@
+---
+import '../components/liveblocks-room'
+import '../components/live-avatars'
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Astro</title>
+	</head>
+	<body>
+  {key}
+
+  <!-- Create dialog for changing user-name etc -->
+
+    <liveblocks-room
+      user-name="Chris"
+      user-color="#00ff00"
+      user-picture={`/avatars/${Math.floor(Math.random() * 10)}.png`}
+      room-id="astro-testing"
+      public-key={key}
+      client:load
+    >
+      <h1>Astro</h1>
+
+      <live-avatars size="28" client:visible></live-avatars>
+
+    </liveblocks-room>
+
+	</body>
+</html>

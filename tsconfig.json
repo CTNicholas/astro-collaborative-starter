@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "jsx": "react"
+  }
+}
