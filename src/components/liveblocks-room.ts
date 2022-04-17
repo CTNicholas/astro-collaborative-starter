@@ -1,6 +1,7 @@
 import { html, LitElement } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import globals from '../globals'
+import { isServer } from './utils/isServer'
 
 export const tagName = 'liveblocks-room'
 
@@ -93,8 +94,4 @@ class MyElement extends LitElement {
   render () {
     return html`<slot></slot>`
   }
-}
-
-function isServer () {
-  return typeof window === 'undefined' || !('addEventListener' in window)
 }

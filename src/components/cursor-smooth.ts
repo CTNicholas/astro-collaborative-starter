@@ -1,9 +1,9 @@
 import { html, css, LitElement, PropertyValues } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { styleMap } from 'lit/directives/style-map.js';
+import { styleMap } from 'lit/directives/style-map.js'
 import { PerfectCursor } from 'perfect-cursors'
 
-export const tagName = 'live-cursor'
+export const tagName = 'cursor-smooth'
 
 @customElement(tagName)
 class MyElement extends LitElement {
@@ -45,18 +45,13 @@ class MyElement extends LitElement {
       <div class="cursor" style=${styleMap({
         transform: `translateX(${this.localCoords.x}px) translateY(${this.localCoords.y}px)`
       })}>
-        <svg
-          width="24"
-          height="36"
-          viewBox="0 0 24 36"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19841L11.7841 12.3673H5.65376Z"
-            fill=${this.color}
-          />
-        </svg>
+         <svg style="transform: scale(0.86) translate(-18px, -16px); transform-origin: top left;">
+           <path 
+             fill=${this.color} 
+             d="M8.482,0l8.482,20.36L8.322,17.412,0,20.36Z" 
+             transform="translate(11 22.57) rotate(-35)" 
+           />
+         </svg>
       </div>
     `
   }

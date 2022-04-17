@@ -2,7 +2,16 @@
 import '../components/liveblocks-room'
 import '../components/live-avatars'
 import '../components/live-cursors'
+import '../components/live-users'
+import { randomName, randomColor, randomPicture } from '../components/utils/random'
+
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+const user = {
+  name: randomName(),
+  color: randomColor(),
+  picture: null//randomPicture()
+}
 ---
 <html lang="en">
 	<head>
@@ -15,17 +24,29 @@ const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
   <!-- Create dialog for changing user-name etc -->
 
     <liveblocks-room
-      user-name="Chris"
-      user-color="#00ff00"
-      user-picture={`/avatars/${Math.floor(Math.random() * 10)}.png`}
+      user-name={user.name}
+      user-color={user.color}
+      user-picture={user.picture}
       room-id="astro-testing"
       public-key={key}
       client:load
     >
-      <live-cursors client:visible></live-cursors>
-      <h1>Astro</h1>
 
-      <live-avatars size="40" client:visible></live-avatars>
+      <live-users
+        size="40"
+        client:visible>
+      </live-users>
+
+
+      <live-avatars
+        size="40"
+        client:visible
+      ></live-avatars>
+
+      <live-cursors
+        movement="smooth"
+        client:load
+      ></live-cursors>
 
     </liveblocks-room>
 

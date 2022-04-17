@@ -1,42 +1,36 @@
 import { html, css } from 'lit'
-import { customElement, queryAsync } from 'lit/decorators.js'
+import { customElement, property } from 'lit/decorators.js'
 import { SelfAndOthers } from './utils/SelfAndOthers'
 import globals from '../globals'
-import './live-cursor'
+import './cursor-smooth'
+import './cursor-quick'
 
 export const tagName = 'live-cursors'
 
 @customElement(tagName)
 class MyElement extends SelfAndOthers {
 
-  static styles = css`
-    .cursors {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-  `
+  @property({ reflect: true })
+  movement: 'smooth' | 'quick' = 'smooth'
 
-  @queryAsync('.cursors')
-  cursorWrapper
+  @property({ reflect: true })
+  selector: string = 'html'
+
+  @property()
+  element: HTMLElement
 
   connectedCallback () {
     super.connectedCallback()
-
-    this.cursorWrapper.then((cursorWrapper) => {
-      cursorWrapper.addEventListener('pointermove', this.updateCursor)
-      cursorWrapper.addEventListener('pointerleave', this.removeCursor)
-    })
+    this.element = document.querySelector(this.selector)
+    this.element.addEventListener('pointermove', this.updateCursor)
+    this.element.addEventListener('pointerleave', this.removeCursor)
   }
 
   disconnectedCallback () {
     super.disconnectedCallback()
-    if (this.cursorWrapper) {
-      this.cursorWrapper.removeEventListener('pointermove', this.updateCursor)
-      this.cursorWrapper.removeEventListener('pointerleave', this.removeCursor)
+    if (this.element) {
+      this.element.removeEventListener('pointermove', this.updateCursor)
+      this.element.removeEventListener('pointerleave', this.removeCursor)
     }
   }
 
@@ -55,17 +49,44 @@ class MyElement extends SelfAndOthers {
     })
   }
 
+  static styles = css`
+    .cursors {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+  `
+
   render () {
     return html`
       <slot></slot>
-      <div class="cursors">
+      <div part="cursors" class="cursors">
         ${this.others.map(user => {
           if (!user.cursor) {
             return null
           }
           
+          if (this.movement === 'quick') {
+            return html`
+            <cursor-quick
+              color=${user.color}
+              x=${user?.cursor?.x} 
+              y=${user?.cursor?.y}
+            ></cursor-quick>
+          `
+          }
+          
           return html`
-            <live-cursor x=${user?.cursor?.x} y=${user?.cursor?.y}></live-cursor>
+            <cursor-smooth
+              color=${user.color}
+              x=${user?.cursor?.x} 
+              y=${user?.cursor?.y}
+            ></cursor-smooth>
           `
         })}
       </div>

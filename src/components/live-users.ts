@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js'
 import { SelfAndOthers } from './utils/SelfAndOthers'
 import './avatar-and-fallback'
 
-export const tagName = 'live-avatars'
+export const tagName = 'live-users'
 
 @customElement(tagName)
 class MyElement extends SelfAndOthers {
@@ -19,18 +19,33 @@ class MyElement extends SelfAndOthers {
       user-select: none;
     }
 
-    .avatars {
+    .users {
       display: flex;
-      flex-direction: row-reverse;
+      flex-direction: column;
       justify-content: flex-end;
       padding-left: 0.75rem;
+    }
+    
+    .user {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5em;
+    }
+    
+    .user:last-of-type {
+      margin-bottom: 0;
+    }
+    
+    .user_name {
+      flex-grow: 1;
+      padding-left: 0.5em;
     }
 
     .current_user_container {
       position: relative;
       margin-left: 2rem;
     }
-
+    
     .more {
       border-width: 4px;
       border-radius: 9999px;
@@ -49,21 +64,27 @@ class MyElement extends SelfAndOthers {
 
   render () {
     return html`
-      <div class="avatars">
-        <avatar-and-fallback
-          size=${this.size}
-          name=${this.self.name}
-          color=${this.self.color}
-          picture=${this.self.picture}
-        ></avatar-and-fallback>
-        
-        ${this.others.map(user => html`
+      <div class="users">
+        <div class="user">
           <avatar-and-fallback
             size=${this.size}
-            name=${user.name}
-            color=${user.color}
-            picture=${user.picture}
+            name=${this.self.name}
+            color=${this.self.color}
+            picture=${this.self.picture}
           ></avatar-and-fallback>
+          <div part="name self" class="user_name">${this.self.name} (you)</div>
+        </div>
+        
+        ${this.others.map(user => html`
+          <div class="user">
+            <avatar-and-fallback
+              size=${this.size}
+              name=${user.name}
+              color=${user.color}
+              picture=${user.picture}
+            ></avatar-and-fallback>
+            <div part="name" class="user_name">${user.name}</div>
+          </div>
         `)}
       </div>
     `
