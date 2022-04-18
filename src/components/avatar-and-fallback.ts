@@ -1,12 +1,12 @@
 import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { SelfAndOthers } from './utils/SelfAndOthers'
+import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
 import { contrastingTextColor } from './utils/contrastingTextColor'
 
 export const tagName = 'avatar-and-fallback'
 
 @customElement(tagName)
-class MyElement extends SelfAndOthers {
+class MyElement extends SelfAndOthersClass {
   @property({ reflect: true })
   size: number = 40
 
@@ -25,6 +25,7 @@ class MyElement extends SelfAndOthers {
       position: relative;
       box-shadow: 2px 0 0 #fff;
       margin-left: -6px;
+      user-select: none;
     }
 
     .avatar::before {
@@ -34,13 +35,14 @@ class MyElement extends SelfAndOthers {
       transition: all 0.15s ease;
       padding: 5px 10px;
       color: white;
-      font-size: 0.75rem;
+      font-size: 0.75em;
       border-radius: 8px;
       z-index: 1;
       background: black;
       white-space: nowrap;
       top: 50%;
-      transform: translate(100%, -50%);
+      left: calc(100% + 0.5em);
+      transform: translateY(-50%);
       pointer-events: none;
     }
 

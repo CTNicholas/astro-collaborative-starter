@@ -1,6 +1,6 @@
 import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { SelfAndOthers } from './utils/SelfAndOthers'
+import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
 import globals from '../globals'
 import './cursor-smooth'
 import './cursor-quick'
@@ -8,7 +8,7 @@ import './cursor-quick'
 export const tagName = 'live-cursors'
 
 @customElement(tagName)
-class MyElement extends SelfAndOthers {
+class MyElement extends SelfAndOthersClass {
 
   @property({ reflect: true })
   movement: 'smooth' | 'quick' = 'smooth'

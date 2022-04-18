@@ -4,7 +4,7 @@ import globals from '../../globals'
 import { User } from '../../types'
 import { whenRoomReady } from './whenRoomReady'
 
-export class SelfAndOthers extends LitElement {
+export class SelfAndOthersClass extends LitElement {
   @property()
   self: User = {
     name: '',

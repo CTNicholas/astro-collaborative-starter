@@ -3,6 +3,7 @@ import '../components/liveblocks-room'
 import '../components/live-avatars'
 import '../components/live-cursors'
 import '../components/live-users'
+import '../components/live-form'
 import { randomName, randomColor, randomPicture } from '../components/utils/random'
 
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
@@ -47,6 +48,16 @@ const user = {
         movement="smooth"
         client:load
       ></live-cursors>
+
+      <live-form
+        name="mainform"
+        client:load
+      >
+        <input name="firstname" type="text" value="yo" />
+        <input name="lastname" type="text" value="hallo" />
+        <input name="checky" type="checkbox" />
+        <input name="col" type="color" />
+      </live-form>
 
     </liveblocks-room>
 

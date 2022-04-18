@@ -2,7 +2,7 @@
   "name": "@example/minimal",
   "version": "0.0.1",
   "private": true,
-  "main": "",
+  "main": "src/pages/index.astro",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

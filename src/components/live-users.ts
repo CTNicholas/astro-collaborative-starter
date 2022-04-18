@@ -1,12 +1,12 @@
 import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { SelfAndOthers } from './utils/SelfAndOthers'
+import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
 import './avatar-and-fallback'
 
 export const tagName = 'live-users'
 
 @customElement(tagName)
-class MyElement extends SelfAndOthers {
+class MyElement extends SelfAndOthersClass {
   @property({ reflect: true })
   size: number = 40
 
