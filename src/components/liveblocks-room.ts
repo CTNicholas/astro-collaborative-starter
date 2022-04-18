@@ -1,4 +1,4 @@
-import { html, LitElement } from 'lit'
+import { html, LitElement, PropertyValues } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import globals from '../globals'
 import { isServer } from './utils/isServer'
@@ -52,19 +52,21 @@ class MyElement extends LitElement {
     }
   }
 
-  /*
-  set 'user-name' (val) {
-    this.updatePresenceValue('name', val)
-  }
+  // When `user-` properties update, update Liveblocks presence
+  protected updated (changedProperties: PropertyValues) {
+    super.updated(changedProperties)
+    changedProperties.forEach((_, key) => {
+      if (this[key] === undefined) {
+        return
+      }
 
-  set 'user-color' (val) {
-    this.updatePresenceValue('color', val)
+      if (String(key).startsWith('user-')) {
+        const prop = String(key).slice(5)
+        this.updatePresenceValue(prop, this[key])
+        return
+      }
+    })
   }
-
-  set 'user-picture' (val) {
-    this.updatePresenceValue('picture', val)
-  }
-  */
 
   updatePresenceValue (key, val) {
     if (globals.room) {

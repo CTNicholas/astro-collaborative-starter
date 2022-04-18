@@ -42,6 +42,7 @@ export function randomColor () {
   return colors[Math.floor(Math.random() * colors.length)]
 }
 
+// `/public/avatars/X.png`
 export function randomPicture () {
   return `/avatars/${Math.floor(Math.random() * 10)}.png`
 }

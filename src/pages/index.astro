@@ -6,12 +6,17 @@ import '../components/live-users'
 import '../components/live-form'
 import { randomName, randomColor, randomPicture } from '../components/utils/random'
 
+// Get your free public key from https://liveblocks.io
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 
+// The name of the current room
+const roomId =  'astro-collaborative-starter'
+
+// The current user's info
 const user = {
   name: randomName(),
   color: randomColor(),
-  picture: null//randomPicture()
+  picture: randomPicture()
 }
 ---
 <html lang="en">
@@ -28,16 +33,15 @@ const user = {
       user-name={user.name}
       user-color={user.color}
       user-picture={user.picture}
-      room-id="astro-testing"
+      room-id={roomId}
       public-key={key}
       client:load
     >
 
       <live-users
         size="40"
-        client:visible>
-      </live-users>
-
+        client:visible
+      ></live-users>
 
       <live-avatars
         size="40"

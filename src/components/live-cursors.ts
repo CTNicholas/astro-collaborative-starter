@@ -73,12 +73,12 @@ class MyElement extends SelfAndOthersClass {
           
           if (this.movement === 'quick') {
             return html`
-            <cursor-quick
-              color=${user.color}
-              x=${user?.cursor?.x} 
-              y=${user?.cursor?.y}
-            ></cursor-quick>
-          `
+              <cursor-quick
+                color=${user.color}
+                x=${user?.cursor?.x} 
+                y=${user?.cursor?.y}
+              ></cursor-quick>
+            `
           }
           
           return html`

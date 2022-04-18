@@ -27,8 +27,6 @@ export class LiveObjectClass extends StorageClass {
       return
     }
 
-    console.log('now?')
-
     if (!this.storage.get(this.name)) {
       this.storage.set(this.name, new LiveObject(this.initial));
     }

@@ -11,6 +11,9 @@ export class MyElement extends LiveObjectClass {
   @property({ reflect: true })
   name
 
+  @property()
+  visible = false
+
   connectedCallback () {
     super.connectedCallback()
   }
@@ -18,17 +21,23 @@ export class MyElement extends LiveObjectClass {
   whenLiveObjectReady () {
     super.whenLiveObjectReady()
 
+    this.updateInputs(this.LiveObject)
     globals.room.subscribe(this.LiveObject, (obj: LiveObject) => {
-      Object.entries(obj.toObject()).map(([key, val]) => {
-        const elements = this.querySelectorAll(`input[name=${key}]`)
-        elements.forEach((element: HTMLInputElement) => {
+      this.updateInputs(obj)
+    })
+    this.visible = true
+  }
 
-          const oldVal = getInputValue(element)
-          if (oldVal !== val.value) {
-            setInputValue(element, val.value)
-          }
+  updateInputs (obj: LiveObject) {
+    Object.entries(obj.toObject()).map(([key, val]) => {
+      const elements = this.querySelectorAll(`input[name=${key}]`)
+      elements.forEach((element: HTMLInputElement) => {
 
-        })
+        const oldVal = getInputValue(element)
+        if (oldVal !== val.value) {
+          setInputValue(element, val.value)
+        }
+
       })
     })
   }
@@ -56,6 +65,10 @@ export class MyElement extends LiveObjectClass {
   }
 
   render () {
+    if (!this.visible) {
+      return null
+    }
+
     return html`
       <slot></slot>
     `

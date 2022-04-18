@@ -50,13 +50,6 @@ class MyElement extends SelfAndOthersClass {
   render () {
     return html`
       <div class="avatars">
-        <avatar-and-fallback
-          size=${this.size}
-          name=${this.self.name}
-          color=${this.self.color}
-          picture=${this.self.picture}
-        ></avatar-and-fallback>
-        
         ${this.others.map(user => html`
           <avatar-and-fallback
             size=${this.size}
@@ -64,7 +57,14 @@ class MyElement extends SelfAndOthersClass {
             color=${user.color}
             picture=${user.picture}
           ></avatar-and-fallback>
-        `)}
+        `).reverse()}
+        
+        <avatar-and-fallback
+          size=${this.size}
+          name=${this.self.name}
+          color=${this.self.color}
+          picture=${this.self.picture}
+        ></avatar-and-fallback>
       </div>
     `
   }
