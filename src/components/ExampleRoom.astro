@@ -1,0 +1,28 @@
+---
+import './liveblocks-room'
+import { randomName, randomColor, randomPicture } from './utils/random'
+
+// Get your free public key from https://liveblocks.io
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+// The name of the current room
+const roomId =  'astro-collaborative-starter'
+
+// The current user's info
+const user = {
+  name: randomName(),
+  color: randomColor(),
+  picture: randomPicture()
+}
+---
+
+<liveblocks-room
+  user-name={user.name}
+  user-color={user.color}
+  user-picture={user.picture}
+  room-id={roomId}
+  public-key={key}
+  client:load
+>
+  <slot></slot>
+</liveblocks-room>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ExampleRoom from '../components/ExampleRoom.astro'
+import UserColumn from '../components/UserColumn.astro'
+import '../components/live-form'
+---
+<BaseLayout>
+  <ExampleRoom>
+
+    <div class="flex h-full">
+      <aside class="flex-grow-0 flex-shrink-0 bg-gray-50 p-5 w-[250px] pt-8">
+        <UserColumn />
+      </aside>
+      <main class="">
+        <live-form
+          name="mainform"
+          client:load
+        >
+          <input name="firstname" type="text" value="yo" />
+          <input name="lastname" type="text" value="hallo" />
+          <input name="checky" type="checkbox" />
+          <input name="col" type="color" />
+        </live-form>
+      </main>
+    </div>
+
+
+  </ExampleRoom>
+</BaseLayout>

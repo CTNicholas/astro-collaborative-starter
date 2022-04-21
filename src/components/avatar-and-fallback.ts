@@ -19,6 +19,9 @@ class MyElement extends SelfAndOthersClass {
   @property({ reflect: true })
   picture?: string
 
+  @property({ type: Boolean, reflect: true })
+  tooltip: boolean = true
+
   static styles = css`
     .avatar {
       border-radius: 9999px;

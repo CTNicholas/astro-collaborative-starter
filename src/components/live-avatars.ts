@@ -10,6 +10,9 @@ class MyElement extends SelfAndOthersClass {
   @property({ reflect: true })
   size: number = 40
 
+  @property({ reflect: true })
+  show: 'all' | 'self' | 'others' = 'all'
+
   static styles = css`
     .main {
       display: flex;
@@ -48,8 +51,22 @@ class MyElement extends SelfAndOthersClass {
   `
 
   render () {
-    return html`
-      <div class="avatars">
+    let self
+    let others
+
+    if (this.show === 'all' || this.show === 'self') {
+      self = html`
+        <avatar-and-fallback
+          size=${this.size}
+          name=${this.self.name}
+          color=${this.self.color}
+          picture=${this.self.picture}
+        ></avatar-and-fallback>
+      `
+    }
+
+    if (this.show === 'all' || this.show === 'others') {
+      others = html`
         ${this.others.map(user => html`
           <avatar-and-fallback
             size=${this.size}
@@ -58,13 +75,13 @@ class MyElement extends SelfAndOthersClass {
             picture=${user.picture}
           ></avatar-and-fallback>
         `).reverse()}
-        
-        <avatar-and-fallback
-          size=${this.size}
-          name=${this.self.name}
-          color=${this.self.color}
-          picture=${this.self.picture}
-        ></avatar-and-fallback>
+      `
+    }
+
+    return html`
+      <div class="avatars">
+        ${others || null}
+        ${self || null}
       </div>
     `
   }

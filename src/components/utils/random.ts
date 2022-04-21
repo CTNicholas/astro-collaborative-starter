@@ -5,7 +5,12 @@ const names = [
   'Declan',
   'Eduardo',
   'Faye',
-  'Gregg'
+  'Gregg',
+  'Harriet',
+  'Indira',
+  'James',
+  'Kimberley',
+  'Leonardo'
 ]
 
 const lightColors = [

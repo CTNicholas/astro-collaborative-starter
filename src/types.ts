@@ -3,4 +3,5 @@ export type User = {
   color: string,
   picture: string,
   cursor?: null | { x: number, y: number }
+  [key: string]: any
 }

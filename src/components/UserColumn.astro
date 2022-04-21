@@ -1,0 +1,33 @@
+---
+import './live-users'
+---
+<div class="">
+  <div class="">
+    <live-users
+      show="self"
+      size="40"
+      client:visible
+    ></live-users>
+  </div>
+
+  <div class="mt-5">
+    <div class="text-sm font-bold tracking-widest uppercase mb-2.5 text-gray-500">
+      Users online
+    </div>
+    <live-users
+      show="others"
+      size="40"
+      client:visible
+    ></live-users>
+  </div>
+</div>
+
+<style>
+  live-users::part(user) {
+    margin-bottom: 12px;
+  }
+
+  live-users::part(name) {
+    font-weight: 500;
+  }
+</style>

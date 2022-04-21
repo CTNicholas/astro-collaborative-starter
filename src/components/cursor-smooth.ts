@@ -11,10 +11,10 @@ class MyElement extends LitElement {
   @property({ reflect: true })
   color: string = '#000'
 
-  @property({ reflect: true })
+  @property({ type: Number, reflect: true })
   x: number = 0
 
-  @property({ reflect: true })
+  @property({ type: Number, reflect: true })
   y: number = 0
 
   @property()
