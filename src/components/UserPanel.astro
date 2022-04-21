@@ -1,8 +1,11 @@
 ---
 import './live-users'
 ---
-<div class="">
+<div class="p-5">
   <div class="">
+    <div class="text-sm font-bold tracking-widest uppercase mb-4 text-gray-500">
+      You
+    </div>
     <live-users
       show="self"
       size="40"
@@ -10,8 +13,10 @@ import './live-users'
     ></live-users>
   </div>
 
-  <div class="mt-5">
-    <div class="text-sm font-bold tracking-widest uppercase mb-2.5 text-gray-500">
+  <div class="border-t-2 border-gray-100 mt-4 mb-7" />
+
+  <div class="">
+    <div class="text-sm font-bold tracking-widest uppercase mb-4 text-gray-500">
       Users online
     </div>
     <live-users
@@ -27,7 +32,7 @@ import './live-users'
     margin-bottom: 12px;
   }
 
-  live-users::part(name) {
+  user-line::part(name) {
     font-weight: 500;
   }
 </style>

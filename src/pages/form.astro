@@ -1,15 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import ExampleRoom from '../components/ExampleRoom.astro'
-import UserColumn from '../components/UserColumn.astro'
+import UserHeader from '../components/UserHeader.astro'
+import UserPanel from '../components/UserPanel.astro'
 import '../components/live-form'
+import '../components/live-avatars'
+import '../components/live-cursors'
 ---
 <BaseLayout>
   <ExampleRoom>
 
+
+
+    <div>
+
+      <UserHeader>
+        <div slot="logo" class="font-semibold text-gray-700">
+          Astro Collaborative Starter
+        </div>
+      </UserHeader>
+    </div>
+
     <div class="flex h-full">
-      <aside class="flex-grow-0 flex-shrink-0 bg-gray-50 p-5 w-[250px] pt-8">
-        <UserColumn />
+      <aside class="flex-grow-0 flex-shrink-0 bg-gray-50 w-72 pt-3">
+        <UserPanel />
       </aside>
       <main class="">
         <live-form
@@ -25,5 +39,9 @@ import '../components/live-form'
     </div>
 
 
+    <live-cursors
+      movement="smooth"
+      client:load
+    ></live-cursors>
   </ExampleRoom>
 </BaseLayout>

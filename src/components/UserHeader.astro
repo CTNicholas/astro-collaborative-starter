@@ -1,0 +1,16 @@
+---
+import HeaderBar from './HeaderBar.astro'
+import './live-avatars'
+---
+
+<HeaderBar>
+  <div slot="left">
+    <slot name="logo"></slot>
+  </div>
+  <div slot="right">
+    <live-avatars
+      size="40"
+      client:visible
+    ></live-avatars>
+  </div>
+</HeaderBar>

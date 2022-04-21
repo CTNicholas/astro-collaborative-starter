@@ -8,13 +8,16 @@ export const tagName = 'liveblocks-room'
 @customElement(tagName)
 class MyElement extends LitElement {
   @property({ reflect: true })
-  ['user-name']: string = 'Guest'
+  ['user-name']?: string = 'Guest'
 
   @property({ reflect: true })
-  ['user-color']: string = 'orange'
+  ['user-color']?: string = 'orange'
 
   @property({ reflect: true })
-  ['user-picture']: string = ''
+  ['user-picture']?: string = ''
+
+  @property({ reflect: true })
+  ['user-status']?: string = ''
 
   @property({ reflect: true })
   ['room-id']: string
@@ -29,6 +32,19 @@ class MyElement extends LitElement {
 
   async createLiveblocks () {
     if (isServer()) {
+      return
+    }
+
+    if (!this['room-id']) {
+      console.error(`Your collaborative room needs a name.`)
+      console.error(`Add 'room-id' attribute to 'liveblocks-room'.`)
+      return
+    }
+
+    if (!this['public-key']) {
+      console.error(`You haven't added an API key.`)
+      console.error(`Add 'public-key' attribute to 'liveblocks-room'.`)
+      console.error('Get your free API key from the https://liveblocks.io dashboard.')
       return
     }
 
@@ -49,6 +65,7 @@ class MyElement extends LitElement {
       name: this['user-name'],
       color: this['user-color'],
       picture: this['user-picture'],
+      status: this['user-status'],
     }
   }
 

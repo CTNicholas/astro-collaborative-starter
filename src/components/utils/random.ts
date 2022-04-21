@@ -13,6 +13,17 @@ const names = [
   'Leonardo'
 ]
 
+const statuses = [
+  'Online',
+  'Busy',
+  'Away',
+  'On Holiday',
+  'Partying',
+  'Working',
+  'Studying',
+  'Available'
+]
+
 const lightColors = [
   '#f87171',
   '#fb923c',
@@ -41,6 +52,10 @@ const colors = [
 
 export function randomName () {
   return names[Math.floor(Math.random() * names.length)]
+}
+
+export function randomStatus () {
+  return statuses[Math.floor(Math.random() * statuses.length)]
 }
 
 export function randomColor () {

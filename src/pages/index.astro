@@ -17,7 +17,8 @@ const roomId =  'astro-collaborative-starter'
 const user = {
   name: randomName(),
   color: randomColor(),
-  picture: randomPicture()
+  picture: randomPicture(),
+  status: 'Collaborating...'
 }
 ---
 
@@ -31,6 +32,7 @@ const user = {
       user-name={user.name}
       user-color={user.color}
       user-picture={user.picture}
+      user-status={user.status}
       room-id={roomId}
       public-key={key}
       client:load

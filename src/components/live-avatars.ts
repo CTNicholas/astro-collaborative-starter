@@ -8,7 +8,7 @@ export const tagName = 'live-avatars'
 @customElement(tagName)
 class MyElement extends SelfAndOthersClass {
   @property({ reflect: true })
-  size: number = 40
+  size: string = '40'
 
   @property({ reflect: true })
   show: 'all' | 'self' | 'others' = 'all'

@@ -95,13 +95,13 @@ class MyElement extends SelfAndOthersClass {
               width=${this.size}
             />
           ` : html`
-                <div 
-                  part="avatar_fallback"
-                  class="avatar_fallback"
-                  style="background: ${this.color}; color: ${contrastingTextColor(this.color) ? 'black' : 'white'};">
-                  ${this.name.charAt(0)}
-                </div>
-              `}
+            <div 
+              part="avatar_fallback"
+              class="avatar_fallback"
+              style="background: ${this.color}; color: ${contrastingTextColor(this.color) ? 'black' : 'white'};">
+              ${this.name.charAt(0)}
+            </div>
+          `}
         </div>
       </div>
     `

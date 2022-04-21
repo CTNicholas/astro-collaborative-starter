@@ -32,6 +32,8 @@ class MyElement extends LitElement {
     })}>
          <svg style="transform: scale(0.86) translate(-18px, -16px); transform-origin: top left;">
            <path 
+             stroke="white"
+             stroke-width="2"
              fill=${this.color} 
              d="M8.482,0l8.482,20.36L8.322,17.412,0,20.36Z" 
              transform="translate(11 22.57) rotate(-35)" 
