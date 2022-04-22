@@ -42,10 +42,30 @@ class MyElement extends SelfAndOthersClass {
     .user:last-of-type {
       margin-bottom: 0;
     }
-    
-    .user_name {
+
+    .user {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5em;
+    }
+
+    .user:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .user_info {
       flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
       padding-left: 0.75em;
+    }
+
+    .user_status {
+      font-size: 0.9em;
+      opacity: 0.7;
+      margin-top: 0.05em;
     }
   `
 
@@ -57,7 +77,7 @@ class MyElement extends SelfAndOthersClass {
       self = html`
         <user-line
           size=${this.size}
-          name=${this.self.name}
+          name=${this.self.name + this['self-suffix']}
           color=${this.self.color}
           picture=${this.self.picture}
           status=${this.self.status}

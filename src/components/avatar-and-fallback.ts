@@ -32,7 +32,7 @@ class MyElement extends SelfAndOthersClass {
     }
 
     .avatar::before {
-      content: attr(data-tooltip);
+      //content: attr(data-tooltip);
       position: absolute;
       opacity: 0;
       transition: all 0.15s ease;

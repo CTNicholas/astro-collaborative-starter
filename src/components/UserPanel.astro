@@ -32,7 +32,15 @@ import './live-users'
     margin-bottom: 12px;
   }
 
-  user-line::part(name) {
+  live-users::part(name) {
     font-weight: 500;
+  }
+
+  :host(live-users)::part(user) {
+    font-size: 20px;
+  }
+
+  live-users user-line{
+    color: purple;
   }
 </style>

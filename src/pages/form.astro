@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import ExampleRoom from '../components/ExampleRoom.astro'
 import UserHeader from '../components/UserHeader.astro'
 import UserPanel from '../components/UserPanel.astro'
+import TextInput from '../components/TextInput.astro'
 import '../components/live-form'
 import '../components/live-avatars'
 import '../components/live-cursors'
@@ -25,16 +26,36 @@ import '../components/live-cursors'
       <aside class="flex-grow-0 flex-shrink-0 bg-gray-50 w-72 pt-3">
         <UserPanel />
       </aside>
-      <main class="">
+      <main class="px-5 flex-grow">
+        <h1 class="mt-12 text-3xl font-bold tracking-tight">
+          Collaborative form
+        </h1>
+        <div class="text-gray-500 text-lg font-medium mt-1 mb-10 border-b pb-6">
+          Any inputs with a name="" attribute inside &lt;live-form&gt; will be shared
+        </div>
+
         <live-form
           name="mainform"
           client:load
         >
-          <input name="firstname" type="text" value="yo" />
-          <input name="lastname" type="text" value="hallo" />
-          <input name="checky" type="checkbox" />
-          <input name="col" type="color" />
+          <TextInput name="firstname" label="First name" placeholder="Enter your first name" />
+          <TextInput name="lastname" label="Last name" placeholder="Enter your last name"  />
+
+          <div class="my-6">
+            <input id="tickbox" name="tickbox" type="checkbox" class="w-4 h-4" />
+            <label for="tickbox" class="text-sm ml-1.5 text-gray-500 select-none">
+              <span class="font-medium text-gray-700">Tick this box</span> for cool stuff.
+            </label>
+          </div>
+
+          <div class="my-6">
+            <label for="tickbox" class="block text-sm font-medium text-gray-700 mb-1.5 select-none">
+              Pick a color
+            </label>
+            <input name="col" type="color" class="block w-18 h-9" />
+          </div>
         </live-form>
+
       </main>
     </div>
 

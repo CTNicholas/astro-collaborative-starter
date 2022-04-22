@@ -10,3 +10,7 @@ html, body {
   bottom: 0;
   left: 0;
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
