@@ -14,10 +14,10 @@ const { name, id, initialValue, placeholder, label, hideLabel, class } = Astro.p
 )}
 
 <input
-  type="text"
+  type="number"
   id={id || name}
   name={name}
   value={initialValue}
   placeholder={placeholder}
-  class="px-3 py-3 mb-5 shadow-sm border focus:ring-1 focus:ring-gray-500 focus:border-gray-500 focus:outline-none focus-visible:outline-none block w-full sm:text-sm border-gray-300 rounded-md {class || ''}"
+  class="px-3 py-3 mb-5 shadow-sm border focus:ring-1 focus:ring-gray-500 focus:border-gray-500 focus:outline-none focus-visible:outline-none block w-full sm:text-sm border-gray-300 rounded-md"
 />

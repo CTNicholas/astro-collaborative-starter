@@ -6,6 +6,9 @@ import { LiveObject } from '@liveblocks/client'
 
 export const tagName = 'live-form'
 
+// These elements are watching for input events
+const watchedInputs = ['input', 'select', 'textarea']
+
 @customElement(tagName)
 export class MyElement extends LiveObjectClass {
   @property({ reflect: true })
@@ -30,7 +33,8 @@ export class MyElement extends LiveObjectClass {
 
   updateInputs (obj: LiveObject) {
     Object.entries(obj.toObject()).map(([key, val]) => {
-      const elements = this.querySelectorAll(`input[name=${key}]`)
+      const selector = watchedInputs.map(sel => `${sel}[name=${key}]`).join(', ')
+      const elements = this.querySelectorAll(selector)
       elements.forEach((element: HTMLInputElement) => {
 
         const oldVal = getInputValue(element)
@@ -44,7 +48,8 @@ export class MyElement extends LiveObjectClass {
 
   protected firstUpdated (changedProperties: PropertyValues) {
     super.firstUpdated(changedProperties)
-    const inputs = this.querySelectorAll('input[name]')
+    const selector =  watchedInputs.map(sel => `${sel}[name]`).join(', ')
+    const inputs = this.querySelectorAll(selector)
 
     const onAnyChange = ({ target }) => {
       if (!this.LiveObject) {

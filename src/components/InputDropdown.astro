@@ -1,0 +1,19 @@
+---
+const { name, id, label, hideLabel, class, options } = Astro.props
+const optionsArray = options.split(',')
+---
+
+
+<div>
+  {!hideLabel ? (
+    <label for={id || name} class="block text-sm font-medium text-gray-700 mb-1.5">{label}</label>
+  ) : (
+    <div class="sr-only">{label}</div>
+  )}
+  <select
+    id={id || name}
+    name={name}
+    class="bg-white border focus:ring-1 focus:ring-gray-500 focus:border-gray-500 focus:outline-none focus-visible:outline-none shadow-sm block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+    {optionsArray.map(opt => <option class="p-3 font-inherit" value={opt}>{opt}</option>)}
+  </select>
+</div>
