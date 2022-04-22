@@ -32,41 +32,6 @@ class MyElement extends SelfAndOthersClass {
       justify-content: flex-end;
       padding-left: 0.5rem;
     }
-    
-    .user {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5em;
-    }
-    
-    .user:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .user {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5em;
-    }
-
-    .user:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .user_info {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: start;
-      padding-left: 0.75em;
-    }
-
-    .user_status {
-      font-size: 0.9em;
-      opacity: 0.7;
-      margin-top: 0.05em;
-    }
   `
 
   render () {
@@ -76,6 +41,8 @@ class MyElement extends SelfAndOthersClass {
     if (this.show === 'all' || this.show === 'self') {
       self = html`
         <user-line
+          part="user"
+          exportparts="name"
           size=${this.size}
           name=${this.self.name + this['self-suffix']}
           color=${this.self.color}
@@ -90,6 +57,7 @@ class MyElement extends SelfAndOthersClass {
         ${this.others.map(user => html`
           <user-line
             part="user"
+            exportparts="name"
             size=${this.size}
             name=${user.name}
             color=${user.color}
