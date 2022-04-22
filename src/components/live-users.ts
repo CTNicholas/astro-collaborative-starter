@@ -41,8 +41,7 @@ class MyElement extends SelfAndOthersClass {
     if (this.show === 'all' || this.show === 'self') {
       self = html`
         <user-line
-          part="user"
-          exportparts="name"
+          exportparts="user, name, status, avatar, avatar_picture_wrapper, avatar_picture, avatar_fallback"
           size=${this.size}
           name=${this.self.name + this['self-suffix']}
           color=${this.self.color}
@@ -56,8 +55,7 @@ class MyElement extends SelfAndOthersClass {
       others = html`
         ${this.others.map(user => html`
           <user-line
-            part="user"
-            exportparts="name"
+            exportparts="user, name, status, avatar, avatar_picture_wrapper, avatar_picture, avatar_fallback"
             size=${this.size}
             name=${user.name}
             color=${user.color}

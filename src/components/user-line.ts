@@ -66,6 +66,7 @@ class MyElement extends SelfAndOthersClass {
     return html`
       <div part="user" class="user">
         <avatar-and-fallback
+          exportparts="avatar, avatar_picture_wrapper, avatar_picture, avatar_fallback"
           size=${this.size}
           name=${this.name}
           color=${this.color}
