@@ -39,6 +39,11 @@ export class SelfAndOthersClass extends LitElement {
     })
 
     this.unsubscribeFunctions.push(unsub1, unsub2)
+    this.whenPresenceReady()
+  }
+
+  whenPresenceReady () {
+    // Use in child
   }
 
   disconnectedCallback () {
