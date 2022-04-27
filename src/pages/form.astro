@@ -59,7 +59,7 @@ import InputDropdown from '../components/InputDropdown.astro'
 
               <div class="my-6">
                 <label for="col" class="inline-block text-sm font-medium text-gray-700 mb-1.5 select-none">
-                  Pick a color
+                  Choose a color
                 </label>
                 <input id="col" name="col" type="color" class="block w-18 h-9" />
               </div>
@@ -78,10 +78,16 @@ import InputDropdown from '../components/InputDropdown.astro'
               </div>
 
               <div class="my-6">
+                <!--
                 <label for="slider" class="inline-block text-sm font-medium text-gray-700 mb-0.5 select-none">
                   Slide a value
                 </label>
                 <input id="slider" name="slider" type="range" class="block w-18 h-9" />
+                -->
+                <label for="datepicker" class="inline-block text-sm font-medium text-gray-700 mb-0.5 select-none">
+                  Pick a date
+                </label>
+                <input id="datepicker" name="datepicker" type="date" class="block mt-2" />
               </div>
             </div>
           </div>
@@ -92,7 +98,6 @@ import InputDropdown from '../components/InputDropdown.astro'
 
       </main>
     </div>
-
 
     <live-cursors
       movement="smooth"

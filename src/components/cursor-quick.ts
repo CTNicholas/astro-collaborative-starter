@@ -10,10 +10,10 @@ class MyElement extends LitElement {
   @property({ reflect: true })
   color: string = '#000'
 
-  @property({ reflect: true })
+  @property({  type: Number, reflect: true })
   x: number = 0
 
-  @property({ reflect: true })
+  @property({  type: Number, reflect: true })
   y: number = 0
 
   static styles = css`
@@ -26,10 +26,14 @@ class MyElement extends LitElement {
   `
 
   render () {
+    if (this.y === 0 || this.x === 0) {
+      return null
+    }
+
     return html`
       <div class="cursor" style=${styleMap({
-      transform: `translateX(${this.x}px) translateY(${this.y}px)`
-    })}>
+        transform: `translateX(${this.x}px) translateY(${this.y}px)`
+      })}>
          <svg style="transform: scale(0.86) translate(-18px, -16px); transform-origin: top left;">
            <path 
              stroke="white"

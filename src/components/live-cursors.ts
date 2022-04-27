@@ -4,6 +4,7 @@ import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
 import globals from '../globals'
 import './cursor-smooth'
 import './cursor-quick'
+import './cursor-perfect'
 
 export const tagName = 'live-cursors'
 
@@ -11,7 +12,7 @@ export const tagName = 'live-cursors'
 class MyElement extends SelfAndOthersClass {
 
   @property({ reflect: true })
-  movement: 'smooth' | 'quick' = 'smooth'
+  movement: 'smooth' | 'quick' | 'perfect' = 'smooth'
 
   @property({ reflect: true })
   selector: string = 'html'
@@ -67,7 +68,7 @@ class MyElement extends SelfAndOthersClass {
       <slot></slot>
       <div part="cursors" class="cursors">
         ${this.others.map(user => {
-          if (!user.cursor) {
+          if (!user?.cursor?.x || !user?.cursor?.y) {
             return null
           }
           
@@ -75,17 +76,27 @@ class MyElement extends SelfAndOthersClass {
             return html`
               <cursor-quick
                 color=${user.color}
-                x=${user?.cursor?.x} 
-                y=${user?.cursor?.y}
+                x=${user.cursor.x} 
+                y=${user.cursor.y}
               ></cursor-quick>
+            `
+          }
+
+          if (this.movement === 'perfect') {
+            return html`
+              <cursor-perfect
+                color=${user.color}
+                x=${user.cursor.x} 
+                y=${user.cursor.y}
+              ></cursor-perfect>
             `
           }
           
           return html`
             <cursor-smooth
               color=${user.color}
-              x=${user?.cursor?.x} 
-              y=${user?.cursor?.y}
+              x=${user.cursor.x} 
+              y=${user.cursor.y}
             ></cursor-smooth>
           `
         })}

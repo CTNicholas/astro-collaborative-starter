@@ -1,15 +1,9 @@
 import { html, LitElement, PropertyValues } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { spring } from './utils/spring'
+import { PerfectCursor } from 'perfect-cursors'
 import './cursor-quick'
 
-export const tagName = 'cursor-smooth'
-
-const springSettings = {
-  stiffness: 200,
-  damping: 20,
-  precision: 100,
-}
+export const tagName = 'cursor-perfect'
 
 @customElement(tagName)
 class MyElement extends LitElement {
@@ -18,37 +12,25 @@ class MyElement extends LitElement {
   color: string = '#000'
 
   @property({ type: Number, reflect: true })
-  x: number
+  x: number = 0
 
   @property({ type: Number, reflect: true })
-  y: number
+  y: number = 0
 
   @property()
   localCoords = { x: 0, y: 0 }
 
-  springs = { x: spring(0, springSettings), y: spring(0, springSettings) }
-
-  constructor () {
-    super()
-      this.springs.x.onUpdate(x => {
-        if (x) {
-          this.localCoords.x = x
-        }
-      })
-      this.springs.y.onUpdate(y => {
-        if (y) {
-          this.localCoords.y = y
-        }
-      })
-  }
+  pc = new PerfectCursor(([x, y]) => this.localCoords = { x, y })
 
   protected update (changedProperties: PropertyValues) {
     super.update(changedProperties)
     const x = changedProperties.get('x')
     const y = changedProperties.get('y')
-    if (x && y) {
-      this.springs.x.transitionTo(x || this.x)
-      this.springs.y.transitionTo(y || this.y)
+    if (x !== undefined || y !== undefined) {
+      this.pc.addPoint([
+        x || this.x,
+        y || this.y
+      ])
     }
   }
 
@@ -58,7 +40,6 @@ class MyElement extends LitElement {
         x=${this.localCoords.x}
         y=${this.localCoords.y}
         color=${this.color}
-        transition=${false}
       ></cursor-quick>
     `
   }
