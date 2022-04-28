@@ -1,7 +1,7 @@
 ---
 import '../lib/liveblocks-room'
 import '../lib/live-form'
-import LiveForm from '../components/LiveForm.astro'
+import LiveForm from '../lib/LiveForm.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Code from '../components/Code.astro'
@@ -108,14 +108,14 @@ const user = {
       </Paragraph>
 
       <Code>---
-import '../components/LiveForm.astro'
+import LiveForm from '../lib/LiveForm.astro'
 ---
 &lt;LiveForm name="myform"&gt;
   &lt;input name="myinput" /&gt;
 &lt;/LiveForm&gt;</Code>
-
+or
 <Code>---
-import '../components/live-form'
+import '../lib/live-form'
 ---
 &lt;live-form name="myform" client:load&gt;
   &lt;input name="myinput" /&gt;

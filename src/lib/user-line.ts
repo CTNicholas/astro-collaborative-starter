@@ -31,21 +31,7 @@ class MyElement extends SelfAndOthersClass {
       align-items: center;
       margin-bottom: 0.5em;
     }
-
-    .user:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .user {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5em;
-    }
-
-    .user:last-of-type {
-      margin-bottom: 0;
-    }
-
+    
     .user_info {
       flex-grow: 1;
       display: flex;

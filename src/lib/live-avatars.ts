@@ -57,6 +57,7 @@ class MyElement extends SelfAndOthersClass {
     if (this.show === 'all' || this.show === 'self') {
       self = html`
         <avatar-and-fallback
+          exportparts="avatar, avatar_picture_wrapper, avatar_picture, avatar_fallback"
           size=${this.size}
           name=${this.self.name}
           color=${this.self.color}
@@ -69,6 +70,7 @@ class MyElement extends SelfAndOthersClass {
       others = html`
         ${this.others.map(user => html`
           <avatar-and-fallback
+            exportparts="avatar, avatar_picture_wrapper, avatar_picture, avatar_fallback"
             size=${this.size}
             name=${user.name}
             color=${user.color}
@@ -79,7 +81,7 @@ class MyElement extends SelfAndOthersClass {
     }
 
     return html`
-      <div class="avatars">
+      <div class="avatars" part="avatars">
         ${others || null}
         ${self || null}
       </div>

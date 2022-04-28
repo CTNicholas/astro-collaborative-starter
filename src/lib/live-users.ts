@@ -32,6 +32,10 @@ class MyElement extends SelfAndOthersClass {
       justify-content: flex-end;
       padding-left: 0.5rem;
     }
+
+    .user_line_user:last-of-type {
+      margin-bottom: 0;
+    }
   `
 
   render () {
@@ -42,6 +46,7 @@ class MyElement extends SelfAndOthersClass {
       self = html`
         <user-line
           exportparts="user, name, status, avatar, avatar_picture_wrapper, avatar_picture, avatar_fallback"
+          class="user_line_user"
           size=${this.size}
           name=${this.self.name + this['self-suffix']}
           color=${this.self.color}

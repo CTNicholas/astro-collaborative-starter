@@ -34,7 +34,7 @@ class MyElement extends SelfAndOthersClass {
         return
       }
 
-      inputElement.addEventListener('input', event => {
+      inputElement.addEventListener('input', () => {
         globals.room.updatePresence({ [key]: inputElement.value })
       })
     })
