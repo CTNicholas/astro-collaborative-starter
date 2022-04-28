@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import '../components/liveblocks-room'
-import '../components/live-form'
-import '../components/live-user-form'
-import '../components/live-avatars'
-import '../components/live-cursors'
-import '../components/live-canvas'
+import '../lib/liveblocks-room'
+import '../lib/live-form'
+import '../lib/live-user-form'
+import '../lib/live-avatars'
+import '../lib/live-cursors'
+import '../lib/live-canvas'
 import logoPic from '../../public/logo.svg'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import ExampleRoom from '../components/ExampleRoom.astro'
@@ -14,7 +14,7 @@ import UserPanel from '../components/UserPanel.astro'
 import InputText from '../components/InputText.astro'
 import InputNumber from '../components/InputNumber.astro'
 import InputDropdown from '../components/InputDropdown.astro'
-import { randomName, randomColor, randomPicture, randomStatus } from '../components/utils/random'
+import { randomName, randomColor, randomPicture, randomStatus } from '../lib/utils/random'
 
 // Get your free public key from https://liveblocks.io
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY

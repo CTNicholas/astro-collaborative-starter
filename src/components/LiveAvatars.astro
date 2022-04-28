@@ -1,0 +1,6 @@
+---
+import '../lib/live-avatars'
+const { size, show } = Astro.props
+---
+
+<live-avatars size={size} show={show} client:load></live-avatars>

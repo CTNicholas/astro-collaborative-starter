@@ -1,0 +1,6 @@
+---
+import '../lib/live-users'
+const { size, show, 'self-suffix': selfSuffix } = Astro.props
+---
+
+<live-users size={size} show={show} self-suffix={selfSuffix} client:load></live-users>

@@ -1,6 +1,7 @@
 ---
-import '../components/liveblocks-room'
-import '../components/live-form'
+import '../lib/liveblocks-room'
+import '../lib/live-form'
+import LiveForm from '../components/LiveForm.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Code from '../components/Code.astro'
@@ -10,7 +11,7 @@ import Paragraph from '../components/Paragraph.astro'
 import InputText from '../components/InputText.astro'
 import InputNumber from '../components/InputNumber.astro'
 import InputDropdown from '../components/InputDropdown.astro'
-import { randomName, randomColor, randomPicture, randomStatus } from '../components/utils/random'
+import { randomName, randomColor, randomPicture, randomStatus } from '../lib/utils/random'
 
 // Get your free public key from https://liveblocks.io
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
@@ -43,7 +44,7 @@ const user = {
       </Title>
 
       <!-- live-form's child inputs are automatically shared, must have a unique name -->
-      <live-form
+      <LiveForm
         name="mainform"
         client:load
       >
@@ -95,7 +96,7 @@ const user = {
           </div>
 
         </div>
-      </live-form>
+      </LiveForm>
 
       <TitleSmall>
         How to use
@@ -106,7 +107,17 @@ const user = {
         Each input must have a unique name (within the live-form) too. Updates are propagated on 'input' events.
       </Paragraph>
 
-<Code>&lt;live-form name="myform" client:load&gt;
+      <Code>---
+import '../components/LiveForm.astro'
+---
+&lt;LiveForm name="myform"&gt;
+  &lt;input name="myinput" /&gt;
+&lt;/LiveForm&gt;</Code>
+
+<Code>---
+import '../components/live-form'
+---
+&lt;live-form name="myform" client:load&gt;
   &lt;input name="myinput" /&gt;
 &lt;/live-form&gt;</Code>
 

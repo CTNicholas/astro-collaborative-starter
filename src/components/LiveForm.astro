@@ -1,0 +1,8 @@
+---
+import '../lib/live-form'
+const { name } = Astro.props
+---
+
+<live-form name={name} client:load>
+  <slot></slot>
+</live-form>

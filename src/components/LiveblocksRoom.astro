@@ -1,0 +1,23 @@
+---
+import '../lib/liveblocks-room'
+const {
+  'user-name': name,
+  'user-color': color,
+  'user-picture': picture,
+  'user-status': status,
+  'room-id': id,
+  'public-key': key
+} = Astro.props
+---
+
+<liveblocks-room
+  user-name={name}
+  user-color={color}
+  user-picture={picture}
+  user-status={status}
+  room-id={id}
+  public-key={key}
+  client:load
+>
+  <slot></slot>
+</liveblocks-room>
