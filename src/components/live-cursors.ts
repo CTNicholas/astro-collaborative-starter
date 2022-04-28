@@ -38,8 +38,8 @@ class MyElement extends SelfAndOthersClass {
   updateCursor (event) {
     globals.room.updatePresence({
       cursor: {
-        x: Math.round(event.clientX),
-        y: Math.round(event.clientY),
+        x: Math.round(event.clientX + document.documentElement.scrollLeft),
+        y: Math.round(event.clientY + document.documentElement.scrollTop),
       },
     })
   }
@@ -60,6 +60,7 @@ class MyElement extends SelfAndOthersClass {
       left: 0;
       pointer-events: none;
       overflow: hidden;
+      z-index: 100000;
     }
   `
 

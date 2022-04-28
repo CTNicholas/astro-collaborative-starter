@@ -2,22 +2,24 @@
 const { name, id, initialValue, placeholder, label, hideLabel, class } = Astro.props
 ---
 
-{!hideLabel ? (
-  <label
-    for={id || name}
-    class="block text-sm font-medium text-gray-700 mb-1.5 select-none"
-  >
-    {label}
-  </label>
-) : (
-  <div class="sr-only">{label}</div>
-)}
+<div>
+  {!hideLabel ? (
+    <label
+      for={id || name}
+      class="block text-sm font-medium text-gray-700 mb-1.5 select-none"
+    >
+      {label}
+    </label>
+  ) : (
+    <div class="sr-only">{label}</div>
+  )}
 
-<input
-  type="number"
-  id={id || name}
-  name={name}
-  value={initialValue}
-  placeholder={placeholder}
-  class="px-3 py-3 mb-5 shadow-sm border focus:ring-1 focus:ring-gray-500 focus:border-gray-500 focus:outline-none focus-visible:outline-none block w-full sm:text-sm border-gray-300 rounded-md"
-/>
+  <input
+    type="number"
+    id={id || name}
+    name={name}
+    value={initialValue}
+    placeholder={placeholder}
+    class="px-3 py-3 mb-5 shadow-sm border focus:ring-1 focus:ring-gray-500 focus:border-gray-500 focus:outline-none focus-visible:outline-none block w-full sm:text-sm border-gray-300 rounded-md"
+  />
+</div>

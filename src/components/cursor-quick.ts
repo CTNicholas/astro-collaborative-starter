@@ -34,7 +34,7 @@ class MyElement extends LitElement {
       <div class="cursor" style=${styleMap({
         transform: `translateX(${this.x}px) translateY(${this.y}px)`
       })}>
-         <svg style="transform: scale(0.86) translate(-18px, -16px); transform-origin: top left;">
+         <svg style="transform: scale(1) translate(-18px, -16px); transform-origin: top left;">
            <path 
              stroke="white"
              stroke-width="2"

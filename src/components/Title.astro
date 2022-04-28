@@ -1,0 +1,10 @@
+---
+  const { text } = Astro.props
+---
+
+<h1 class="mt-12 text-3xl font-bold tracking-tight">
+  {text}
+</h1>
+<div class="text-gray-500 text-lg font-medium mt-1 mb-10 border-b pb-6">
+  <slot></slot>
+</div>

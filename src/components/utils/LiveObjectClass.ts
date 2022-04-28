@@ -14,7 +14,7 @@ export class LiveObjectClass extends StorageClass {
   LiveObject
 
   @property()
-  unsubscribeFunctions = []
+  unsubscribeFunctions
 
   connectedCallback () {
     super.connectedCallback()
@@ -36,7 +36,6 @@ export class LiveObjectClass extends StorageClass {
     })
 
     this.LiveObject = this.storage.get(this.name)
-
     this.unsubscribeFunctions.push(unsub1)
     this.whenLiveObjectReady()
   }

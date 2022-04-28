@@ -22,6 +22,7 @@
   "dependencies": {
     "@liveblocks/client": "^0.15.11",
     "@liveblocks/react": "^0.15.11",
-    "perfect-cursors": "^1.0.5"
+    "perfect-cursors": "^1.0.5",
+    "perfect-freehand": "^1.0.16"
   }
 }

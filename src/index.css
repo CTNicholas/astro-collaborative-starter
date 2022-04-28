@@ -11,6 +11,10 @@ html, body {
   left: 0;
 }
 
+body {
+  overflow-y: auto;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

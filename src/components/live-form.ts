@@ -42,6 +42,13 @@ export class MyElement extends LiveObjectClass {
           setInputValue(element, val.value)
         }
 
+        if (val.focus) {
+          element.style.outline = `2px solid ${val.focus.color}`
+          element.style.outlineOffset = `0px`
+        } else {
+          element.style.outline = 'none'
+        }
+
       })
     })
   }
@@ -56,12 +63,49 @@ export class MyElement extends LiveObjectClass {
         return
       }
 
-      this.LiveObject.set(target.name, { type: target.type, value: getInputValue(target) })
+      this.LiveObject.set(target.name, { type: target.type, value: getInputValue(target) || '' })
     }
 
+    const onFocus = ({ target }) => {
+      if (!this.LiveObject) {
+        return
+      }
+
+      const { connectionId } = globals.room.getSelf()
+      const user = { ...globals.room.getPresence(), id: connectionId }
+      globals.room.batch(() => {
+        const rest = this.LiveObject.get(target.name)
+        this.LiveObject.set(target.name, { ...rest, focus: user })
+      })
+    }
+
+    const onBlur = ({ target }) => {
+      if (!this.LiveObject) {
+        return
+      }
+
+      globals.room.batch(() => {
+        const user = globals.room.getPresence()
+        const { connectionId } = globals.room.getSelf()
+        console.log(self)
+        const current = this.LiveObject.get(target.name)
+        if (current?.focus && current.focus.id !== connectionId) {
+          return
+        }
+
+        const rest = this.LiveObject.get(target.name)
+        this.LiveObject.set(target.name, { ...rest, focus: null })
+      })
+    }
 
     inputs.forEach(input => {
-      input.addEventListener('input', onAnyChange)
+      input.addEventListener('input', event => {
+        onAnyChange(event)
+        onFocus(event)
+      })
+      input.addEventListener('focus', onFocus)
+      input.addEventListener('focuswithin', onFocus)
+      input.addEventListener('blur', onBlur)
       //input.addEventListener('change', onAnyChange)
       //input.addEventListener('checked', onAnyChange)
     })

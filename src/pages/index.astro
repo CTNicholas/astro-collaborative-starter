@@ -1,11 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import '../components/liveblocks-room'
+import '../components/live-form'
+import '../components/live-user-form'
 import '../components/live-avatars'
 import '../components/live-cursors'
-import '../components/live-users'
-import '../components/live-form'
-import { randomName, randomColor, randomPicture } from '../components/utils/random'
+import '../components/live-canvas'
+import logoPic from '../../public/logo.svg'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ExampleRoom from '../components/ExampleRoom.astro'
+import UserHeader from '../components/UserHeader.astro'
+import UserPanel from '../components/UserPanel.astro'
+import InputText from '../components/InputText.astro'
+import InputNumber from '../components/InputNumber.astro'
+import InputDropdown from '../components/InputDropdown.astro'
+import { randomName, randomColor, randomPicture, randomStatus } from '../components/utils/random'
 
 // Get your free public key from https://liveblocks.io
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
@@ -18,13 +27,11 @@ const user = {
   name: randomName(),
   color: randomColor(),
   picture: randomPicture(),
-  status: 'Collaborating...'
+  status: randomStatus()
 }
 ---
 
 <BaseLayout>
-
-  <div class="font-bold">safg</div>
 
   <!-- Create dialog for changing user-name etc -->
 
@@ -38,30 +45,120 @@ const user = {
       client:load
     >
 
-      <live-users
-        size="40"
-        client:visible
-      ></live-users>
+      <div>
+      <UserHeader>
+        <div slot="logo" class="font-semibold text-gray-700 flex items-center">
+          <img class="w-6 mr-4 mt-1" src={logoPic} alt="Logo" />
+          Astro Collaborative Starter
+        </div>
+      </UserHeader>
+    </div>
 
-      <live-avatars
-        size="40"
-        client:visible
-      ></live-avatars>
+    <div class="flex h-auto relative">
+      <aside class="flex-grow-0 flex-shrink-0 bg-gray-50 w-72 pt-3">
+        <UserPanel />
+      </aside>
+      <main class="px-5 flex-grow">
+        <h1 class="mt-12 text-3xl font-bold tracking-tight">
+          Collaborative form
+        </h1>
+        <div class="text-gray-500 text-lg font-medium mt-1 mb-10 border-b pb-6">
+          Any inputs, textareas, selects, with a name="" attribute inside &lt;live-form&gt; will be shared
+        </div>
 
-      <live-cursors
-        movement="smooth"
-        client:load
-      ></live-cursors>
 
-      <live-form
-        name="mainform"
-        client:load
-      >
-        <input name="firstname" type="text" value="yo" />
-        <input name="lastname" type="text" value="hallo" />
-        <input name="checky" type="checkbox" />
-        <input name="col" type="color" />
-      </live-form>
+        <live-form
+          name="mainform"
+          client:load
+        >
+
+          <div class="grid grid-cols-2 gap-5 max-w-screen-sm">
+            <div>
+              <InputText name="firstname" label="First name" placeholder="Enter your first name" />
+
+              <InputNumber name="age" label="Age" placeholder="Enter your age"  />
+
+              <div class="my-6">
+                <input id="tickbox" name="tickbox" type="checkbox" class="w-4 h-4" />
+                <label for="tickbox" class="text-sm ml-1.5 text-gray-500 select-none">
+                  <span class="font-medium text-gray-700">Tick this box</span> for cool stuff.
+                </label>
+              </div>
+
+              <div class="my-6">
+                <label for="col" class="inline-block text-sm font-medium text-gray-700 mb-1.5 select-none">
+                  Choose a color
+                </label>
+                <input id="col" name="col" type="color" class="block w-18 h-9" />
+              </div>
+            </div>
+
+            <div>
+              <InputText name="lastname" label="Last name" placeholder="Enter your last name"  />
+
+              <InputDropdown name="dropdownnumber" label="Favorite fruit" options="Apple,Banana,Cherry,Durian" />
+
+              <div class="my-6">
+                <input id="tickbox2" name="tickbox2" type="checkbox" class="w-4 h-4" />
+                <label for="tickbox2" class="text-sm ml-1.5 text-gray-500 select-none">
+                  <span class="font-medium text-gray-700">Check this box</span> for other stuff.
+                </label>
+              </div>
+
+              <div class="my-6">
+                <!--
+                <label for="slider" class="inline-block text-sm font-medium text-gray-700 mb-0.5 select-none">
+                  Slide a value
+                </label>
+                <input id="slider" name="slider" type="range" class="block w-18 h-9" />
+                -->
+                <label for="datepicker" class="inline-block text-sm font-medium text-gray-700 mb-0.5 select-none">
+                  Pick a date
+                </label>
+                <input id="datepicker" name="datepicker" type="date" class="block mt-2" />
+              </div>
+            </div>
+          </div>
+
+
+        </live-form>
+
+
+        <h1 class="mt-16 text-3xl font-bold tracking-tight">
+          Edit your user
+        </h1>
+        <div class="text-gray-500 text-lg font-medium mt-1 mb-10 border-b pb-6">
+          Edit with name="user-name", name="user-color", name="user-picture", name="user-status" inputs
+        </div>
+
+        <live-user-form client:load>
+          <InputText name="user-name" label="Username" placeholder="Enter your username" />
+          <InputText name="user-color" label="Color" placeholder="Enter your color" />
+          <InputText name="user-picture" label="Picture" placeholder="Enter your picture URL" />
+          <InputText name="user-status" label="Status" placeholder="Enter your status" />
+        </live-user-form>
+
+
+
+        <h1 class="mt-16 text-3xl font-bold tracking-tight">
+          Drawing canvas
+        </h1>
+        <div class="text-gray-500 text-lg font-medium mt-1 mb-10 border-b pb-6">
+          Edit with name="user-name", name="user-color", name="user-picture", name="user-status" inputs
+        </div>
+
+        <live-canvas
+          name="maincanvas"
+          client:load
+        ></live-canvas>
+
+      </main>
+    </div>
+
+    <live-cursors
+      movement="perfect"
+      client:load
+    ></live-cursors>
 
     </liveblocks-room>
 

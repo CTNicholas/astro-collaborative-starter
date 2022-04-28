@@ -21,7 +21,9 @@ const statuses = [
   'Partying',
   'Working',
   'Studying',
-  'Available'
+  'Available',
+  'Collaborating',
+  'In a call'
 ]
 
 const lightColors = [

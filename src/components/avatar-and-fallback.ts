@@ -26,9 +26,9 @@ class MyElement extends SelfAndOthersClass {
     .avatar {
       border-radius: 9999px;
       position: relative;
-      box-shadow: 2px 0 0 #fff;
       margin-left: -6px;
       user-select: none;
+      box-shadow: 2px 0 0 #fff;
     }
 
     .avatar::before {
@@ -79,7 +79,11 @@ class MyElement extends SelfAndOthersClass {
 
   render () {
     return html`
-      <div part="avatar" class="avatar" data-tooltip=${this.name}>
+      <div 
+        part="avatar" 
+        class="avatar" 
+        data-tooltip=${this.name}
+      >
         <div
           part="avatar_picture_wrapper"
           class="avatar_picture_wrapper"

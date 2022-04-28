@@ -3,6 +3,7 @@ import '../components/live-form'
 import '../components/live-user-form'
 import '../components/live-avatars'
 import '../components/live-cursors'
+import '../components/live-canvas'
 import logoPic from '../../public/logo.svg'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import ExampleRoom from '../components/ExampleRoom.astro'
@@ -18,16 +19,15 @@ import InputDropdown from '../components/InputDropdown.astro'
 
 
     <div>
-
       <UserHeader>
         <div slot="logo" class="font-semibold text-gray-700 flex items-center">
-          <img class="w-6 mr-3 mt-1" src={logoPic} alt="Logo" />
+          <img class="w-6 mr-4 mt-1" src={logoPic} alt="Logo" />
           Astro Collaborative Starter
         </div>
       </UserHeader>
     </div>
 
-    <div class="flex h-full">
+    <div class="flex h-auto relative">
       <aside class="flex-grow-0 flex-shrink-0 bg-gray-50 w-72 pt-3">
         <UserPanel />
       </aside>
@@ -111,11 +111,25 @@ import InputDropdown from '../components/InputDropdown.astro'
           <InputText name="user-status" label="Status" placeholder="Enter your status" />
         </live-user-form>
 
+
+
+        <h1 class="mt-16 text-3xl font-bold tracking-tight">
+          Drawing canvas
+        </h1>
+        <div class="text-gray-500 text-lg font-medium mt-1 mb-10 border-b pb-6">
+          Edit with name="user-name", name="user-color", name="user-picture", name="user-status" inputs
+        </div>
+
+        <live-canvas
+          name="maincanvas"
+          client:load
+        ></live-canvas>
+
       </main>
     </div>
 
     <live-cursors
-      movement="smooth"
+      movement="perfect"
       client:load
     ></live-cursors>
   </ExampleRoom>
