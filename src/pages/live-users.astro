@@ -20,12 +20,17 @@ const roomId =  'astro-collaborative-starter-live-users'
 
 // The current user's info
 const user = {
-name: randomName(),
-color: randomColor(),
-picture: randomPicture(),
-status: randomStatus()
+  name: randomName(),
+  color: randomColor(),
+  picture: randomPicture(),
+  status: randomStatus()
 }
 ---
+<script>
+  const room = document.querySelector('liveblocks-room')
+  room.setAttribute('user-name', 'DynamicNames')
+  room.setAttribute('user-picture', '')
+</script>
 
 <BaseLayout>
   <liveblocks-room
@@ -120,3 +125,4 @@ avatar_fallback</Code>
     </PanelLayout>
   </liveblocks-room>
 </BaseLayout>
+
