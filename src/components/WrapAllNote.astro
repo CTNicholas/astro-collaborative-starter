@@ -1,11 +1,13 @@
 ---
 import TitleSmall from './TitleSmall.astro'
 import Paragraph from './Paragraph.astro'
+import Link from './Link.astro'
 ---
 <TitleSmall>
   Note
 </TitleSmall>
 
 <Paragraph>
-  All elements must be wrapped in a <a class="text-red-600 font-semibold" href="/liveblocks-room">LiveblocksRoom</a> component.
+  All elements must be wrapped in a single <Link href="/liveblocks-room">LiveblocksRoom</Link> component.
+  It's advised to wrap your whole page inside &lt;LiveblocksRoom&gt;.
 </Paragraph>

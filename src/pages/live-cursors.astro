@@ -4,6 +4,7 @@ import LiveUserForm from '../lib/LiveUserForm.astro'
 import RandomUserInfo from '../lib/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
+import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import TitleSmall from '../components/TitleSmall.astro'
@@ -17,23 +18,11 @@ const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 
 // The name of the current room
 const roomId =  'astro-collaborative-starter-live-cursors'
-
-// The current user's info
-const user = {
-name: randomName(),
-color: randomColor(),
-picture: randomPicture(),
-status: randomStatus()
-}
 ---
 
 <BaseLayout>
   <RandomUserInfo></RandomUserInfo>
   <LiveblocksRoom
-    user-name={user.name}
-    user-color={user.color}
-    user-picture={user.picture}
-    user-status={user.status}
     room-id={roomId}
     public-key={key}
   >
@@ -43,6 +32,7 @@ status: randomStatus()
       </Title>
 
       <!-- LiveCursors added within PanelLayout element -->
+      <Demo />
 
       <div class="bg-gray-50 h-40 max-w-screen-sm flex justify-center items-center">
         Open this page in two windows to see live cursors
@@ -63,7 +53,7 @@ import LiveCursors from '../lib/LiveCursors.astro'
 <!-- No config needed, works already -->
 <LiveCursors />
 
-<!-- Use quicker, less smooth, animation -->
+<!-- A quicker, but less smooth, animation -->
 <LiveCursors movement="quick" />
 
 <!-- CSS selector of pointer event element, default: html -->

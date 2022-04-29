@@ -4,6 +4,7 @@ import LiveUsers from '../lib/LiveUsers.astro'
 import RandomUserInfo from '../lib/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
+import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import TitleSmall from '../components/TitleSmall.astro'
@@ -36,7 +37,9 @@ const roomId =  'astro-collaborative-starter-live-users'
         See users currently online with &lt;live-users&gt;
       </Title>
 
-      <LiveUsers />
+      <Demo>
+        <LiveUsers />
+      </Demo>
 
       <TitleSmall>
         How to use

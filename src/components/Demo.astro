@@ -1,0 +1,13 @@
+---
+import GetPublicKey from './GetPublicKey.astro'
+import TitleSmall from './TitleSmall.astro'
+
+// Get your free public key from https://liveblocks.io
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+---
+{key ? (
+  <slot></slot>
+) : (
+  <TitleSmall>Welcome! Get your free API key to enable multiplayer</TitleSmall>
+  <GetPublicKey />
+)}

@@ -4,6 +4,7 @@ import LiveForm from '../lib/LiveForm.astro'
 import RandomUserInfo from '../lib/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
+import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import TitleSmall from '../components/TitleSmall.astro'
@@ -40,60 +41,62 @@ const user = {
         Any inputs, textareas, selects, with a name="" attribute inside &lt;live-form&gt; will be shared
       </Title>
 
-      <!-- live-form's child inputs are automatically shared, must have a unique name -->
-      <LiveForm
-        name="mainform"
-        client:load
-      >
-        <div class="grid grid-cols-2 gap-5 max-w-screen-sm">
-          <!-- Column 1 -->
-          <div>
-            <!-- These contain styled input elements, the name attribute is passed down -->
-            <InputText name="firstname" label="First name" placeholder="Enter your first name" />
-            <InputNumber name="age" label="Age" placeholder="Enter your age"  />
+      <Demo>
+        <!-- live-form's child inputs are automatically shared, must have a unique name -->
+        <LiveForm
+          name="mainform"
+          client:load
+        >
+          <div class="grid grid-cols-2 gap-5 max-w-screen-sm">
+            <!-- Column 1 -->
+            <div>
+              <!-- These contain styled input elements, the name attribute is passed down -->
+              <InputText name="firstname" label="First name" placeholder="Enter your first name" />
+              <InputNumber name="age" label="Age" placeholder="Enter your age"  />
 
-            <!-- Checkbox 1 -->
-            <div class="my-6">
-              <input id="tickbox" name="tickbox" type="checkbox" class="w-4 h-4" />
-              <label for="tickbox" class="text-sm ml-1.5 text-gray-500 select-none">
-                <span class="font-medium text-gray-700">Tick this box</span> for cool stuff.
-              </label>
+              <!-- Checkbox 1 -->
+              <div class="my-6">
+                <input id="tickbox" name="tickbox" type="checkbox" class="w-4 h-4" />
+                <label for="tickbox" class="text-sm ml-1.5 text-gray-500 select-none">
+                  <span class="font-medium text-gray-700">Tick this box</span> for cool stuff.
+                </label>
+              </div>
+
+              <!-- Color picker -->
+              <div class="my-6">
+                <label for="col" class="inline-block text-sm font-medium text-gray-700 mb-1.5 select-none">
+                  Choose a color
+                </label>
+                <input id="col" name="col" type="color" class="block w-18 h-9" />
+              </div>
             </div>
 
-            <!-- Color picker -->
-            <div class="my-6">
-              <label for="col" class="inline-block text-sm font-medium text-gray-700 mb-1.5 select-none">
-                Choose a color
-              </label>
-              <input id="col" name="col" type="color" class="block w-18 h-9" />
+            <!-- Column 2 -->
+            <div>
+              <!-- These contain styled input elements, the name attribute is passed down -->
+              <InputText name="lastname" label="Last name" placeholder="Enter your last name"  />
+              <InputDropdown name="dropdownnumber" label="Favorite fruit" options="Apple,Banana,Cherry,Durian" />
+
+              <!-- Checkbox 2 -->
+              <div class="my-6">
+                <input id="tickbox2" name="tickbox2" type="checkbox" class="w-4 h-4" />
+                <label for="tickbox2" class="text-sm ml-1.5 text-gray-500 select-none">
+                  <span class="font-medium text-gray-700">Check this box</span> for other stuff.
+                </label>
+              </div>
+
+              <!-- Date picker -->
+              <div class="my-6">
+                <label for="datepicker" class="inline-block text-sm font-medium text-gray-700 mb-0.5 select-none">
+                  Pick a date
+                </label>
+                <input id="datepicker" name="datepicker" type="date" class="block mt-2" />
+              </div>
             </div>
+
           </div>
-
-          <!-- Column 2 -->
-          <div>
-            <!-- These contain styled input elements, the name attribute is passed down -->
-            <InputText name="lastname" label="Last name" placeholder="Enter your last name"  />
-            <InputDropdown name="dropdownnumber" label="Favorite fruit" options="Apple,Banana,Cherry,Durian" />
-
-            <!-- Checkbox 2 -->
-            <div class="my-6">
-              <input id="tickbox2" name="tickbox2" type="checkbox" class="w-4 h-4" />
-              <label for="tickbox2" class="text-sm ml-1.5 text-gray-500 select-none">
-                <span class="font-medium text-gray-700">Check this box</span> for other stuff.
-              </label>
-            </div>
-
-            <!-- Date picker -->
-            <div class="my-6">
-              <label for="datepicker" class="inline-block text-sm font-medium text-gray-700 mb-0.5 select-none">
-                Pick a date
-              </label>
-              <input id="datepicker" name="datepicker" type="date" class="block mt-2" />
-            </div>
-          </div>
-
-        </div>
-      </LiveForm>
+        </LiveForm>
+      </Demo>
 
       <TitleSmall>
         How to use

@@ -1,0 +1,17 @@
+---
+import Paragraph from './Paragraph.astro'
+import Link from './Link.astro'
+import Code from './Code.astro'
+---
+
+<div>
+  <Paragraph>
+    To use this starter kit you need to sign up to <Link href="https://liveblocks.io" newTab>Liveblocks</Link>
+    and get your free public key. You can find your public key on the
+    <Link href="https://liveblocks.io/dashboard/apikeys" newTab>dashboard</Link> after signing in.
+  </Paragraph>
+
+  Place your key in <code>.env.local</code> and refresh:
+
+  <Code code="PUBLIC_LIVEBLOCKS_PUBLIC_KEY=pk_live_xxxxxxxxxxxxxxxxxxxxxxxxx" />
+</div>

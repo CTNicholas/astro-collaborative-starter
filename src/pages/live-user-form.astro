@@ -4,6 +4,7 @@ import LiveUserForm from '../lib/LiveUserForm.astro'
 import RandomUserInfo from '../lib/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
+import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import TitleSmall from '../components/TitleSmall.astro'
@@ -38,17 +39,19 @@ const user = {
         Change the current user's properties with &lt;live-user-form&gt;
       </Title>
 
-      <!-- live-form's child inputs are automatically shared, must have a unique name -->
-      <LiveUserForm>
-        <InputText name="user-name" label="Username" placeholder="Enter your username" />
-        <InputText name="user-color" label="Color" placeholder="Enter your color" />
-        <InputText name="user-picture" label="Picture" placeholder="Enter your picture URL" />
-        <InputText name="user-status" label="Status" placeholder="Enter your status" />
-        <label for="col" class="inline-block text-sm font-medium text-gray-700 mb-1.5 select-none">
-          Choose a color
-        </label>
-        <input id="col" name="user-color" type="color" class="block w-18 h-9" />
-      </LiveUserForm>
+      <Demo>
+        <!-- live-form's child inputs are automatically shared, must have a unique name -->
+        <LiveUserForm>
+          <InputText name="user-name" label="Username" placeholder="Enter your username" />
+          <InputText name="user-color" label="Color" placeholder="Enter your color" />
+          <InputText name="user-picture" label="Picture" placeholder="Enter your picture URL" />
+          <InputText name="user-status" label="Status" placeholder="Enter your status" />
+          <label for="col" class="inline-block text-sm font-medium text-gray-700 mb-1.5 select-none">
+            Choose a color
+          </label>
+          <input id="col" name="user-color" type="color" class="block w-18 h-9" />
+        </LiveUserForm>
+      </Demo>
 
       <TitleSmall>
         How to use
