@@ -72,7 +72,7 @@ class MyElement extends SelfAndOthersClass {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-weight: bold;
+      font-weight: 600;
       border-radius: 9999px;
     }
   `

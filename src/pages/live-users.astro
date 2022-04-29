@@ -1,12 +1,14 @@
 ---
-import '../lib/liveblocks-room'
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
 import LiveUsers from '../lib/LiveUsers.astro'
+import RandomUserInfo from '../lib/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import TitleSmall from '../components/TitleSmall.astro'
 import Paragraph from '../components/Paragraph.astro'
+import WrapAllNote from '../components/WrapAllNote.astro'
 import InputText from '../components/InputText.astro'
 import InputNumber from '../components/InputNumber.astro'
 import InputDropdown from '../components/InputDropdown.astro'
@@ -18,29 +20,16 @@ const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 // The name of the current room
 const roomId =  'astro-collaborative-starter-live-users'
 
-// The current user's info
-const user = {
-  name: randomName(),
-  color: randomColor(),
-  picture: randomPicture(),
-  status: randomStatus()
-}
+// The current user's info is set within a script tag in RandomUserInfo
+// It can also be set by passing attributes to LiveblocksRoom
 ---
-<script>
-  const room = document.querySelector('liveblocks-room')
-  room.setAttribute('user-name', 'DynamicNames')
-  room.setAttribute('user-picture', '')
-</script>
+
 
 <BaseLayout>
-  <liveblocks-room
-    user-name={user.name}
-    user-color={user.color}
-    user-picture={user.picture}
-    user-status={user.status}
+  <RandomUserInfo></RandomUserInfo>
+  <LiveblocksRoom
     room-id={roomId}
     public-key={key}
-    client:load
   >
     <PanelLayout>
       <Title text="Live user list">
@@ -54,42 +43,45 @@ const user = {
       </TitleSmall>
 
       <Paragraph>
-        Just add &lt;live-users&gt;.
+        Add &lt;LiveUsers&gt;. Change size="", show="", self-suffix="" attributes for more options.
       </Paragraph>
 
-            <Code>---
+<Code lang="astro" code={`---
 import LiveUsers from '../lib/LiveUsers.astro'
 ---
-&lt;!-- Basic -->
-&lt;LiveUsers&gt;&lt;/LiveUsers&gt;
+<!-- Basic -->
+<LiveUsers></LiveUsers>
 
-&lt;!-- Change avatar size -->
-&lt;LiveUsers size="32"&gt;&lt;/LiveUsers&gt;
+<!-- Change avatar size (pixels) -->
+<LiveUsers size="32"></LiveUsers>
 
-&lt;!-- Only show your avatar -->
-&lt;LiveUsers show="self"&gt;&lt;/LiveUsers&gt;
+<!-- Only show your user info -->
+<LiveUsers show="self"></LiveUsers>
 
-&lt;!-- Only show other people's avatars -->
-&lt;LiveUsers show="others"&gt;&lt;/LiveUsers&gt;
-</Code>
+<!-- Only show other people's user info -->
+<LiveUsers show="others"></LiveUsers>
+
+<!-- Modify the text at the end of your name, default: ' (you)' -->
+<LiveUsers self-suffix=" - this is you"></LiveUsers>
+`}/>
 
       or
 
-      <Code>---
+<Code lang="astro" code={`---
 import '../lib/live-users'
 ---
-&lt;!-- Basic -->
-&lt;live-users client:load&gt;&lt;/live-users&gt;
+<!-- Basic -->
+<live-users client:load></live-users>
 
-&lt;!-- Change avatar size -->
-&lt;live-users size="32" client:load&gt;&lt;/live-users&gt;
+<!-- Change avatar size -->
+<live-users size="32" client:load></live-users>
 
-&lt;!-- Only show your avatar -->
-&lt;live-users show="self" client:load&gt;&lt;/live-users&gt;
+<!-- Only show your user info -->
+<live-users show="self" client:load></live-users>
 
-&lt;!-- Only show other people's avatars -->
-&lt;live-users show="others" client:load&gt;&lt;/live-users&gt;
-</Code>
+<!-- Only show other people's user info -->
+<live-users show="others" client:load></live-users>
+`}/>
 
       <TitleSmall>
         Customise
@@ -99,30 +91,29 @@ import '../lib/live-users'
         Customise with CSS parts:
       </Paragraph>
 
-      <Code>&lt;style&gt;
-live-users::part(user) {'{'}
+      <Code lang="css" code={`live-users::part(user) {
   margin-bottom: 12px;
-{'}'}
+}
 
-live-users::part(name) {'{'}
+live-users::part(name) {
   font-weight: 500;
-{'}'}
-&lt/style&gt;</Code>
+}`} />
 
       <Paragraph>
         All CSS parts:
       </Paragraph>
 
-      <Code>user,
+      <Code code={`user,
 name,
 status,
 avatar,
 avatar_picture_wrapper,
 avatar_picture,
-avatar_fallback</Code>
+avatar_fallback`} />
 
+      <WrapAllNote></WrapAllNote>
 
     </PanelLayout>
-  </liveblocks-room>
+  </LiveblocksRoom>
 </BaseLayout>
 

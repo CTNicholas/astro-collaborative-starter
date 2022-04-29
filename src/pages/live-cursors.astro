@@ -1,0 +1,88 @@
+---
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
+import LiveUserForm from '../lib/LiveUserForm.astro'
+import RandomUserInfo from '../lib/RandomUserInfo.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import PanelLayout from '../layouts/PanelLayout.astro'
+import Code from '../components/Code.astro'
+import Title from '../components/Title.astro'
+import TitleSmall from '../components/TitleSmall.astro'
+import Paragraph from '../components/Paragraph.astro'
+import WrapAllNote from '../components/WrapAllNote.astro'
+import InputText from '../components/InputText.astro'
+import { randomName, randomColor, randomPicture, randomStatus } from '../lib/utils/random'
+
+// Get your free public key from https://liveblocks.io
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+// The name of the current room
+const roomId =  'astro-collaborative-starter-live-cursors'
+
+// The current user's info
+const user = {
+name: randomName(),
+color: randomColor(),
+picture: randomPicture(),
+status: randomStatus()
+}
+---
+
+<BaseLayout>
+  <RandomUserInfo></RandomUserInfo>
+  <LiveblocksRoom
+    user-name={user.name}
+    user-color={user.color}
+    user-picture={user.picture}
+    user-status={user.status}
+    room-id={roomId}
+    public-key={key}
+  >
+    <PanelLayout>
+      <Title text="Live cursors">
+        Change the current user's properties with &lt;live-user-form&gt;
+      </Title>
+
+      <!-- LiveCursors added within PanelLayout element -->
+
+      <div class="bg-gray-50 h-40 max-w-screen-sm flex justify-center items-center">
+        Open this page in two windows to see live cursors
+      </div>
+
+      <TitleSmall>
+        How to use
+      </TitleSmall>
+
+      <Paragraph>
+        Set the current user's properties (name, color etc.) using child input elements.
+        Updates are propagated on 'input' events. Not just compatible with text inputs.
+      </Paragraph>
+
+<Code lang="astro" code={`---
+import LiveCursors from '../lib/LiveCursors.astro'
+---
+<!-- No config needed, works already -->
+<LiveCursors />
+
+<!-- Use quicker, less smooth, animation -->
+<LiveCursors movement="quick" />
+
+<!-- CSS selector of pointer event element, default: html -->
+<LiveCursors selector="body" />`} />
+or
+<Code lang="astro" code={`---
+import '../lib/live-cursors'
+---
+<!-- No config needed, works already -->
+<live-cursor client:load />
+
+<!-- Use quicker, less smooth, animation -->
+<live-cursor movement="quick" client:load />
+
+<!-- CSS selector of pointer event element, default: html -->
+<live-cursor selector="body" client:load />`} />
+
+      <WrapAllNote></WrapAllNote>
+
+    </PanelLayout>
+  </LiveblocksRoom>
+</BaseLayout>

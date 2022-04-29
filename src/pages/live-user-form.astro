@@ -1,0 +1,101 @@
+---
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
+import LiveUserForm from '../lib/LiveUserForm.astro'
+import RandomUserInfo from '../lib/RandomUserInfo.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import PanelLayout from '../layouts/PanelLayout.astro'
+import Code from '../components/Code.astro'
+import Title from '../components/Title.astro'
+import TitleSmall from '../components/TitleSmall.astro'
+import Paragraph from '../components/Paragraph.astro'
+import WrapAllNote from '../components/WrapAllNote.astro'
+import InputText from '../components/InputText.astro'
+import { randomName, randomColor, randomPicture, randomStatus } from '../lib/utils/random'
+
+// Get your free public key from https://liveblocks.io
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+// The name of the current room
+const roomId =  'astro-collaborative-starter-live-user-form'
+
+// The current user's info
+const user = {
+  name: randomName(),
+  color: randomColor(),
+  picture: randomPicture(),
+  status: randomStatus()
+}
+---
+
+<BaseLayout>
+  <RandomUserInfo></RandomUserInfo>
+  <LiveblocksRoom
+    room-id={roomId}
+    public-key={key}
+  >
+    <PanelLayout>
+      <Title text="Live user form">
+        Change the current user's properties with &lt;live-user-form&gt;
+      </Title>
+
+      <!-- live-form's child inputs are automatically shared, must have a unique name -->
+      <LiveUserForm>
+        <InputText name="user-name" label="Username" placeholder="Enter your username" />
+        <InputText name="user-color" label="Color" placeholder="Enter your color" />
+        <InputText name="user-picture" label="Picture" placeholder="Enter your picture URL" />
+        <InputText name="user-status" label="Status" placeholder="Enter your status" />
+        <label for="col" class="inline-block text-sm font-medium text-gray-700 mb-1.5 select-none">
+          Choose a color
+        </label>
+        <input id="col" name="user-color" type="color" class="block w-18 h-9" />
+      </LiveUserForm>
+
+      <TitleSmall>
+        How to use
+      </TitleSmall>
+
+      <Paragraph>
+        Set the current user's properties (name, color etc.) using child input elements.
+        Updates are propagated on 'input' events. Not just compatible with text inputs.
+      </Paragraph>
+
+<Code lang="astro" code={`---
+import LiveForm from '../lib/LiveForm.astro'
+---
+<LiveForm>
+  <!-- Change your name -->
+  <input name="user-name" />
+
+  <!-- Change your color -->
+  <input name="user-color" />
+
+  <!-- Change your picture -->
+  <input name="user-picture" />
+
+  <!-- Change your status -->
+  <input name="user-status" />
+</LiveForm>`} />
+or
+<Code lang="astro" code={`---
+import '../lib/live-form'
+---
+<live-form client:load>
+  <!-- Change your name -->
+  <input name="user-name" />
+
+  <!-- Change your color -->
+  <input name="user-color" />
+
+  <!-- Change your picture -->
+  <input name="user-picture" />
+
+  <!-- Change your status -->
+  <input name="user-status" />
+</live-form>`} />
+
+      <WrapAllNote></WrapAllNote>
+
+
+    </PanelLayout>
+  </LiveblocksRoom>
+</BaseLayout>

@@ -1,3 +1,14 @@
-<pre
+---
+import { Code } from 'astro/components'
+const { code = '', lang = '' } = Astro.props
+---
+
+<div
   class="bg-gray-50 px-5 py-4 max-w-screen-sm my-6"
-><code><slot></slot></code></pre>
+><Code code={code} lang={lang} class="border-4" theme="min-light" /></div>
+
+<style is:global>
+  .astro-code {
+    background-color: #F9FAFB !important;
+  }
+</style>

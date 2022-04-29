@@ -1,12 +1,14 @@
 ---
-import '../lib/liveblocks-room'
-import '../lib/live-avatars'
+import LiveAvatars from '../lib/LiveAvatars.astro'
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
+import RandomUserInfo from '../lib/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import TitleSmall from '../components/TitleSmall.astro'
 import Paragraph from '../components/Paragraph.astro'
+import WrapAllNote from '../components/WrapAllNote.astro'
 import InputText from '../components/InputText.astro'
 import InputNumber from '../components/InputNumber.astro'
 import InputDropdown from '../components/InputDropdown.astro'
@@ -28,66 +30,60 @@ const user = {
 ---
 
 <BaseLayout>
-  <liveblocks-room
-    user-name={user.name}
-    user-color={user.color}
-    user-picture={user.picture}
-    user-status={user.status}
+  <RandomUserInfo></RandomUserInfo>
+  <LiveblocksRoom
     room-id={roomId}
     public-key={key}
-    client:load
   >
+
     <PanelLayout>
       <Title text="Live avatar stack">
         See users currently online with &lt;live-avatars&gt;
       </Title>
 
-      <!-- live-form's child inputs are automatically shared, must have a unique name -->
-      <live-avatars
-        client:load
-      ></live-avatars>
+      <LiveAvatars></LiveAvatars>
 
       <TitleSmall>
         How to use
       </TitleSmall>
 
       <Paragraph>
-        Just add &lt;live-avatars&gt;.
+        Add &lt;LiveAvatars&gt;. Change size="" and show="" attributes for more options.
       </Paragraph>
 
-            <Code>---
+      <Code lang="astro" code={`---
 import LiveAvatars from '../lib/LiveAvatars.astro'
 ---
-&lt;!-- Basic -->
-&lt;LiveAvatars&gt;&lt;/LiveAvatars&gt;
+<!-- Basic -->
+<LiveAvatars></LiveAvatars>
 
-&lt;!-- Change avatar size -->
-&lt;LiveAvatars size="32"&gt;&lt;/LiveAvatars&gt;
+<!-- Change avatar size -->
+<LiveAvatars size="32"></LiveAvatars>
 
-&lt;!-- Only show your avatar -->
-&lt;LiveAvatars show="self"&gt;&lt;/LiveAvatars&gt;
+<!-- Only show your avatar -->
+<LiveAvatars show="self"></LiveAvatars>
 
-&lt;!-- Only show other people's avatars -->
-&lt;LiveAvatars show="others"&gt;&lt;/LiveAvatars&gt;
-</Code>
+<!-- Only show other people's avatars -->
+<LiveAvatars show="others"></LiveAvatars>
+`} />
 
       or
 
-      <Code>---
+      <Code lang="astro" code={`---
 import '../lib/live-avatars'
 ---
-&lt;!-- Basic -->
-&lt;live-avatars client:load&gt;&lt;/live-avatars&gt;
+<!-- Basic -->
+<live-avatars client:load></live-avatars>
 
-&lt;!-- Change avatar size -->
-&lt;live-avatars size="32" client:load&gt;&lt;/live-avatars&gt;
+<!-- Change avatar size -->
+<live-avatars size="32" client:load></live-avatars>
 
-&lt;!-- Only show your avatar -->
-&lt;live-avatars show="self" client:load&gt;&lt;/live-avatars&gt;
+<!-- Only show your avatar -->
+<live-avatars show="self" client:load></live-avatars>
 
-&lt;!-- Only show other people's avatars -->
-&lt;live-avatars show="others" client:load&gt;&lt;/live-avatars&gt;
-</Code>
+<!-- Only show other people's avatars -->
+<live-avatars show="others" client:load></live-avatars>
+`} />
 
        <TitleSmall>
           Customise
@@ -97,28 +93,29 @@ import '../lib/live-avatars'
           Customise with CSS parts
         </Paragraph>
 
-      <Code>&lt;style&gt;
-live-avatars::part(avatar) {'{'}
+      <Code lang="css" code={`live-avatars::part(avatar) {
   padding: 12px;
-{'}'}
+}
 
-live-avatars::part(avatar_picture_wrapper) {'{'}
+live-avatars::part(avatar_picture_wrapper) {
   border: 2px solid black;
-{'}'}
-&lt/style&gt;</Code>
+}
+`} />
 
         <Paragraph>
           All CSS parts:
         </Paragraph>
 
-        <Code>user,
+        <Code code={`user,
 avatars,
 avatar,
 avatar_picture_wrapper,
 avatar_picture,
-avatar_fallback</Code>
+avatar_fallback`} />
+
+      <WrapAllNote></WrapAllNote>
 
 
     </PanelLayout>
-  </liveblocks-room>
+  </LiveblocksRoom>
 </BaseLayout>
