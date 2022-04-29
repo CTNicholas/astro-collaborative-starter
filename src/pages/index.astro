@@ -1,14 +1,12 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
 import '../lib/liveblocks-room'
 import '../lib/live-form'
 import '../lib/live-user-form'
 import '../lib/live-avatars'
-import '../lib/live-cursors'
+import LiveCursors from '../lib/LiveCursors.astro'
 import '../lib/live-canvas'
 import logoPic from '../../public/logo.svg'
 import BaseLayout from '../layouts/BaseLayout.astro'
-import ExampleRoom from '../components/ExampleRoom.astro'
 import UserHeader from '../components/UserHeader.astro'
 import UserPanel from '../components/UserPanel.astro'
 import InputText from '../components/InputText.astro'
@@ -155,10 +153,10 @@ const user = {
       </main>
     </div>
 
-    <live-cursors
+    <LiveCursors
       movement="perfect"
       client:load
-    ></live-cursors>
+    ></LiveCursors>
 
     </liveblocks-room>
 

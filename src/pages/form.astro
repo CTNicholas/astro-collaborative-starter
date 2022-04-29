@@ -2,7 +2,6 @@
 import '../lib/live-form'
 import '../lib/live-user-form'
 import '../lib/live-avatars'
-import '../lib/live-cursors'
 import '../lib/live-canvas'
 import logoPic from '../../public/logo.svg'
 import BaseLayout from '../layouts/BaseLayout.astro'
@@ -128,9 +127,6 @@ import InputDropdown from '../components/InputDropdown.astro'
       </main>
     </div>
 
-    <live-cursors
-      movement="perfect"
-      client:load
-    ></live-cursors>
+
   </ExampleRoom>
 </BaseLayout>

@@ -1,7 +1,8 @@
 import { html, LitElement, PropertyValues } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { PerfectCursor } from 'perfect-cursors'
+import * as perfectCursors from 'perfect-cursors'
 import './cursor-quick'
+const { PerfectCursor } = perfectCursors
 
 export const tagName = 'cursor-perfect'
 

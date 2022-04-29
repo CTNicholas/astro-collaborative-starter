@@ -6,7 +6,7 @@ import './cursor-smooth'
 import './cursor-quick'
 import './cursor-perfect'
 
-export const tagName = 'live-cursors'
+export const tagName = 'live-cursor'
 
 @customElement(tagName)
 class MyElement extends SelfAndOthersClass {
@@ -69,38 +69,38 @@ class MyElement extends SelfAndOthersClass {
       <slot></slot>
       <div part="cursors" class="cursors">
         ${this.others.map(user => {
-          if (!user?.cursor?.x || !user?.cursor?.y) {
-            return null
-          }
-          
-          if (this.movement === 'quick') {
-            return html`
+      if (!user?.cursor?.x || !user?.cursor?.y) {
+        return null
+      }
+
+      if (this.movement === 'quick') {
+        return html`
               <cursor-quick
                 color=${user.color}
                 x=${user.cursor.x} 
                 y=${user.cursor.y}
               ></cursor-quick>
             `
-          }
+      }
 
-          if (this.movement === 'perfect') {
-            return html`
+      if (this.movement === 'perfect') {
+        return html`
               <cursor-perfect
                 color=${user.color}
                 x=${user.cursor.x} 
                 y=${user.cursor.y}
               ></cursor-perfect>
             `
-          }
-          
-          return html`
+      }
+
+      return html`
             <cursor-smooth
               color=${user.color}
               x=${user.cursor.x} 
               y=${user.cursor.y}
             ></cursor-smooth>
           `
-        })}
+    })}
       </div>
     `
   }
