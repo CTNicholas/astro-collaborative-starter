@@ -4,13 +4,14 @@ import LiveUserForm from '../lib/LiveUserForm.astro'
 import RandomUserInfo from '../lib/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
+import Link from '../components/Link.astro'
 import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import TitleSmall from '../components/TitleSmall.astro'
 import Paragraph from '../components/Paragraph.astro'
-import WrapAllNote from '../components/WrapAllNote.astro'
 import InputText from '../components/InputText.astro'
+import ComponentGrid from '../components/ComponentGrid.astro'
 import { randomName, randomColor, randomPicture, randomStatus } from '../lib/utils/random'
 
 // Get your free public key from https://liveblocks.io
@@ -27,16 +28,35 @@ const roomId =  'astro-collaborative-starter-live-cursors'
     public-key={key}
   >
     <PanelLayout>
-      <Title text="Live cursors">
-        Enable multiplayer cursors with &lt;LiveCursors&gt;
+      <Title text="Liveblocks Room">
+        Enable multiplayer with &lt;LiveblocksRoom&gt;, powered by powered by
+        <Link href="https://liveblocks.io" newTab>Liveblocks</Link>
       </Title>
 
       <!-- LiveCursors added within PanelLayout element -->
       <Demo />
 
-      <div class="bg-gray-50 h-40 max-w-screen-sm flex justify-center items-center">
-        Open this page in two windows to see live cursors
-      </div>
+      <TitleSmall>
+        Add LiveblocksRoom
+      </TitleSmall>
+
+      <Paragraph>
+        You can use &lt;LiveblocksRoom&gt; to create a multiplayer room
+      </Paragraph>
+
+      <Code lang="astro" code={`---
+        const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+// The name of the multiplayer room
+const roomId = 'my-room'
+---
+<LiveblocksRoom
+  roomId={roomId}
+  public-key={key}
+>
+  <!-- Place all multiplayer components inside -->
+</LiveblocksRoom>
+`}/>
 
       <TitleSmall>
         How to use
@@ -60,7 +80,7 @@ import LiveCursors from '../lib/LiveCursors.astro'
 <LiveCursors selector="body" />`} />
 or
 <Code lang="astro" code={`---
-import '../lib/live-cursors'
+  import '../lib/live-cursors'
 ---
 <!-- No config needed, works already -->
 <live-cursor client:load />
@@ -71,7 +91,10 @@ import '../lib/live-cursors'
 <!-- CSS selector of pointer event element, default: body -->
 <live-cursor selector="#app" client:load />`} />
 
-      <WrapAllNote></WrapAllNote>
+      <TitleSmall>
+        Add multiplayer components
+      </TitleSmall>
+      <ComponentGrid />
 
     </PanelLayout>
   </LiveblocksRoom>

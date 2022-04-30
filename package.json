@@ -17,8 +17,8 @@
     "lit": "^2.2.2"
   },
   "dependencies": {
-    "@liveblocks/client": "^0.16.1",
-    "@liveblocks/react": "^0.16.1",
+    "@liveblocks/client": "^0.16.2",
+    "@liveblocks/react": "^0.16.2",
     "perfect-cursors": "^1.0.5",
     "perfect-freehand": "^1.0.16"
   }

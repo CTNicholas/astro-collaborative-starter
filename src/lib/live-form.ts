@@ -3,19 +3,29 @@ import { LiveObjectClass } from './utils/LiveObjectClass'
 import { html, PropertyValues } from 'lit'
 import globals from '../globals'
 import { LiveObject } from '@liveblocks/client'
+import { User } from '../types'
 
 export const tagName = 'live-form'
 
 // These elements are watching for input events
 const watchedInputs = ['input', 'select', 'textarea']
 
+type InputType = {
+  value: string | number
+  focus: User | null
+}
+
+type LiveObjectType = {
+  [key: string]: InputType
+}
+
 @customElement(tagName)
 export class LiveForm extends LiveObjectClass {
   @property({ reflect: true })
-  name
+  name: string
 
   @property()
-  visible = false
+  visible: boolean = false
 
   connectedCallback () {
     super.connectedCallback()
@@ -25,13 +35,19 @@ export class LiveForm extends LiveObjectClass {
     super.whenLiveObjectReady()
 
     this.updateInputs(this.LiveObject)
-    globals.room.subscribe(this.LiveObject, (obj: LiveObject) => {
+    globals.room.subscribe(this.LiveObject, (obj: LiveObject<LiveObjectType>) => {
       this.updateInputs(obj)
     })
     this.visible = true
+
+    addEventListener('beforeunload', () => {
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur()
+      }
+    })
   }
 
-  updateInputs (obj: LiveObject) {
+  updateInputs (obj: LiveObject<LiveObjectType>) {
     Object.entries(obj.toObject()).map(([key, val]) => {
       const selector = watchedInputs.map(sel => `${sel}[name=${key}]`).join(', ')
       const elements = this.querySelectorAll(selector)
@@ -85,9 +101,7 @@ export class LiveForm extends LiveObjectClass {
       }
 
       globals.room.batch(() => {
-        const user = globals.room.getPresence()
         const { connectionId } = globals.room.getSelf()
-        console.log(self)
         const current = this.LiveObject.get(target.name)
         if (current?.focus && current.focus.id !== connectionId) {
           return

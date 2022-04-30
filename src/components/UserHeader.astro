@@ -4,10 +4,10 @@ import HeaderBar from './HeaderBar.astro'
 ---
 
 <HeaderBar>
-  <div slot="left">
+  <div slot="left" class="mx-5">
     <slot name="logo"></slot>
   </div>
-  <div slot="right">
+  <div slot="right" class="flex items-center mx-5">
     <live-avatars
       size="40"
       client:visible

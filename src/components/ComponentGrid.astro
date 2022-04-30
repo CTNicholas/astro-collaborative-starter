@@ -1,0 +1,15 @@
+---
+import { links } from '../links'
+---
+
+<div class="grid grid-cols-2 gap-5 max-w-screen-md mt-5">
+  {links.map(({ slug, name, tag, image }) => (
+    <a href={slug} class="block bg-gray-50 group transition-colors rounded-xl relative aspect-[2/1]">
+      <div class="opacity-80 group-hover:opacity-100 transition-opacity">
+        <img class="w-full" src={image} alt="" />
+        <div class="absolute bottom-3 left-4 font-semibold text-lg">{name}</div>
+        <div class="absolute top-3 right-4 opacity-50 font-mono">{tag}</div>
+      </div>
+    </a>
+  ))}
+</div>
