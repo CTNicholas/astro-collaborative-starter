@@ -51,7 +51,8 @@ const user = {
       </TitleSmall>
 
       <Paragraph>
-        Add &lt;LiveAvatars&gt;. Change size="" and show="" attributes for more options.
+        Add &lt;LiveAvatars&gt;. If the user has no picture, a placeholder made from the user's color and name will be displayed.
+        Change size="" and show="" attributes for more options.
       </Paragraph>
 
       <Code lang="astro" code={`---
@@ -60,7 +61,7 @@ import LiveAvatars from '../lib/LiveAvatars.astro'
 <!-- Basic -->
 <LiveAvatars></LiveAvatars>
 
-<!-- Change avatar size -->
+<!-- Change avatar size (pixels) -->
 <LiveAvatars size="32"></LiveAvatars>
 
 <!-- Only show your avatar -->
@@ -78,7 +79,7 @@ import '../lib/live-avatars'
 <!-- Basic -->
 <live-avatars client:load></live-avatars>
 
-<!-- Change avatar size -->
+<!-- Change avatar size (pixels) -->
 <live-avatars size="32" client:load></live-avatars>
 
 <!-- Only show your avatar -->
@@ -93,7 +94,7 @@ import '../lib/live-avatars'
         </TitleSmall>
 
         <Paragraph>
-          Customise with CSS parts
+          Customise with CSS parts:
         </Paragraph>
 
       <Code lang="css" code={`live-avatars::part(avatar) {

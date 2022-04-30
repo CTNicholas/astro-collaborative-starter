@@ -1,5 +1,11 @@
 export const links = [
   {
+    slug: 'liveblocks-room',
+    name: 'Main component',
+    tag: '<LiveblocksRoom>',
+    image: 'card-main.png'
+  },
+  {
     slug: 'live-cursors',
     name: 'Multiplayer cursors',
     tag: '<LiveCursors>',

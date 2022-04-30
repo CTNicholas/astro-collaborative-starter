@@ -13,6 +13,7 @@ import Paragraph from '../components/Paragraph.astro'
 import InputText from '../components/InputText.astro'
 import ComponentGrid from '../components/ComponentGrid.astro'
 import { randomName, randomColor, randomPicture, randomStatus } from '../lib/utils/random'
+import GetPublicKey from '../components/GetPublicKey.astro'
 
 // Get your free public key from https://liveblocks.io
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
@@ -33,19 +34,22 @@ const roomId =  'astro-collaborative-starter-live-cursors'
         <Link href="https://liveblocks.io" newTab>Liveblocks</Link>
       </Title>
 
-      <!-- LiveCursors added within PanelLayout element -->
-      <Demo />
 
       <TitleSmall>
-        Add LiveblocksRoom
+        Get your free API key
+      </TitleSmall>
+      <GetPublicKey />
+
+      <TitleSmall>
+        Wrap your app
       </TitleSmall>
 
       <Paragraph>
-        You can use &lt;LiveblocksRoom&gt; to create a multiplayer room
+        You can use &lt;LiveblocksRoom&gt; to create a multiplayer room and enable every other component.
       </Paragraph>
 
       <Code lang="astro" code={`---
-        const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 
 // The name of the multiplayer room
 const roomId = 'my-room'
@@ -68,16 +72,19 @@ const roomId = 'my-room'
       </Paragraph>
 
 <Code lang="astro" code={`---
-import LiveCursors from '../lib/LiveCursors.astro'
+import LiveeblocksRoomfrom '../lib/LiveblocksRoom.astro'
 ---
-<!-- No config needed, works already -->
-<LiveCursors />
+<!-- Default user settings -->
+<LiveblocksRoom
+  room-id={roomId}
+  public-key={key}
+>
 
 <!-- A quicker, but less smooth, animation -->
-<LiveCursors movement="quick" />
-
-<!-- CSS selector of pointer event element, default: html -->
-<LiveCursors selector="body" />`} />
+<LiveblocksRoom
+  room-id={roomId}
+  public-key={key}
+>`} />
 or
 <Code lang="astro" code={`---
   import '../lib/live-cursors'

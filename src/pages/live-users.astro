@@ -46,7 +46,8 @@ const roomId =  'astro-collaborative-starter-live-users'
       </TitleSmall>
 
       <Paragraph>
-        Add &lt;LiveUsers&gt;. Change size="", show="", self-suffix="" attributes for more options.
+        Add &lt;LiveUsers&gt;. If the user has no picture, a placeholder made from the user's color and name will be displayed.
+        Change size="", show="", self-suffix="" attributes for more options.
       </Paragraph>
 
 <Code lang="astro" code={`---
@@ -76,7 +77,7 @@ import '../lib/live-users'
 <!-- Basic -->
 <live-users client:load></live-users>
 
-<!-- Change avatar size -->
+<!-- Change avatar size (pixels) -->
 <live-users size="32" client:load></live-users>
 
 <!-- Only show your user info -->

@@ -6,6 +6,7 @@ import RandomUserInfo from '../lib/RandomUserInfo.astro'
 import Title from '../components/Title.astro'
 import TitleSmall from '../components/TitleSmall.astro'
 import Paragraph from '../components/Paragraph.astro'
+import ComponentMain from '../components/ComponentMain.astro'
 import ComponentGrid from '../components/ComponentGrid.astro'
 import GetPublicKey from '../components/GetPublicKey.astro'
 import Link from '../components/Link.astro'
@@ -36,6 +37,47 @@ const roomId =  'astro-collaborative-starter-index'
           </a>
         </div>
       </Title>
+
+      <TitleSmall>
+        Welcome!
+      </TitleSmall>
+
+      <Paragraph>
+        Looking to add collaboration to Astro? You've come to the right spot, Astroneer 🚀
+        This starter kit contains a set of quick and easy elements for adding multiplayer presence to your app.
+        But is it really that easy?
+      </Paragraph>
+
+      <Code lang="astro" code={`---
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
+import LiveCursors from '../lib/LiveCursors.astro'
+---
+<LiveblocksRoom room-id="my-room" public-key="...">
+  <LiveCursors />
+</LiveblocksRoom>
+`}/>
+
+      <Paragraph>
+        Bam! Five lines of code, and you already have multiplayer cursors. It's really that simple.
+        To learn more, take a look at the <Link href="/quick-start">quick start guide,</Link> or
+        have a play with the demos below.
+      </Paragraph>
+
+      <TitleSmall>
+        Quick start
+      </TitleSmall>
+
+      <a href="/quick-start" class="max-w-screen-md mt-5 block bg-gray-50 transition-all ring-0 ring-rose-400 hover:ring-2 rounded-xl relative aspect-[2/1]">
+        <img class="w-full pt-8" src="/header.svg" alt="" />
+        <div class="absolute bottom-3 left-4 font-semibold text-lg">Quick start guide</div>
+        <div class="absolute top-3 right-4 opacity-50 font-mono">{'Introduction'}</div>
+      </a>
+
+      <TitleSmall>
+        Components
+      </TitleSmall>
+
+      <ComponentGrid />
 
       <Demo />
 
@@ -76,22 +118,7 @@ const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
   })
 </script>
 `}/>
-      <TitleSmall>
-        Main component
-      </TitleSmall>
-      <a href="/liveblocks-room" class="max-w-screen-md mt-5 block bg-gray-50 group transition-colors rounded-xl relative aspect-[2/1]">
-        <div class="opacity-80 group-hover:opacity-100 transition-opacity">
-          <img class="w-full pt-8" src="/header.svg" alt="" />
-          <div class="absolute bottom-3 left-4 font-semibold text-lg">LiveblocksRoom</div>
-          <div class="absolute top-3 right-4 opacity-50 font-mono">{'<LiveblocksRoom>'}</div>
-        </div>
-      </a>
 
-      <TitleSmall>
-        Multiplayer Components
-      </TitleSmall>
-
-      <ComponentGrid />
 
     </PanelLayout>
   </LiveblocksRoom>

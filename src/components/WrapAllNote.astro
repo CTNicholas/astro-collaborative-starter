@@ -1,4 +1,6 @@
 ---
+import ComponentMain from './ComponentMain.astro'
+import ComponentGrid from './ComponentGrid.astro'
 import TitleSmall from './TitleSmall.astro'
 import Paragraph from './Paragraph.astro'
 import Link from './Link.astro'
@@ -8,6 +10,15 @@ import Link from './Link.astro'
 </TitleSmall>
 
 <Paragraph>
-  All elements must be wrapped in a single <Link href="/liveblocks-room">LiveblocksRoom</Link> component.
-  It's advised to wrap your whole page inside &lt;LiveblocksRoom&gt;.
+  All multiplayer components must be wrapped in a single <Link href="/liveblocks-room">LiveblocksRoom</Link> component.
 </Paragraph>
+
+<TitleSmall>
+  Main Component
+</TitleSmall>
+<ComponentMain />
+
+<TitleSmall>
+  Other multiplayer components
+</TitleSmall>
+<ComponentGrid />
