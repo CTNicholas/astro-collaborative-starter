@@ -10,7 +10,7 @@ export const tagName = 'live-form'
 const watchedInputs = ['input', 'select', 'textarea']
 
 @customElement(tagName)
-export class MyElement extends LiveObjectClass {
+export class LiveForm extends LiveObjectClass {
   @property({ reflect: true })
   name
 

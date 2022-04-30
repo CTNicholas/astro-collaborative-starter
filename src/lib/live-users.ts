@@ -7,7 +7,7 @@ import './user-line'
 export const tagName = 'live-users'
 
 @customElement(tagName)
-class MyElement extends SelfAndOthersClass {
+export class LiveUsers extends SelfAndOthersClass {
   @property({ reflect: true })
   size: string = '40'
 

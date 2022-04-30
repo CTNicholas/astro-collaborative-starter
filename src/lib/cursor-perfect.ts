@@ -7,8 +7,7 @@ const { PerfectCursor } = perfectCursors
 export const tagName = 'cursor-perfect'
 
 @customElement(tagName)
-class MyElement extends LitElement {
-
+export class CursorPerfect extends LitElement {
   @property({ reflect: true })
   color: string = '#000'
 

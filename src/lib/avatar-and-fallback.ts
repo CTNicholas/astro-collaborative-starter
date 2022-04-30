@@ -6,7 +6,7 @@ import { contrastingTextColor } from './utils/contrastingTextColor'
 export const tagName = 'avatar-and-fallback'
 
 @customElement(tagName)
-class MyElement extends SelfAndOthersClass {
+export class AvatarAndFallback extends SelfAndOthersClass {
   @property({ reflect: true })
   size: number = 40
 

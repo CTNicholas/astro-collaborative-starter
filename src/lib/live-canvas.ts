@@ -26,7 +26,7 @@ const options = {
 }
 
 @customElement(tagName)
-class MyElement extends LiveObjectClass {
+export class LiveCanvas extends LiveObjectClass {
   @property({ reflect: true })
   name
 

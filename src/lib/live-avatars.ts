@@ -6,7 +6,7 @@ import './avatar-and-fallback'
 export const tagName = 'live-avatars'
 
 @customElement(tagName)
-class MyElement extends SelfAndOthersClass {
+export class LiveAvatars extends SelfAndOthersClass {
   @property({ reflect: true })
   size: string = '40'
 

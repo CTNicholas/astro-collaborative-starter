@@ -9,7 +9,7 @@ import './cursor-perfect'
 export const tagName = 'live-cursor'
 
 @customElement(tagName)
-class MyElement extends SelfAndOthersClass {
+export class LiveCursors extends SelfAndOthersClass {
 
   @property({ reflect: true })
   movement: 'smooth' | 'quick' | 'perfect' = 'smooth'
@@ -36,12 +36,11 @@ class MyElement extends SelfAndOthersClass {
   }
 
   updateCursor (event) {
-    console.log(567, this.elem, this)
     if (!this.elem) {
       return
     }
 
-    console.log(123, this.elem, this.elem.scrollTop)
+    // TODO percentage as well as pixels
     globals.room.updatePresence({
       cursor: {
         x: Math.round(event.clientX + this.elem.scrollLeft),
@@ -74,38 +73,38 @@ class MyElement extends SelfAndOthersClass {
       <slot></slot>
       <div part="cursors" class="cursors">
         ${this.others.map(user => {
-      if (!user?.cursor?.x || !user?.cursor?.y) {
-        return null
-      }
-
-      if (this.movement === 'quick') {
-        return html`
+          if (!user?.cursor?.x || !user?.cursor?.y) {
+            return null
+          }
+    
+          if (this.movement === 'quick') {
+            return html`
               <cursor-quick
                 color=${user.color}
                 x=${user.cursor.x} 
                 y=${user.cursor.y}
               ></cursor-quick>
             `
-      }
-
-      if (this.movement === 'perfect') {
-        return html`
+          }
+    
+          if (this.movement === 'perfect') {
+            return html`
               <cursor-perfect
                 color=${user.color}
                 x=${user.cursor.x} 
                 y=${user.cursor.y}
               ></cursor-perfect>
             `
-      }
-
-      return html`
+          }
+    
+          return html`
             <cursor-smooth
               color=${user.color}
               x=${user.cursor.x} 
               y=${user.cursor.y}
             ></cursor-smooth>
           `
-    })}
+        })}
       </div>
     `
   }

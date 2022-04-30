@@ -12,8 +12,7 @@ const springSettings = {
 }
 
 @customElement(tagName)
-class MyElement extends LitElement {
-
+export class CursorSmooth extends LitElement {
   @property({ reflect: true })
   color: string = '#000'
 

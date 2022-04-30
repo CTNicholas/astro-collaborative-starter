@@ -5,8 +5,7 @@ import { styleMap } from 'lit/directives/style-map.js'
 export const tagName = 'cursor-quick'
 
 @customElement(tagName)
-class MyElement extends LitElement {
-
+export class CursorQuick extends LitElement {
   @property({ reflect: true })
   color: string = '#000'
 

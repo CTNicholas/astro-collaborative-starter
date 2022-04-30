@@ -6,7 +6,7 @@ import './avatar-and-fallback'
 export const tagName = 'user-line'
 
 @customElement(tagName)
-class MyElement extends SelfAndOthersClass {
+export class UserLine extends SelfAndOthersClass {
   @property({ reflect: true })
   size: number = 40
 
