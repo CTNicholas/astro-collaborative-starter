@@ -2,6 +2,7 @@ import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
 import './avatar-and-fallback'
+import type { UserShow } from '../types'
 
 export const tagName = 'live-avatars'
 
@@ -11,7 +12,7 @@ export class LiveAvatars extends SelfAndOthersClass {
   size: string = '40'
 
   @property({ reflect: true })
-  show: 'all' | 'self' | 'others' = 'all'
+  show: UserShow = 'all'
 
   static styles = css`
     .main {

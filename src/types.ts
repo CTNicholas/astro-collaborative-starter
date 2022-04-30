@@ -6,3 +6,5 @@ export type User = {
   cursor?: null | { x: number, y: number }
   [key: string]: any
 }
+
+export type UserShow = 'all' | 'self' | 'others'

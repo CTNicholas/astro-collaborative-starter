@@ -1,8 +1,14 @@
 ---
 import './live-cursors'
-const { movement, selector, element } = Astro.props
+
+export interface Props {
+  movement?: 'quick' | 'smooth' | 'perfect';
+  selector?: string;
+}
+
+const { movement, selector } = Astro.props
 ---
 
-<live-cursor movement={movement} selector={selector} element={element} client:load>
+<live-cursor movement={movement} selector={selector} client:load>
   <slot></slot>
 </live-cursor>

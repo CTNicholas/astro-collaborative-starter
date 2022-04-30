@@ -1,5 +1,13 @@
 ---
 import './live-users'
+import type { UserShow } from '../types'
+
+export interface Props {
+  size?: number | string;
+  show?: UserShow;
+  'self-suffix'?: string;
+}
+
 const { size, show, 'self-suffix': selfSuffix } = Astro.props
 ---
 

@@ -3,6 +3,7 @@ import { customElement, property } from 'lit/decorators.js'
 import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
 import './avatar-and-fallback'
 import './user-line'
+import type { UserShow } from '../types'
 
 export const tagName = 'live-users'
 
@@ -12,7 +13,7 @@ export class LiveUsers extends SelfAndOthersClass {
   size: string = '40'
 
   @property({ reflect: true })
-  show: 'all' | 'self' | 'others' = 'all'
+  show: UserShow
 
   @property({ reflect: true })
   'self-suffix': string = ' (you)'
