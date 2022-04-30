@@ -39,6 +39,15 @@ class MyElement extends SelfAndOthersClass {
       justify-content: center;
       align-items: start;
       padding-left: 0.75em;
+      overflow-x: hidden;
+    }
+        
+    .user_name, .user_status {
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .user_status {
