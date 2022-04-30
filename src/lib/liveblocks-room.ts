@@ -6,7 +6,7 @@ import { isServer } from './utils/isServer'
 export const tagName = 'liveblocks-room'
 
 @customElement(tagName)
-class MyElement extends LitElement {
+export class LiveblocksRoom extends LitElement {
   @property({ reflect: true })
   ['user-name']?: string = 'Guest'
 
@@ -67,6 +67,16 @@ class MyElement extends LitElement {
       picture: this['user-picture'],
       status: this['user-status'],
     }
+  }
+
+  setUser (values) {
+    if (!values) {
+      return
+    }
+
+    Object.entries(values).forEach(([key, val]) => {
+      this['user-' + key] = val
+    })
   }
 
   // When `user-` properties update, update Liveblocks presence

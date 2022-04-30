@@ -3,12 +3,12 @@ import { customElement, property } from 'lit/decorators.js'
 import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
 import './avatar-and-fallback'
 import './user-line'
-import globals from '../globals'
+import { LiveblocksRoom } from './liveblocks-room'
 
 export const tagName = 'live-user-form'
 
 @customElement(tagName)
-class MyElement extends SelfAndOthersClass {
+export class LiveUserForm extends SelfAndOthersClass {
   @property({ type: Boolean })
   visible: boolean = false
 
@@ -35,7 +35,8 @@ class MyElement extends SelfAndOthersClass {
       }
 
       inputElement.addEventListener('input', () => {
-        globals.room.updatePresence({ [key]: inputElement.value })
+        const room: LiveblocksRoom = document.querySelector('liveblocks-room')
+        room.setUser({ [key]: inputElement.value })
       })
     })
   }
