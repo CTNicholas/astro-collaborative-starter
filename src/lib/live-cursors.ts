@@ -15,31 +15,37 @@ class MyElement extends SelfAndOthersClass {
   movement: 'smooth' | 'quick' | 'perfect' = 'smooth'
 
   @property({ reflect: true })
-  selector: string = 'html'
+  selector: string
 
   @property()
-  element: HTMLElement
+  elem: HTMLElement
 
   connectedCallback () {
     super.connectedCallback()
-    this.element = document.querySelector(this.selector)
-    this.element.addEventListener('pointermove', this.updateCursor)
-    this.element.addEventListener('pointerleave', this.removeCursor)
+    this.elem = this.selector ? document.querySelector(this.selector) : document.body
+    this.elem.addEventListener('pointermove', event => this.updateCursor(event))
+    this.elem.addEventListener('pointerleave', () => this.removeCursor())
   }
 
   disconnectedCallback () {
     super.disconnectedCallback()
-    if (this.element) {
-      this.element.removeEventListener('pointermove', this.updateCursor)
-      this.element.removeEventListener('pointerleave', this.removeCursor)
+    if (this.elem) {
+      this.elem.removeEventListener('pointermove', event => this.updateCursor(event))
+      this.elem.removeEventListener('pointerleave', () => this.removeCursor())
     }
   }
 
   updateCursor (event) {
+    console.log(567, this.elem, this)
+    if (!this.elem) {
+      return
+    }
+
+    console.log(123, this.elem, this.elem.scrollTop)
     globals.room.updatePresence({
       cursor: {
-        x: Math.round(event.clientX + document.documentElement.scrollLeft),
-        y: Math.round(event.clientY + document.documentElement.scrollTop),
+        x: Math.round(event.clientX + this.elem.scrollLeft),
+        y: Math.round(event.clientY + this.elem.scrollTop),
       },
     })
   }
@@ -59,7 +65,6 @@ class MyElement extends SelfAndOthersClass {
       bottom: 0;
       left: 0;
       pointer-events: none;
-      overflow: hidden;
       z-index: 100000;
     }
   `
