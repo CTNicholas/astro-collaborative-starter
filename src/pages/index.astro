@@ -54,23 +54,25 @@ const roomId =  'astro-collaborative-starter-index'
       </Paragraph>
 
       <Code lang="astro" code={`---
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
+
 // Liveblocks.io free public key
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 ---
 
-<!-- Place all multiplayer components inside LiveblocksRoom -->
-<LiveblocksRoom
-  roomId="my-liveblocks-room"
-  public-key={key}
->
+<!-- Place your multiplayer app inside LiveblocksRoom -->
+<LiveblocksRoom roomId="my-room" public-key={key}>
+
   <!-- Adds multiplayer cursors -->
   <LiveCursors />
+
 </LiveblocksRoom>
 
 <!-- Set local user's properties -->
 <script>
   document.querySelector('liveblocks-room').setUser({
-    color: 'red' // User has red cursor
+    name: 'Chris',
+    color: 'red' // User now has a red cursor
   })
 </script>
 `}/>
