@@ -72,31 +72,53 @@ const roomId = 'my-room'
       </Paragraph>
 
 <Code lang="astro" code={`---
-import LiveeblocksRoomfrom '../lib/LiveblocksRoom.astro'
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
 ---
 <!-- Default user settings -->
 <LiveblocksRoom
-  room-id={roomId}
-  public-key={key}
+  room-id="my-room"
+  public-key="pk_live_xxxxxxxxxxxxxxxxxxxxxxxxx"
 >
+  <!-- Multiplayer components inside -->
+</LiveblocksRoom>
 
-<!-- A quicker, but less smooth, animation -->
+<!-- Setting user properties by attribute -->
 <LiveblocksRoom
-  room-id={roomId}
-  public-key={key}
->`} />
+  room-id="my-room"
+  public-key="pk_live_xxxxxxxxxxxxxxxxxxxxxxxxx"
+  user-name="Chris"
+  user-color="#00ff00"
+  user-picture="/url-of-img.png"
+  user-status="In a call"
+>
+  <!-- Multiplayer components inside -->
+</LiveblocksRoom>`} />
+
 or
 <Code lang="astro" code={`---
-  import '../lib/live-cursors'
+import LiveblocksRoom from '../lib/liveblocks-room'
 ---
-<!-- No config needed, works already -->
-<live-cursor client:load />
+<!-- Default user settings -->
+<liveblocks-room
+  room-id="my-room"
+  public-key="pk_live_xxxxxxxxxxxxxxxxxxxxxxxxx"
+  client:load
+>
+  <!-- Multiplayer components inside -->
+</liveblocks-room>
 
-<!-- Use quicker, less smooth, animation -->
-<live-cursor movement="quick" client:load />
-
-<!-- CSS selector of pointer event element, default: body -->
-<live-cursor selector="#app" client:load />`} />
+<!-- Setting user properties by attribute -->
+<liveblocks-room
+  room-id="my-room"
+  public-key="pk_live_xxxxxxxxxxxxxxxxxxxxxxxxx"
+  user-name="Chris"
+  user-color="#00ff00"
+  user-picture="/url-of-img.png"
+  user-status="In a call"
+  client:load
+>
+  <!-- Multiplayer components inside -->
+</liveblocks-room>`} />
 
       <TitleSmall>
         Add multiplayer components

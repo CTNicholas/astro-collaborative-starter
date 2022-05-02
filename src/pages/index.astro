@@ -8,7 +8,6 @@ import TitleSmall from '../components/TitleSmall.astro'
 import Paragraph from '../components/Paragraph.astro'
 import ComponentMain from '../components/ComponentMain.astro'
 import ComponentGrid from '../components/ComponentGrid.astro'
-import GetPublicKey from '../components/GetPublicKey.astro'
 import Link from '../components/Link.astro'
 import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
@@ -79,45 +78,7 @@ import LiveCursors from '../lib/LiveCursors.astro'
 
       <ComponentGrid />
 
-      <Demo />
 
-      <TitleSmall>
-        How to use
-      </TitleSmall>
-
-      <GetPublicKey />
-
-      <TitleSmall>
-        Add LiveblocksRoom
-      </TitleSmall>
-
-      <Paragraph>
-        You can use &lt;LiveblocksRoom&gt; to create a multiplayer room
-      </Paragraph>
-
-      <Code lang="astro" code={`---
-import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
-
-// Liveblocks.io free public key
-const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
----
-
-<!-- Place your multiplayer app inside LiveblocksRoom -->
-<LiveblocksRoom roomId="my-room" public-key={key}>
-
-  <!-- Adds multiplayer cursors -->
-  <LiveCursors />
-
-</LiveblocksRoom>
-
-<!-- Set local user's properties -->
-<script>
-  document.querySelector('liveblocks-room').setUser({
-    name: 'Chris',
-    color: 'red' // User now has a red cursor
-  })
-</script>
-`}/>
 
 
     </PanelLayout>

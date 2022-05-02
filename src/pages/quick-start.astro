@@ -1,0 +1,97 @@
+---
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
+import LiveForm from '../lib/LiveForm.astro'
+import RandomUserInfo from '../lib/RandomUserInfo.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import PanelLayout from '../layouts/PanelLayout.astro'
+import Demo from '../components/Demo.astro'
+import Code from '../components/Code.astro'
+import Title from '../components/Title.astro'
+import TitleSmall from '../components/TitleSmall.astro'
+import Paragraph from '../components/Paragraph.astro'
+import WrapAllNote from '../components/WrapAllNote.astro'
+import InputText from '../components/InputText.astro'
+import InputNumber from '../components/InputNumber.astro'
+import InputDropdown from '../components/InputDropdown.astro'
+import GetPublicKey from '../components/GetPublicKey.astro'
+import ComponentGrid from '../components/ComponentGrid.astro'
+import { randomName, randomColor, randomPicture, randomStatus } from '../lib/utils/random'
+
+// Get your free public key from https://liveblocks.io
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+// The name of the current room
+const roomId =  'astro-collaborative-starter-live-form'
+
+// The current user's info
+const user = {
+name: randomName(),
+color: randomColor(),
+picture: randomPicture(),
+status: randomStatus()
+}
+---
+
+<BaseLayout>
+  <RandomUserInfo></RandomUserInfo>
+  <LiveblocksRoom
+    room-id={roomId}
+    public-key={key}
+  >
+    <PanelLayout>
+      <Title text="Quick start">
+        Quick start your Astro collaborative app
+      </Title>
+
+
+
+      <Demo />
+
+      <TitleSmall>
+        How to use
+      </TitleSmall>
+
+      <GetPublicKey />
+
+      <TitleSmall>
+        Add LiveblocksRoom
+      </TitleSmall>
+
+      <Paragraph>
+        You can use &lt;LiveblocksRoom&gt; to create a multiplayer room
+      </Paragraph>
+
+      <Code lang="astro" code={`---
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
+
+// Liveblocks.io free public key
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+---
+
+<!-- Place your multiplayer app inside LiveblocksRoom -->
+<LiveblocksRoom roomId="my-room" public-key={key}>
+
+  <!-- Add your multiplayer components, e.g. live cursors -->
+  <LiveCursors />
+
+</LiveblocksRoom>
+
+<!-- Set local user's properties -->
+<script>
+  document.querySelector('liveblocks-room').setUser({
+    name: 'Chris',
+    color: 'red' // User now has a red cursor
+  })
+</script>
+`}/>
+
+
+      <TitleSmall>
+        Components
+      </TitleSmall>
+
+      <ComponentGrid />
+
+    </PanelLayout>
+  </LiveblocksRoom>
+</BaseLayout>
