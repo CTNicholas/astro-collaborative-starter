@@ -13,7 +13,7 @@ export class LiveUsers extends SelfAndOthersClass {
   size: string = '40'
 
   @property({ reflect: true })
-  show: UserShow
+  show: UserShow = 'all'
 
   @property({ reflect: true })
   'self-suffix': string = ' (you)'

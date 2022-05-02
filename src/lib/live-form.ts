@@ -5,6 +5,8 @@ import globals from '../globals'
 import { LiveObject } from '@liveblocks/client'
 import { User } from '../types'
 
+// TODO check form elements on Safari on browser stack for border radius
+
 export const tagName = 'live-form'
 
 // These elements are watching for input events
