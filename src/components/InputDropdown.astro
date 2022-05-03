@@ -12,7 +12,13 @@ const optionsArray = options.split(',')
   <select
     id={id || name}
     name={name}
-    class="px-3 py-3.5 mb-5 shadow-sm border focus:ring-1 focus:ring-gray-500 focus:border-gray-500 focus:outline-none focus-visible:outline-none block w-full sm:text-sm border-gray-300 rounded-md bg-white">
+    class="appearance-nonepx-3 py-3.5 mb-5 shadow-sm border focus:ring-1 focus:ring-gray-500 focus:border-gray-500 focus:outline-none focus-visible:outline-none block w-full sm:text-sm border-gray-300 rounded-md bg-white">
     {optionsArray.map(opt => <option class="p-3 font-inherit" value={opt}>{opt}</option>)}
   </select>
 </div>
+
+<style>
+  select {
+    -webkit-appearance: none;
+  }
+</style>

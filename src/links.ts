@@ -3,19 +3,13 @@ export const links = [
     slug: 'liveblocks-room',
     name: 'Main component',
     tag: '<LiveblocksRoom>',
-    image: 'card-main.png'
+    image: 'card-liveblocks.png'
   },
   {
     slug: 'live-cursors',
     name: 'Multiplayer cursors',
     tag: '<LiveCursors>',
     image: 'card-cursors.png'
-  },
-  {
-    slug: 'live-form',
-    name: 'Collaborative form',
-    tag: '<LiveForm>',
-    image: 'card-form.png'
   },
   {
     slug: 'live-avatars',
@@ -28,6 +22,12 @@ export const links = [
     name: 'Live user list',
     tag: '<LiveUsers>',
     image: 'card-users.png'
+  },
+  {
+    slug: 'live-form',
+    name: 'Collaborative form',
+    tag: '<LiveForm>',
+    image: 'card-form.png'
   },
   {
     slug: 'live-user-form',

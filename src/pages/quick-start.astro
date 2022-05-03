@@ -2,8 +2,10 @@
 import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
 import LiveForm from '../lib/LiveForm.astro'
 import RandomUserInfo from '../lib/RandomUserInfo.astro'
+import '../lib/user-line'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
+import Box from '../components/Box.astro'
 import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
@@ -58,33 +60,94 @@ status: randomStatus()
       </TitleSmall>
 
       <Paragraph>
-        You can use &lt;LiveblocksRoom&gt; to create a multiplayer room
+        You can use &lt;LiveblocksRoom&gt; to create a multiplayer room using your public key.
       </Paragraph>
 
       <Code lang="astro" code={`---
 import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
 
-// Liveblocks.io free public key
-const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+// Liveblocks.io free public key imported from .env file
+const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 ---
 
 <!-- Place your multiplayer app inside LiveblocksRoom -->
 <LiveblocksRoom roomId="my-room" public-key={key}>
 
-  <!-- Add your multiplayer components, e.g. live cursors -->
-  <LiveCursors />
+  <!-- Add your multiplayer components -->
+  <!-- Example: <LiveCursors /> -->
 
-</LiveblocksRoom>
+</LiveblocksRoom>`}/>
 
-<!-- Set local user's properties -->
+      <Paragraph>
+        All multiplayer components must be placed inside &lt;LiveblocksRoom>,
+        so it can be a good idea to wrap your whole app inside it. There can only be
+        a single &lt;LiveblocksRoom> per page.
+      </Paragraph>
+
+      <TitleSmall>
+        Setting user properties
+      </TitleSmall>
+
+      <Paragraph>
+        To set the current user's properties (name, color etc.), target `liveblocks-room` with querySelector, and
+        use the setUser method.
+      </Paragraph>
+
+      <Code lang="astro" code={`<script>
+  document.querySelector('liveblocks-room').setUser({
+    name: 'Chris',
+    color: 'red',
+    status: 'Available',
+    picture: '/avatars/4.png'
+  })
+</script>`} />
+
+        <Paragraph>
+          These properties will then be used in the multiplayer components, for example as
+          usernames, cursor colors, etc.
+        </Paragraph>
+
+        <TitleSmall>
+          LiveAvatars example
+        </TitleSmall>
+
+        <Paragraph>
+          This is a working &lt;LiveAvatars> example:
+        </Paragraph>
+
+              <Code lang="astro" code={`---
+import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
+import LiveUsers from '../lib/LiveUsers.astro'
+
+const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+---
 <script>
   document.querySelector('liveblocks-room').setUser({
     name: 'Chris',
-    color: 'red' // User now has a red cursor
+    color: 'red',
+    status: 'Online'
   })
 </script>
-`}/>
 
+<LiveblocksRoom roomId="my-room" public-key={key}>
+  <LiveUsers />
+</LiveblocksRoom>`}/>
+
+        <Paragraph>
+          Your user block will look like this:
+        </Paragraph>
+
+
+        <Box>
+          <user-line
+            class="-mb-2"
+            size="40"
+            name="Chris"
+            color="red"
+            picture=""
+            status="Online"
+          ></user-line>
+        </Box>
 
       <TitleSmall>
         Components
