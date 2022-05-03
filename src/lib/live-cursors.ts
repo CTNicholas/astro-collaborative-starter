@@ -36,7 +36,7 @@ export class LiveCursors extends SelfAndOthersClass {
   }
 
   updateCursor (event) {
-    if (!this.elem) {
+    if (!this.elem || !globals.room?.updatePresence) {
       return
     }
 

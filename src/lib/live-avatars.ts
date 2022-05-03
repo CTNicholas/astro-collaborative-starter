@@ -52,6 +52,11 @@ export class LiveAvatars extends SelfAndOthersClass {
   `
 
   render () {
+    if (!this.self?.name) {
+      // Causes hydration value mismatch, but necessary
+      return null
+    }
+
     let self
     let others
 

@@ -21,6 +21,21 @@ const {
 
 ---
 
+<script>
+  if (typeof window !== 'undefined') {
+    window.LiveblocksRoom = {
+      _tempUser: {},
+      _tempRoom: '',
+      setUser (info) {
+        this._tempUser = info
+      },
+      setRoom (id) {
+        this._tempRoom = id
+      }
+    }
+  }
+</script>
+
 <liveblocks-room
   user-name={name}
   user-color={color}

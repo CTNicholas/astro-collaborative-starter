@@ -1,11 +1,11 @@
 <script>
   (() => {
-    // Give user random user properties
-    const room = document.querySelector('liveblocks-room')
-    room['user-name'] = randomName()
-    room['user-color'] = randomColor()
-    room['user-picture'] = randomPicture()
-    room['user-status'] = randomStatus()
+    window.LiveblocksRoom.setUser({
+      name: randomName(),
+      color: randomColor(),
+      picture: randomPicture(),
+      status: randomStatus()
+    })
 
     // Functions for selecting random info
     function randomName () {

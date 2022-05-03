@@ -51,6 +51,15 @@ export class LiveblocksRoom extends LitElement {
     const { createClient } = await import('@liveblocks/client')
     globals.client = createClient({ publicApiKey: this['public-key'] })
     this.enterRoom(this['room-id'])
+
+    const w: any = window
+    if (w?.LiveblocksRoom?._tempUser) {
+      this.setUser(w.LiveblocksRoom._tempUser)
+    }
+    if (w?.LiveblocksRoom?._tempRoom) {
+      this.setRoom(w.LiveblocksRoom._tempRoom)
+    }
+    w.LiveblocksRoom = this
   }
 
   enterRoom (roomId) {
@@ -79,10 +88,24 @@ export class LiveblocksRoom extends LitElement {
     })
   }
 
+  getRoom () {
+    return this['room-id']
+  }
+
+  setRoom (newRoomId) {
+    const { client = null, room = null } = globals
+    if (client && room && newRoomId !== room.id) {
+      client.leave(room.id)
+      globals.room = null
+      this.enterRoom(newRoomId)
+      this.requestUpdate()
+    }
+  }
+
   // When `user-` properties update, update Liveblocks presence
   protected updated (changedProperties: PropertyValues) {
     super.updated(changedProperties)
-    changedProperties.forEach((_, key) => {
+    changedProperties.forEach((oldVal, key) => {
       if (this[key] === undefined) {
         return
       }
@@ -90,6 +113,11 @@ export class LiveblocksRoom extends LitElement {
       if (String(key).startsWith('user-')) {
         const prop = String(key).slice(5)
         this.updatePresenceValue(prop, this[key])
+        return
+      }
+
+      if (String(key) === 'room-id' && this[key]) {
+        this.setRoom(this[key])
         return
       }
     })
@@ -100,25 +128,6 @@ export class LiveblocksRoom extends LitElement {
       globals.room.updatePresence({ [key]: val })
     }
   }
-
-/*
-  set 'room-id' (newId) {
-    if (isServer()) {
-      return
-    }
-    console.log(globals)
-    const { client = null, room = null } = globals
-    console.log(client && room)
-    if (client && room && newId !== room.id) {
-      client.leave(room.id)
-      globals.room = null
-      this.enterRoom(newId)
-    }
-  }
-
- */
-
-
 
   render () {
     return html`<slot></slot>`

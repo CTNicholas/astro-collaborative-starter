@@ -31,7 +31,7 @@ export class UserLine extends SelfAndOthersClass {
       align-items: center;
       margin-bottom: 0.5em;
     }
-    
+
     .user_info {
       flex-grow: 1;
       display: flex;
@@ -41,7 +41,7 @@ export class UserLine extends SelfAndOthersClass {
       padding-left: 0.75em;
       overflow-x: hidden;
     }
-        
+
     .user_name, .user_status {
       width: 100%;
       display: block;
@@ -58,6 +58,10 @@ export class UserLine extends SelfAndOthersClass {
   `
 
   render () {
+    if (!this.name) {
+      return null
+    }
+
     return html`
       <div part="user" class="user">
         <avatar-and-fallback
