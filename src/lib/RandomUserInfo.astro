@@ -1,66 +1,78 @@
 <script>
   (() => {
-    window.LiveblocksRoom.setUser({
-      name: randomName(),
-      color: randomColor(),
-      picture: randomPicture(),
-      status: randomStatus()
-    })
+    setup()
 
-    // Functions for selecting random info
-    function randomName () {
-      const names = [
-        'Alfred',
-        'Becca',
-        'Christine',
-        'Declan',
-        'Eduardo',
-        'Faye',
-        'Gregg',
-        'Harriet',
-        'Indira',
-        'James',
-        'Kimberley',
-        'Leonardo'
-      ]
-      return names[Math.floor(Math.random() * names.length)]
+    if (import.meta.hot) {
+      import.meta.hot.on('vite:beforeUpdate', () => {
+        setTimeout(() => {
+          setup()
+        }, 1500)
+      })
     }
 
-    function randomColor () {
-      const colors = [
-        '#c45a5a',
-        '#c77430',
-        '#c7a210',
-        '#6fa611',
-        '#2f9a57',
-        '#28b8a5',
-        '#1aa5ba',
-        '#5081c7',
-        '#9969c9',
-        '#cc649a',
-      ]
-      return colors[Math.floor(Math.random() * colors.length)]
-    }
+    function setup () {
+      window.LiveblocksRoom.setUser({
+        name: randomName(),
+        color: randomColor(),
+        picture: randomPicture(),
+        status: randomStatus()
+      })
 
-    // `/public/avatars/X.png` or placeholder
-    function randomPicture () {
-      return Math.random() > 0.4 ? `/avatars/${Math.floor(Math.random() * 10)}.png` : ''
-    }
+      // Functions for selecting random info
+      function randomName () {
+        const names = [
+          'Alfred',
+          'Becca',
+          'Christine',
+          'Declan',
+          'Eduardo',
+          'Faye',
+          'Gregg',
+          'Harriet',
+          'Indira',
+          'James',
+          'Kimberley',
+          'Leonardo'
+        ]
+        return names[Math.floor(Math.random() * names.length)]
+      }
 
-    function randomStatus () {
-      const statuses = [
-        'Online',
-        'Busy',
-        'Away',
-        'On Holiday',
-        'Partying',
-        'Working',
-        'Studying',
-        'Available',
-        'Collaborating',
-        'In a call'
-      ]
-      return statuses[Math.floor(Math.random() * statuses.length)]
+      function randomColor () {
+        const colors = [
+          '#c45a5a',
+          '#c77430',
+          '#c7a210',
+          '#6fa611',
+          '#2f9a57',
+          '#28b8a5',
+          '#1aa5ba',
+          '#5081c7',
+          '#9969c9',
+          '#cc649a',
+        ]
+        return colors[Math.floor(Math.random() * colors.length)]
+      }
+
+      // `/public/avatars/X.png` or placeholder
+      function randomPicture () {
+        return Math.random() > 0.4 ? `/avatars/${Math.floor(Math.random() * 10)}.png` : ''
+      }
+
+      function randomStatus () {
+        const statuses = [
+          'Online',
+          'Busy',
+          'Away',
+          'On Holiday',
+          'Partying',
+          'Working',
+          'Studying',
+          'Available',
+          'Collaborating',
+          'In a call'
+        ]
+        return statuses[Math.floor(Math.random() * statuses.length)]
+      }
     }
   })()
 </script>
