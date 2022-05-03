@@ -1,5 +1,6 @@
 ---
 import logoPic from '/logo.svg'
+import Link from '../components/Link.astro'
 import UserHeader from '../components/UserHeader.astro'
 import UserPanel from '../components/UserPanel.astro'
 import LiveCursors from '../lib/LiveCursors.astro'
@@ -18,8 +19,13 @@ import LiveCursors from '../lib/LiveCursors.astro'
     <aside class="flex-grow-0 flex-shrink-0 bg-gray-50 w-72 pt-3">
       <UserPanel />
     </aside>
-    <main class="px-5 flex-grow pb-12">
+    <main class="px-5 flex-grow">
       <slot></slot>
+      <div class="w-full py-5 border-t mt-12">
+        <Link href="https://twitter.com/ctnicholasdev" newTab>
+          @ctnicholasdev
+        </Link>
+      </div>
     </main>
   </div>
 </div>

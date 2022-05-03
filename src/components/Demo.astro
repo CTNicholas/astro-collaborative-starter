@@ -6,6 +6,11 @@ import TitleSmall from './TitleSmall.astro'
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 ---
 {key ? (
+  <div class="mb-6">
+    <TitleSmall>
+      Open page in two windows
+    </TitleSmall>
+  </div>
   <slot></slot>
 ) : (
   <TitleSmall>Get your free API key to enable multiplayer</TitleSmall>
