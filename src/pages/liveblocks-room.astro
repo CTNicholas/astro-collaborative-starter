@@ -19,7 +19,7 @@ import GetPublicKey from '../components/GetPublicKey.astro'
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 
 // The name of the current room
-const roomId =  'astro-collaborative-starter-live-cursors'
+const roomId =  'astro-collaborative-starter-liveblocks-room'
 ---
 
 <BaseLayout>
@@ -30,45 +30,27 @@ const roomId =  'astro-collaborative-starter-live-cursors'
   >
     <PanelLayout>
       <Title text="Liveblocks Room">
-        Enable multiplayer with &lt;LiveblocksRoom&gt;, powered by powered by
+        Enable multiplayer with &lt;LiveblocksRoom&gt;, powered by
         <Link href="https://liveblocks.io" newTab>Liveblocks</Link>
       </Title>
 
-
       <TitleSmall>
-        Get your free API key
-      </TitleSmall>
-      <GetPublicKey />
-
-      <TitleSmall>
-        Wrap your app
+        Quick start
       </TitleSmall>
 
       <Paragraph>
-        You can use &lt;LiveblocksRoom&gt; to create a multiplayer room and enable every other component.
+        It's advised you read the <Link href="/quick-start">quick start</Link> page if you haven't already.
       </Paragraph>
 
-      <Code lang="astro" code={`---
-const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
-
-// The name of the multiplayer room
-const roomId = 'my-room'
----
-<LiveblocksRoom
-  roomId={roomId}
-  public-key={key}
->
-  <!-- Place all multiplayer components inside -->
-</LiveblocksRoom>
-`}/>
 
       <TitleSmall>
         How to use
       </TitleSmall>
 
       <Paragraph>
-        Set the current user's properties (name, color etc.) using child input elements.
-        Updates are propagated on 'input' events. Not just compatible with text inputs.
+        The room-id="" and public-key="" attributes are required. These correspond to the name of the room
+        currently being shared by users, and your Liveblocks public key. User properties can also be set
+        using attributes. Wrap all your multiplayer components inside &lt;LiveblocksRoom>. One &lt;LiveblocksRoom> per page.
       </Paragraph>
 
 <Code lang="astro" code={`---
@@ -94,34 +76,49 @@ import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
   <!-- Multiplayer components inside -->
 </LiveblocksRoom>`} />
 
-or
-<Code lang="astro" code={`---
-import LiveblocksRoom from '../lib/liveblocks-room'
----
-<!-- Default user settings -->
-<liveblocks-room
-  room-id="my-room"
-  public-key="pk_live_xxxxxxxxxxxxxxxxxxxxxxxxx"
-  client:load
->
-  <!-- Multiplayer components inside -->
-</liveblocks-room>
+      <TitleSmall>
+        Setting user properties
+      </TitleSmall>
 
-<!-- Setting user properties by attribute -->
-<liveblocks-room
-  room-id="my-room"
-  public-key="pk_live_xxxxxxxxxxxxxxxxxxxxxxxxx"
-  user-name="Chris"
-  user-color="#00ff00"
-  user-picture="/url-of-img.png"
-  user-status="In a call"
-  client:load
->
-  <!-- Multiplayer components inside -->
-</liveblocks-room>`} />
+      <Paragraph>
+        To set the current user's properties (name, color etc.), use the window.LiveblocksRoom.setUser method.
+        These properties will be used within multiplayer components.
+      </Paragraph>
+
+<Code lang="astro" code={`<script>
+  // All user properties changed
+  window.LiveblocksRoom.setUser({
+    name: 'Chris',
+    color: 'red',
+    status: 'Available',
+    picture: '/avatars/4.png'
+  })
+
+  // Only 'name' will change. Other properties stay the same.
+  window.LiveblocksRoom.setUser({
+    name: 'Rachel'
+  })
+
+  // Remove 'picture'. Other properties stay the same.
+  window.LiveblocksRoom.setUser({
+    picture: null
+  })
+</script>`} />
 
       <TitleSmall>
-        Add multiplayer components
+        Set room
+      </TitleSmall>
+
+      <Paragraph>
+        You can change the current room using window.LiveblocksRoom.setRoom. This function accepts a string.
+      </Paragraph>
+
+<Code lang="astro" code={`<script>
+  window.LiveblocksRoom.setRoom('my-new-room-name')
+</script>`} />
+
+      <TitleSmall>
+        Components
       </TitleSmall>
       <ComponentGrid />
 

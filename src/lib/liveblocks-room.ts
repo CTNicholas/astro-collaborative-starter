@@ -66,7 +66,12 @@ export class LiveblocksRoom extends LitElement {
     globals.room = globals.client.enter(roomId, {
       defaultPresence: this.getUser()
     })
+    globals.room.subscribe('error', console.log)
     window.dispatchEvent(new Event('liveblocksRoomConnected'))
+  }
+
+  leaveRoom (roomId = this['room-id']) {
+    globals.client.leave(roomId)
   }
 
   getUser () {

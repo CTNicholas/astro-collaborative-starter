@@ -61,10 +61,11 @@ export class LiveForm extends LiveObjectClass {
         }
 
         if (val.focus) {
-          element.style.outline = `2px solid ${val.focus.color}`
-          element.style.outlineOffset = `0px`
+          element.style.boxShadow = `0 0 0 2px ${val.focus.color}`
+          element.style.borderColor = val.focus.color
         } else {
-          element.style.outline = 'none'
+          element.style.boxShadow = ''
+          element.style.borderColor = ''
         }
 
       })

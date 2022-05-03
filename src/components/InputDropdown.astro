@@ -3,7 +3,7 @@ const { name, id, label, hideLabel, class, options } = Astro.props
 const optionsArray = options.split(',')
 ---
 
-<div>
+<div class="relative">
   {!hideLabel ? (
     <label for={id || name} class="block text-sm font-medium text-gray-700 mb-1.5">{label}</label>
   ) : (
@@ -12,9 +12,14 @@ const optionsArray = options.split(',')
   <select
     id={id || name}
     name={name}
-    class="appearance-nonepx-3 py-3.5 mb-5 shadow-sm border focus:ring-1 focus:ring-gray-500 focus:border-gray-500 focus:outline-none focus-visible:outline-none block w-full sm:text-sm border-gray-300 rounded-md bg-white">
+    class="h-12 appearance-none px-3 py-3 mb-5 shadow-sm border focus:ring-1 focus:ring-gray-500 focus:border-gray-500 focus:outline-none focus-visible:outline-none block w-full sm:text-sm border-gray-300 rounded-md bg-white">
     {optionsArray.map(opt => <option class="p-3 font-inherit" value={opt}>{opt}</option>)}
   </select>
+  <div class="absolute right-2 bottom-3.5 pointer-events-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+    </svg>
+  </div>
 </div>
 
 <style>

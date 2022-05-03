@@ -55,9 +55,9 @@ const user = {
               <InputNumber name="age" label="Age" placeholder="Enter your age"  />
 
               <!-- Checkbox 1 -->
-              <div class="my-6">
+              <div class="my-6 flex items-center gap-2">
                 <input id="tickbox" name="tickbox" type="checkbox" class="w-4 h-4" />
-                <label for="tickbox" class="text-sm ml-1.5 text-gray-500 select-none">
+                <label for="tickbox" class="text-sm text-gray-500 select-none">
                   <span class="font-medium text-gray-700">Tick this box</span> for cool stuff.
                 </label>
               </div>
@@ -78,9 +78,9 @@ const user = {
               <InputDropdown name="dropdownnumber" label="Favorite fruit" options="Apple,Banana,Cherry,Durian" />
 
               <!-- Checkbox 2 -->
-              <div class="my-6">
+              <div class="my-6 flex items-center gap-2">
                 <input id="tickbox2" name="tickbox2" type="checkbox" class="w-4 h-4" />
-                <label for="tickbox2" class="text-sm ml-1.5 text-gray-500 select-none">
+                <label for="tickbox2" class="text-sm text-gray-500 select-none">
                   <span class="font-medium text-gray-700">Check this box</span> for other stuff.
                 </label>
               </div>
@@ -103,8 +103,9 @@ const user = {
       </TitleSmall>
 
       <Paragraph>
-        Wrap &lt;live-form&gt; in a &lt;liveblocks-room&gt; and give it a unique name to get it working.
-        Each input must have a unique name (within the live-form) too. Updates are propagated on 'input' events.
+        Place &lt;input> elements inside of &lt;live-form> to create shared form elements.
+        Both &lt;live-form&gt; and each &lt;input> must have a unique name="" attribute for this to work.
+        Updates are propagated on 'input' events.
       </Paragraph>
 
       <Code lang="astro" code={`---
