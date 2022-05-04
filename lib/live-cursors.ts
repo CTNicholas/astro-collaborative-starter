@@ -1,7 +1,7 @@
 import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
-import globals from '../globals'
+import globals from './globals'
 import './cursor-smooth'
 import './cursor-quick'
 import './cursor-perfect'

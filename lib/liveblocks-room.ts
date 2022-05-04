@@ -1,6 +1,6 @@
 import { html, LitElement, PropertyValues } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import globals from '../globals'
+import globals from './globals'
 import { isServer } from './utils/isServer'
 
 export const tagName = 'liveblocks-room'

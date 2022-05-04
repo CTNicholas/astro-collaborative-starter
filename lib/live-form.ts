@@ -1,9 +1,9 @@
 import { customElement, property } from 'lit/decorators.js'
 import { LiveObjectClass } from './utils/LiveObjectClass'
 import { html, PropertyValues } from 'lit'
-import globals from '../globals'
+import globals from './globals'
 import { LiveObject } from '@liveblocks/client'
-import { User } from '../types'
+import { User } from './types'
 
 // TODO check form elements on Safari on browser stack for border radius
 
