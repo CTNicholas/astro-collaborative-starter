@@ -46,7 +46,7 @@ const roomId =  'astro-collaborative-starter-live-cursors'
       </Paragraph>
 
 <Code lang="astro" code={`---
-import LiveCursors from '../lib/LiveCursors.astro'
+import LiveCursors from 'astro-collaborative-starter/LiveCursors.astro'
 ---
 <!-- No config needed, works already -->
 <LiveCursors />
@@ -58,7 +58,7 @@ import LiveCursors from '../lib/LiveCursors.astro'
 <LiveCursors selector="body" />`} />
 or
 <Code lang="astro" code={`---
-import '../lib/live-cursors'
+import 'astro-collaborative-starter/live-cursors'
 ---
 <!-- No config needed, works already -->
 <live-cursor client:load />

@@ -42,6 +42,12 @@ const roomId =  'astro-collaborative-starter-live-form'
       <GetPublicKey />
 
       <TitleSmall>
+        Install package
+      </TitleSmall>
+
+      <Code lang="shell" code="npm install astro-collaborative-starter" />
+
+      <TitleSmall>
         Add LiveblocksRoom
       </TitleSmall>
 
@@ -51,7 +57,7 @@ const roomId =  'astro-collaborative-starter-live-form'
       </Paragraph>
 
       <Code lang="astro" code={`---
-import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
+import LiveblocksRoom from 'astro-collaborative-starter/LiveblocksRoom.astro'
 
 // Liveblocks.io public key from .env file
 const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
@@ -97,8 +103,8 @@ const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
         </Paragraph>
 
               <Code lang="astro" code={`---
-import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
-import LiveUsers from '../lib/LiveUsers.astro'
+import LiveblocksRoom from 'astro-collaborative-starter/LiveblocksRoom.astro'
+import LiveUsers from 'astro-collaborative-starter/LiveUsers.astro'
 
 const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 ---

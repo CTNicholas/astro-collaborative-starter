@@ -100,14 +100,14 @@ const roomId =  'astro-collaborative-starter-live-form'
       </Paragraph>
 
       <Code lang="astro" code={`---
-import LiveForm from '../lib/LiveForm.astro'
+import LiveForm from 'astro-collaborative-starter/LiveForm.astro'
 ---
 <LiveForm name="myform">
   <input name="myinput" />
 </LiveForm>`}/>
 or
 <Code lang="astro" code={`---
-import '../lib/live-form'
+import 'astro-collaborative-starter/live-form'
 ---
 <live-form name="myform" client:load>
   <input name="myinput" />
