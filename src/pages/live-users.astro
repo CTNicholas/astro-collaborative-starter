@@ -91,13 +91,15 @@ import '../lib/live-users'
         Customise with CSS parts:
       </Paragraph>
 
-      <Code lang="css" code={`live-users::part(user) {
-  margin-bottom: 12px;
-}
+      <Code lang="astro" code={`<style is:global>
+  live-users::part(user) {
+    margin-bottom: 12px;
+  }
 
-live-users::part(name) {
-  font-weight: 500;
-}`} />
+  live-users::part(name) {
+    font-weight: 500;
+  }
+</style>`} />
 
       <Paragraph>
         All CSS parts:
