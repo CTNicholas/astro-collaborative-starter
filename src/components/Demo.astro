@@ -4,12 +4,16 @@ import TitleSmall from './TitleSmall.astro'
 
 // Get your free public key from https://liveblocks.io
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+const { hideTitle } = Astro.props
 ---
 {key ? (
   <div class="mb-6">
-    <TitleSmall>
-      Open page in two windows
-    </TitleSmall>
+    {!hideTitle ? (
+      <TitleSmall>
+        Open page in two windows
+      </TitleSmall>
+    ) : null}
   </div>
   <slot></slot>
 ) : (

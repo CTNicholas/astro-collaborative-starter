@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://liveblocks.io">
-    <img src="https://raw.githubusercontent.com/CTNicholas/astro-collaborative-starter/main/public/header.svg" alt="Astro collaborative starter" />
+    <img src="https://astro-collaborative-starter.ctnicholas.dev/header.svg" alt="Astro collaborative starter" />
   </a>
 </p>
 
