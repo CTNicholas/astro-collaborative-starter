@@ -1,6 +1,6 @@
 {
-  "name": "astro-collaborative-starter",
-  "version": "0.0.4",
+  "name": "astro-collab",
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

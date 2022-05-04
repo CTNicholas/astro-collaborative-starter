@@ -45,7 +45,7 @@ const roomId =  'astro-collaborative-starter-live-form'
         Install package
       </TitleSmall>
 
-      <Code lang="shell" code="npm install astro-collaborative-starter" />
+      <Code lang="shell" code="npm install astro-collab" />
 
       <TitleSmall>
         Add LiveblocksRoom
@@ -57,7 +57,7 @@ const roomId =  'astro-collaborative-starter-live-form'
       </Paragraph>
 
       <Code lang="astro" code={`---
-import LiveblocksRoom from 'astro-collaborative-starter/LiveblocksRoom.astro'
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
 
 // Liveblocks.io public key from .env file
 const key = import${'.'}meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
@@ -103,8 +103,8 @@ const key = import${'.'}meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
         </Paragraph>
 
               <Code lang="astro" code={`---
-import LiveblocksRoom from 'astro-collaborative-starter/LiveblocksRoom.astro'
-import LiveUsers from 'astro-collaborative-starter/LiveUsers.astro'
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import LiveUsers from 'astro-collab/LiveUsers.astro'
 
 const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 ---
@@ -123,7 +123,6 @@ const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
         <Paragraph>
           Within &lt;LiveUsers>, everyone will see this for you:
         </Paragraph>
-
 
         <Box>
           <user-line
