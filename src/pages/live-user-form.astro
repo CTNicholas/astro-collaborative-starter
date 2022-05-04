@@ -55,9 +55,9 @@ const roomId =  'astro-collaborative-starter-live-user-form'
       </Paragraph>
 
 <Code lang="astro" code={`---
-import LiveForm from 'astro-collaborative-starter/LiveForm.astro'
+import LiveUserForm from 'astro-collaborative-starter/LiveUserForm.astro'
 ---
-<LiveForm>
+<LiveUserForm>
   <!-- Change your name -->
   <input name="user-name" />
 
@@ -69,12 +69,12 @@ import LiveForm from 'astro-collaborative-starter/LiveForm.astro'
 
   <!-- Change your color -->
   <input name="user-color" />
-</LiveForm>`} />
+</LiveUserForm>`} />
 or
 <Code lang="astro" code={`---
-import 'astro-collaborative-starter/live-form'
+import 'astro-collaborative-starter/live-user-form'
 ---
-<live-form client:load>
+<live-user-form client:load>
   <!-- Change your name -->
   <input name="user-name" />
 
@@ -86,7 +86,7 @@ import 'astro-collaborative-starter/live-form'
 
   <!-- Change your color -->
   <input name="user-color" />
-</live-form>`} />
+</live-user-form>`} />
 
       <WrapAllNote></WrapAllNote>
 
