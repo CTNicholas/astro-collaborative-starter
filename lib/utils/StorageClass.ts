@@ -1,6 +1,6 @@
 import { LitElement } from 'lit'
 import { property } from 'lit/decorators.js'
-import globals from '../../globals'
+import globals from '../globals'
 import { whenRoomReady } from './whenRoomReady'
 
 export class StorageClass extends LitElement {

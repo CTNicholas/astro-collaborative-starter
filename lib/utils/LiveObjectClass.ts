@@ -1,7 +1,7 @@
 import { LiveObject } from '@liveblocks/client'
 import { property } from 'lit/decorators.js'
 import { StorageClass } from './StorageClass'
-import globals from '../../globals'
+import globals from '../globals'
 
 export class LiveObjectClass extends StorageClass {
   @property()

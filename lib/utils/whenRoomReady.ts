@@ -1,4 +1,4 @@
-import globals from '../../globals'
+import globals from '../globals'
 
 // Do not: whenRoomReady(func)
 //     Do: whenRoomReady(() => func())
