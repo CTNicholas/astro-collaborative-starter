@@ -1,33 +1,22 @@
 ---
-import LiveblocksRoom from '../lib/LiveblocksRoom.astro'
-import LiveForm from '../lib/LiveForm.astro'
-import RandomUserInfo from '../lib/RandomUserInfo.astro'
+import { LiveblocksRoom, LiveForm, RandomUserInfo } from '/lib'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
-import TitleSmall from '../components/TitleSmall.astro'
 import Paragraph from '../components/Paragraph.astro'
-import WrapAllNote from '../components/WrapAllNote.astro'
 import InputText from '../components/InputText.astro'
+import TitleSmall from '../components/TitleSmall.astro'
+import WrapAllNote from '../components/WrapAllNote.astro'
 import InputNumber from '../components/InputNumber.astro'
 import InputDropdown from '../components/InputDropdown.astro'
-import { randomName, randomColor, randomPicture, randomStatus } from '../lib/utils/random'
 
 // Get your free public key from https://liveblocks.io
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 
 // The name of the current room
 const roomId =  'astro-collaborative-starter-live-form'
-
-// The current user's info
-const user = {
-  name: randomName(),
-  color: randomColor(),
-  picture: randomPicture(),
-  status: randomStatus()
-}
 ---
 
 <BaseLayout>

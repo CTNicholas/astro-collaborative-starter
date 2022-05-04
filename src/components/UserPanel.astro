@@ -1,16 +1,15 @@
 ---
-import '../lib/live-users'
+import { LiveUsers } from '/lib'
 ---
 <div class="p-5">
   <div class="">
     <div class="text-sm font-bold tracking-widest uppercase mb-3.5 text-gray-500">
       You
     </div>
-    <live-users
+    <LiveUsers
       show="self"
       size="40"
-      client:visible
-    ></live-users>
+    ></LiveUsers>
   </div>
 
   <div class="border-t border-gray-200 mt-4 mb-7"></div>
@@ -19,11 +18,10 @@ import '../lib/live-users'
     <div class="text-sm font-bold tracking-widest uppercase mb-3.5 text-gray-500">
       Users online
     </div>
-    <live-users
+    <LiveUsers
       show="others"
       size="40"
-      client:visible
-    ></live-users>
+    ></LiveUsers>
   </div>
 </div>
 

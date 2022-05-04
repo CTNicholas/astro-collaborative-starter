@@ -1,5 +1,5 @@
 ---
-import '../lib/live-avatars'
+import { LiveAvatars } from '/lib'
 import HeaderBar from './HeaderBar.astro'
 ---
 
@@ -8,9 +8,8 @@ import HeaderBar from './HeaderBar.astro'
     <slot name="logo"></slot>
   </div>
   <div slot="right" class="flex items-center mx-5">
-    <live-avatars
+    <LiveAvatars
       size="40"
-      client:visible
-    ></live-avatars>
+    ></LiveAvatars>
   </div>
 </HeaderBar>
