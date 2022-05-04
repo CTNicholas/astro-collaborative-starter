@@ -2,13 +2,16 @@
   "name": "@example/minimal",
   "version": "0.0.1",
   "private": true,
-  "main": "src/pages/old_index.astro",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "@astrojs/lit": "^0.1.2",
     "@astrojs/tailwind": "^0.2.1",
