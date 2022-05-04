@@ -99,19 +99,25 @@ const roomId =  'astro-collaborative-starter-live-form'
         Updates are propagated on 'input' events.
       </Paragraph>
 
-      <Code lang="astro" code={`---
+      <Code lang="astro" code={`
+---
 import LiveForm from 'astro-collab/LiveForm.astro'
 ---
 <LiveForm name="myform">
   <input name="myinput" />
-</LiveForm>`}/>
-or
-<Code lang="astro" code={`---
+</LiveForm>
+      `}/>
+
+      or
+
+      <Code lang="astro" code={`
+---
 import 'astro-collab/live-form'
 ---
 <live-form name="myform" client:load>
   <input name="myinput" />
-</live-form>`} />
+</live-form>
+      `} />
 
       <WrapAllNote></WrapAllNote>
 

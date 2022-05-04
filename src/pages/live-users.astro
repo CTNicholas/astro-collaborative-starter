@@ -46,7 +46,8 @@ const roomId =  'astro-collaborative-starter-live-users'
         Change size="", show="", self-suffix="" attributes for more options.
       </Paragraph>
 
-<Code lang="astro" code={`---
+      <Code lang="astro" code={`
+---
 import LiveUsers from 'astro-collab/LiveUsers.astro'
 ---
 <!-- Basic -->
@@ -63,11 +64,12 @@ import LiveUsers from 'astro-collab/LiveUsers.astro'
 
 <!-- Modify the text at the end of your name, default: ' (you)' -->
 <LiveUsers self-suffix=" - this is you"></LiveUsers>
-`}/>
+      `}/>
 
       or
 
-<Code lang="astro" code={`---
+      <Code lang="astro" code={`
+---
 import 'astro-collab/live-users'
 ---
 <!-- Basic -->
@@ -81,7 +83,7 @@ import 'astro-collab/live-users'
 
 <!-- Only show other people's user info -->
 <live-users show="others" client:load></live-users>
-`}/>
+      `}/>
 
       <TitleSmall>
         Customise
@@ -91,7 +93,8 @@ import 'astro-collab/live-users'
         Customise with CSS parts:
       </Paragraph>
 
-      <Code lang="astro" code={`<style is:global>
+      <Code lang="astro" code={`
+<style is:global>
   live-users::part(user) {
     margin-bottom: 12px;
   }
@@ -99,19 +102,22 @@ import 'astro-collab/live-users'
   live-users::part(name) {
     font-weight: 500;
   }
-</style>`} />
+</style>
+      `} />
 
       <Paragraph>
         All CSS parts:
       </Paragraph>
 
-      <Code code={`user,
+      <Code code={`
+user,
 name,
 status,
 avatar,
 avatar_picture_wrapper,
 avatar_picture,
-avatar_fallback`} />
+avatar_fallback
+      `} />
 
       <WrapAllNote></WrapAllNote>
 

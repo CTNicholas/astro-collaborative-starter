@@ -45,7 +45,8 @@ const roomId = 'astro-collaborative-starter-live-avatars'
         Change size="" and show="" attributes for more options.
       </Paragraph>
 
-      <Code lang="astro" code={`---
+      <Code lang="astro" code={`
+---
 import LiveAvatars from 'astro-collab/LiveAvatars.astro'
 ---
 <!-- Basic -->
@@ -59,11 +60,12 @@ import LiveAvatars from 'astro-collab/LiveAvatars.astro'
 
 <!-- Only show other people's avatars -->
 <LiveAvatars show="others"></LiveAvatars>
-`} />
+      `} />
 
       or
 
-      <Code lang="astro" code={`---
+      <Code lang="astro" code={`
+---
 import 'astro-collab/live-avatars'
 ---
 <!-- Basic -->
@@ -77,17 +79,18 @@ import 'astro-collab/live-avatars'
 
 <!-- Only show other people's avatars -->
 <live-avatars show="others" client:load></live-avatars>
-`} />
+       `} />
 
-       <TitleSmall>
-          Customise
-        </TitleSmall>
+      <TitleSmall>
+        Customise
+      </TitleSmall>
 
-        <Paragraph>
-          Customise with CSS parts:
-        </Paragraph>
+      <Paragraph>
+        Customise with CSS parts:
+      </Paragraph>
 
-      <Code lang="astro" code={`<style is:global>
+      <Code lang="astro" code={`
+<style is:global>
   live-avatars::part(avatar) {
     padding: 12px;
   }
@@ -95,21 +98,23 @@ import 'astro-collab/live-avatars'
   live-avatars::part(avatar_picture_wrapper) {
     border: 2px solid black;
   }
-</style>`} />
+</style>
+      `} />
 
-        <Paragraph>
-          All CSS parts:
-        </Paragraph>
+      <Paragraph>
+        All CSS parts:
+      </Paragraph>
 
-        <Code code={`user,
+      <Code code={`
+user,
 avatars,
 avatar,
 avatar_picture_wrapper,
 avatar_picture,
-avatar_fallback`} />
+avatar_fallback
+      `} />
 
       <WrapAllNote></WrapAllNote>
-
 
     </PanelLayout>
   </LiveblocksRoom>

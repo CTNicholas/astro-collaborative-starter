@@ -54,7 +54,8 @@ const roomId =  'astro-collaborative-starter-live-user-form'
         Compatible with any &lt;input&gt; with a 'value' property, using 'input' events.
       </Paragraph>
 
-<Code lang="astro" code={`---
+      <Code lang="astro" code={`
+---
 import LiveUserForm from 'astro-collab/LiveUserForm.astro'
 ---
 <LiveUserForm>
@@ -69,9 +70,13 @@ import LiveUserForm from 'astro-collab/LiveUserForm.astro'
 
   <!-- Change your color -->
   <input name="user-color" />
-</LiveUserForm>`} />
-or
-<Code lang="astro" code={`---
+</LiveUserForm>
+      `} />
+
+      or
+
+      <Code lang="astro" code={`
+---
 import 'astro-collab/live-user-form'
 ---
 <live-user-form client:load>
@@ -86,10 +91,10 @@ import 'astro-collab/live-user-form'
 
   <!-- Change your color -->
   <input name="user-color" />
-</live-user-form>`} />
+</live-user-form>
+      `} />
 
       <WrapAllNote></WrapAllNote>
-
 
     </PanelLayout>
   </LiveblocksRoom>

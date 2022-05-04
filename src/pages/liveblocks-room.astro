@@ -50,7 +50,8 @@ const roomId =  'astro-collaborative-starter-liveblocks-room'
         using attributes. Wrap all your multiplayer components inside &lt;LiveblocksRoom>. One &lt;LiveblocksRoom> per page.
       </Paragraph>
 
-<Code lang="astro" code={`---
+      <Code lang="astro" code={`
+---
 import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
 ---
 <!-- Default user settings -->
@@ -71,7 +72,8 @@ import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
   user-status="In a call"
 >
   <!-- Multiplayer components inside -->
-</LiveblocksRoom>`} />
+</LiveblocksRoom>
+      `} />
 
       <TitleSmall>
         Setting user properties
@@ -82,7 +84,8 @@ import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
         These properties will be used within multiplayer components.
       </Paragraph>
 
-<Code lang="astro" code={`<script>
+      <Code lang="astro" code={`
+<script>
   // All user properties changed
   window.LiveblocksRoom.setUser({
     name: 'Chris',
@@ -100,11 +103,12 @@ import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
   window.LiveblocksRoom.setUser({
     picture: null
   })
-</script>`} />
+</script>
+      `} />
 
-  <Paragraph>
-    Properties can also be set using <Link href="/live-user-form">LiveUserForm</Link>
-  </Paragraph>
+      <Paragraph>
+        Properties can also be set using <Link href="/live-user-form">LiveUserForm</Link>
+      </Paragraph>
 
       <TitleSmall>
         Set room
@@ -114,9 +118,11 @@ import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
         You can change the current room using window.LiveblocksRoom.setRoom. This function accepts a string.
       </Paragraph>
 
-<Code lang="astro" code={`<script>
+      <Code lang="astro" code={`
+<script>
   window.LiveblocksRoom.setRoom('my-new-room-name')
-</script>`} />
+</script>
+      `} />
 
       <TitleSmall>
         Components

@@ -56,7 +56,8 @@ const roomId =  'astro-collaborative-starter-live-form'
         We also need to give it a room id, essentially the name of the current room that people will share.
       </Paragraph>
 
-      <Code lang="astro" code={`---
+      <Code lang="astro" code={`
+---
 import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
 
 // Liveblocks.io public key from .env file
@@ -65,7 +66,8 @@ const key = import${'.'}meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 
 <LiveblocksRoom room-id="my-room" public-key={key}>
   <!-- Add multiplayer components -->
-</LiveblocksRoom>`}/>
+</LiveblocksRoom>
+      `}/>
 
       <Paragraph>
         There can only be a single &lt;LiveblocksRoom> per page.
@@ -79,14 +81,16 @@ const key = import${'.'}meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
         To set the current user's properties (name, color etc.), use the window.LiveblocksRoom.setUser method.
       </Paragraph>
 
-      <Code lang="astro" code={`<script>
+      <Code lang="astro" code={`
+<script>
   window.LiveblocksRoom.setUser({
     name: 'Chris',
     color: 'red',
     status: 'Available',
     picture: '/avatars/4.png'
   })
-</script>`} />
+</script>
+        `} />
 
         <Paragraph>
           These properties will then be used in the multiplayer components, for example as
@@ -102,7 +106,8 @@ const key = import${'.'}meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
           we have a working example already:
         </Paragraph>
 
-              <Code lang="astro" code={`---
+        <Code lang="astro" code={`
+---
 import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
 import LiveUsers from 'astro-collab/LiveUsers.astro'
 
@@ -118,7 +123,8 @@ const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 
 <LiveblocksRoom roomId="my-room" public-key={key}>
   <LiveUsers />
-</LiveblocksRoom>`}/>
+</LiveblocksRoom>
+        `}/>
 
         <Paragraph>
           Within &lt;LiveUsers>, everyone will see this for you:

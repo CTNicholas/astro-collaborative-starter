@@ -5,7 +5,7 @@ const { code = '', lang = '' } = Astro.props
 
 <div
   class="bg-gray-50 px-5 py-4 max-w-screen-sm my-6"
-><Code code={code} lang={lang} class="border-4" theme="min-light" /></div>
+><Code code={code.trim()} lang={lang} class="border-4" theme="min-light" /></div>
 
 <style is:global>
   .astro-code {

@@ -40,7 +40,8 @@ const roomId =  'astro-collaborative-starter-index'
         But is it really that easy?
       </Paragraph>
 
-      <Code lang="astro" code={`---
+      <Code lang="astro" code={`
+---
 import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
 import LiveCursors from 'astro-collab/LiveCursors.astro'
 
@@ -49,15 +50,13 @@ const key = import${'.'}meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 <LiveblocksRoom room-id="my-room" public-key={key}>
   <LiveCursors />
 </LiveblocksRoom>
-`}/>
+      `}/>
 
       <Paragraph>
         Bam! A few lines of code, and you already have multiplayer cursors.
         To learn more, take a look at the <Link href="/quick-start">quick start guide,</Link> or
         have a play with the demos below.
       </Paragraph>
-
-
 
       <TitleSmall>
         Quick start
@@ -74,9 +73,6 @@ const key = import${'.'}meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
       </TitleSmall>
 
       <ComponentGrid />
-
-
-
 
     </PanelLayout>
   </LiveblocksRoom>

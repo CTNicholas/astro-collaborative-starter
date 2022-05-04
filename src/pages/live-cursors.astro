@@ -45,7 +45,8 @@ const roomId =  'astro-collaborative-starter-live-cursors'
         Updates are propagated on 'input' events. Not just compatible with text inputs.
       </Paragraph>
 
-<Code lang="astro" code={`---
+<Code lang="astro" code={`
+---
 import LiveCursors from 'astro-collab/LiveCursors.astro'
 ---
 <!-- No config needed, works already -->
@@ -55,9 +56,13 @@ import LiveCursors from 'astro-collab/LiveCursors.astro'
 <LiveCursors movement="quick" />
 
 <!-- CSS selector of pointer event element, default: html -->
-<LiveCursors selector="body" />`} />
-or
-<Code lang="astro" code={`---
+<LiveCursors selector="body" />
+      `} />
+
+      or
+
+      <Code lang="astro" code={`
+---
 import 'astro-collab/live-cursors'
 ---
 <!-- No config needed, works already -->
@@ -67,7 +72,8 @@ import 'astro-collab/live-cursors'
 <live-cursor movement="quick" client:load />
 
 <!-- CSS selector of pointer event element, default: body -->
-<live-cursor selector="#app" client:load />`} />
+<live-cursor selector="#app" client:load />
+      `} />
 
       <WrapAllNote></WrapAllNote>
 
