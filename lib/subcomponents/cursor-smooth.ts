@@ -1,6 +1,6 @@
 import { html, LitElement, PropertyValues } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { spring } from './utils/spring'
+import { spring } from '../utils/spring'
 import './cursor-quick'
 
 export const tagName = 'cursor-smooth'

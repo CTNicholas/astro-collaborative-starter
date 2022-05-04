@@ -1,9 +1,9 @@
 import { html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
-import './avatar-and-fallback'
-import './user-line'
-import { LiveblocksRoom } from './liveblocks-room'
+import { SelfAndOthersClass } from './subcomponents/SelfAndOthersClass'
+import type { LiveblocksRoom } from './liveblocks-room'
+import './subcomponents/avatar-and-fallback'
+import './subcomponents/user-line'
 
 export const tagName = 'live-user-form'
 

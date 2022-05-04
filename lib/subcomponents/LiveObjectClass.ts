@@ -1,4 +1,4 @@
-import { LiveObject } from '@liveblocks/client'
+import { LiveObject, LsonObject } from '@liveblocks/client'
 import { property } from 'lit/decorators.js'
 import { StorageClass } from './StorageClass'
 import globals from '../globals'
@@ -28,7 +28,7 @@ export class LiveObjectClass extends StorageClass {
     }
 
     if (!this.storage.get(this.name)) {
-      this.storage.set(this.name, new LiveObject(this.initial));
+      this.storage.set(this.name, new LiveObject(this.initial as LsonObject));
     }
 
     const unsub1 = globals.room.subscribe(this.storage.get(this.name), newObject => {

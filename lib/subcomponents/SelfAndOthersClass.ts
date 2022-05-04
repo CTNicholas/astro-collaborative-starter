@@ -1,8 +1,8 @@
 import { LitElement } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { property } from 'lit/decorators.js'
 import globals from '../globals'
 import { User } from '../types'
-import { whenRoomReady } from './whenRoomReady'
+import { whenRoomReady } from '../utils/whenRoomReady'
 
 export class SelfAndOthersClass extends LitElement {
   @property()

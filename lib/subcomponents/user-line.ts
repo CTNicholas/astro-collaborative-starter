@@ -1,6 +1,6 @@
 import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
+import { SelfAndOthersClass } from './SelfAndOthersClass'
 import './avatar-and-fallback'
 
 export const tagName = 'user-line'

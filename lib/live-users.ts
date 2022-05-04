@@ -1,8 +1,8 @@
 import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
-import './avatar-and-fallback'
-import './user-line'
+import { SelfAndOthersClass } from './subcomponents/SelfAndOthersClass'
+import './subcomponents/avatar-and-fallback'
+import './subcomponents/user-line'
 import type { UserShow } from './types'
 
 export const tagName = 'live-users'

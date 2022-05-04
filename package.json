@@ -1,6 +1,6 @@
 {
   "name": "astro-collaborative-starter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,6 +12,15 @@
   "files": [
     "lib"
   ],
+  "exports": {
+    "./LiveblocksRoom.astro": "./lib/LiveblocksRoom.astro",
+    "./LiveAvatars.astro": "./lib/LiveAvatars.astro",
+    "./LiveCursors.astro": "./lib/LiveCursors.astro",
+    "./LiveForm.astro": "./lib/LiveForm.astro",
+    "./LiveUserForm.astro": "./lib/LiveUserForm.astro",
+    "./LiveUsers.astro": "./lib/LiveUsers.astro",
+    "./RandomUserInfo.astro": "./lib/RandomUserInfo.astro"
+  },
   "devDependencies": {
     "@astrojs/lit": "^0.1.2",
     "@astrojs/tailwind": "^0.2.1",

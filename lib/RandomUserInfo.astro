@@ -1,5 +1,10 @@
 <script>
   (() => {
+    if (!window.LiveblocksRoom) {
+      console.error('LiveblocksRoom not found')
+      return
+    }
+
     setup()
 
     if (import.meta.hot) {

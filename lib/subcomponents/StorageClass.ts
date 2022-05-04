@@ -1,7 +1,7 @@
 import { LitElement } from 'lit'
 import { property } from 'lit/decorators.js'
 import globals from '../globals'
-import { whenRoomReady } from './whenRoomReady'
+import { whenRoomReady } from '../utils/whenRoomReady'
 
 export class StorageClass extends LitElement {
   @property()
@@ -21,6 +21,7 @@ export class StorageClass extends LitElement {
     const { root } = await globals.room.getStorage()
     this.storage = root
 
+    // @ts-ignore
     const unsub = globals.room.subscribe(root, root => {
       if (!root) {
         return

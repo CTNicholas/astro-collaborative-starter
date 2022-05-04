@@ -1,10 +1,10 @@
 import { html, css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
+import { SelfAndOthersClass } from './subcomponents/SelfAndOthersClass'
 import globals from './globals'
-import './cursor-smooth'
-import './cursor-quick'
-import './cursor-perfect'
+import './subcomponents/cursor-smooth'
+import './subcomponents/cursor-quick'
+import './subcomponents/cursor-perfect'
 
 export const tagName = 'live-cursor'
 

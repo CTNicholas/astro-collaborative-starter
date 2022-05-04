@@ -1,12 +1,11 @@
-import { html, css } from 'lit'
+import { html, css, LitElement } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { SelfAndOthersClass } from './utils/SelfAndOthersClass'
-import { contrastingTextColor } from './utils/contrastingTextColor'
+import { contrastingTextColor } from '../utils/contrastingTextColor'
 
 export const tagName = 'avatar-and-fallback'
 
 @customElement(tagName)
-export class AvatarAndFallback extends SelfAndOthersClass {
+export class AvatarAndFallback extends LitElement {
   @property({ reflect: true })
   size: number = 40
 

@@ -1,5 +1,7 @@
 ---
-import { LiveblocksRoom, LiveAvatars, RandomUserInfo } from '/lib'
+import LiveblocksRoom from '/lib/LiveblocksRoom.astro'
+import LiveAvatars from '/lib/LiveAvatars.astro'
+import RandomUserInfo from '/lib/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Demo from '../components/Demo.astro'
@@ -16,7 +18,7 @@ import InputDropdown from '../components/InputDropdown.astro'
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 
 // The name of the current room
-const roomId =  'astro-collaborative-starter-live-avatars'
+const roomId = 'astro-collaborative-starter-live-avatars'
 ---
 
 <BaseLayout>
@@ -25,7 +27,6 @@ const roomId =  'astro-collaborative-starter-live-avatars'
     room-id={roomId}
     public-key={key}
   >
-
     <PanelLayout>
       <Title text="Live avatar stack">
         See users currently online with &lt;LiveAvatars&gt;
@@ -45,36 +46,36 @@ const roomId =  'astro-collaborative-starter-live-avatars'
       </Paragraph>
 
       <Code lang="astro" code={`---
-import LiveAvatars from '../lib/LiveAvatars.astro'
+        import LiveAvatars from '../lib/LiveAvatars.astro'
 ---
-<!-- Basic -->
+      <!-- Basic -->
 <LiveAvatars></LiveAvatars>
 
-<!-- Change avatar size (pixels) -->
+      <!-- Change avatar size (pixels) -->
 <LiveAvatars size="32"></LiveAvatars>
 
-<!-- Only show your avatar -->
+      <!-- Only show your avatar -->
 <LiveAvatars show="self"></LiveAvatars>
 
-<!-- Only show other people's avatars -->
+      <!-- Only show other people's avatars -->
 <LiveAvatars show="others"></LiveAvatars>
 `} />
 
       or
 
       <Code lang="astro" code={`---
-import '../lib/live-avatars'
+        import '../lib/live-avatars'
 ---
-<!-- Basic -->
+      <!-- Basic -->
 <live-avatars client:load></live-avatars>
 
-<!-- Change avatar size (pixels) -->
+      <!-- Change avatar size (pixels) -->
 <live-avatars size="32" client:load></live-avatars>
 
-<!-- Only show your avatar -->
+      <!-- Only show your avatar -->
 <live-avatars show="self" client:load></live-avatars>
 
-<!-- Only show other people's avatars -->
+      <!-- Only show other people's avatars -->
 <live-avatars show="others" client:load></live-avatars>
 `} />
 
@@ -87,24 +88,24 @@ import '../lib/live-avatars'
         </Paragraph>
 
       <Code lang="css" code={`live-avatars::part(avatar) {
-  padding: 12px;
-}
+        padding: 12px;
+        }
 
-live-avatars::part(avatar_picture_wrapper) {
-  border: 2px solid black;
-}
-`} />
+        live-avatars::part(avatar_picture_wrapper) {
+        border: 2px solid black;
+        }
+        `} />
 
         <Paragraph>
           All CSS parts:
         </Paragraph>
 
         <Code code={`user,
-avatars,
-avatar,
-avatar_picture_wrapper,
-avatar_picture,
-avatar_fallback`} />
+          avatars,
+          avatar,
+          avatar_picture_wrapper,
+          avatar_picture,
+          avatar_fallback`} />
 
       <WrapAllNote></WrapAllNote>
 
