@@ -60,7 +60,7 @@ const roomId =  'astro-collaborative-starter-live-form'
 import LiveblocksRoom from 'astro-collaborative-starter/LiveblocksRoom.astro'
 
 // Liveblocks.io public key from .env file
-const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+const key = import${'.'}meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
 ---
 
 <LiveblocksRoom room-id="my-room" public-key={key}>

@@ -5,7 +5,18 @@
 </p>
 
 
-# Astro Starter Kit: Minimal
+# [Astro Collaborative Starter](https://astro-collaborative-starter.ctnicholas.dev)
+<p>
+  <a href="https://codesandbox.io/s/github/CTNicholas/astro-collaborative-starter">
+    <img src="https://img.shields.io/badge/open%20in%20codesandbox-message?style=flat&logo=codesandbox&color=333&logoColor=fff" alt="Open in CodeSandbox" />
+  </a>
+  <a href="https://astro.build">
+    <img src="https://img.shields.io/badge/astro-message?style=flat&logo=astro&color=FF5D01&logoColor=fff" alt="Astro" />
+  </a>
+  <a href="https://lit.dev">
+    <img src="https://img.shields.io/badge/lit-message?style=flat&logo=lit&color=325CFF&logoColor=fff" alt="Lit" />
+  </a>
+</p>
 
 ```
 npm init astro -- --template minimal
