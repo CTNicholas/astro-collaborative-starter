@@ -41,16 +41,18 @@ const roomId =  'astro-collaborative-starter-live-cursors'
       </TitleSmall>
 
       <Paragraph>
-        Set the current user's properties (name, color etc.) using child input elements.
-        Updates are propagated on 'input' events. Not just compatible with text inputs.
+        Show each users' cursor on screen. Options for showing names, movement algorithm and element used for events.
       </Paragraph>
 
 <Code lang="astro" code={`
 ---
 import LiveCursors from 'astro-collab/LiveCursors.astro'
 ---
-<!-- No config needed, works already -->
+<!-- Just cursors shown -->
 <LiveCursors />
+
+<!-- Show names next to cursors -->
+<LiveCursors names />
 
 <!-- A quicker, but less smooth, animation -->
 <LiveCursors movement="quick" />
@@ -65,8 +67,11 @@ import LiveCursors from 'astro-collab/LiveCursors.astro'
 ---
 import 'astro-collab/live-cursors'
 ---
-<!-- No config needed, works already -->
+<!-- Just cursors shown -->
 <live-cursor client:load />
+
+<!-- Show names next to cursors -->
+<live-cursor names client:load />
 
 <!-- Use quicker, less smooth, animation -->
 <live-cursor movement="quick" client:load />
@@ -74,6 +79,37 @@ import 'astro-collab/live-cursors'
 <!-- CSS selector of pointer event element, default: body -->
 <live-cursor selector="#app" client:load />
       `} />
+
+      <TitleSmall>
+        Customise
+      </TitleSmall>
+
+      <Paragraph>
+        Customise with CSS parts:
+      </Paragraph>
+
+      <Code lang="astro" code={`
+<style is:global>
+  live-cursor::part(cursor) {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  }
+
+  live-cursor::part(cursor_name) {
+    font-weight: 500;
+  }
+</style>
+      `} />
+
+      <Paragraph>
+        All CSS parts:
+      </Paragraph>
+
+      <Code code={`
+cursors,
+cursor,
+cursor_svg,
+cursor_name
+        `} />
 
       <WrapAllNote></WrapAllNote>
 

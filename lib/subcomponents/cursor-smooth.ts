@@ -22,6 +22,9 @@ export class CursorSmooth extends LitElement {
   @property({ type: Number, reflect: true })
   y: number
 
+  @property({ reflect: true })
+  name: string
+
   @property()
   localCoords = { x: 0, y: 0 }
 
@@ -54,9 +57,11 @@ export class CursorSmooth extends LitElement {
   render () {
     return html`
       <cursor-quick
+        exportparts="cursor, cursor_svg, cursor_name"
         x=${this.localCoords.x}
         y=${this.localCoords.y}
         color=${this.color}
+        name=${this.name}
         transition=${false}
       ></cursor-quick>
     `

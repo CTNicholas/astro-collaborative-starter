@@ -20,6 +20,9 @@ export class LiveCursors extends SelfAndOthersClass {
   @property()
   elem: HTMLElement
 
+  @property({ reflect: true, type: Boolean })
+  names?: boolean
+
   connectedCallback () {
     super.connectedCallback()
     this.elem = this.selector ? document.querySelector(this.selector) : document.body
@@ -80,9 +83,11 @@ export class LiveCursors extends SelfAndOthersClass {
           if (this.movement === 'quick') {
             return html`
               <cursor-quick
+                exportparts="cursor, cursor_svg, cursor_name"
                 color=${user.color}
                 x=${user.cursor.x} 
                 y=${user.cursor.y}
+                name=${this.names ? user.name : null}
               ></cursor-quick>
             `
           }
@@ -90,18 +95,22 @@ export class LiveCursors extends SelfAndOthersClass {
           if (this.movement === 'perfect') {
             return html`
               <cursor-perfect
+                exportparts="cursor, cursor_svg, cursor_name"
                 color=${user.color}
                 x=${user.cursor.x} 
                 y=${user.cursor.y}
+                name=${this.names ? user.name : null}
               ></cursor-perfect>
             `
           }
     
           return html`
             <cursor-smooth
+              exportparts="cursor, cursor_svg, cursor_name"
               color=${user.color}
               x=${user.cursor.x} 
               y=${user.cursor.y}
+              name=${this.names ? user.name : null}
             ></cursor-smooth>
           `
         })}

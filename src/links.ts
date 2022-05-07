@@ -30,6 +30,18 @@ export const links = [
     image: 'card-user-form.png'
   },
   {
+    slug: 'live-youtube',
+    name: 'Video sharing',
+    tag: '<LiveYoutube>',
+    image: 'card-youtube.png'
+  },
+  {
+    slug: 'random-user-info',
+    name: 'Random user info',
+    tag: '<RandomUserInfo>',
+    image: 'card-random.png'
+  },
+  {
     slug: 'liveblocks-room',
     name: 'Liveblocks room',
     tag: '<LiveblocksRoom>',

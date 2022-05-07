@@ -17,6 +17,9 @@ export class CursorPerfect extends LitElement {
   @property({ type: Number, reflect: true })
   y: number = 0
 
+  @property({ reflect: true })
+  name: string
+
   @property()
   localCoords = { x: 0, y: 0 }
 
@@ -37,9 +40,11 @@ export class CursorPerfect extends LitElement {
   render () {
     return html`
       <cursor-quick
+        exportparts="cursor, cursor_svg, cursor_name"
         x=${this.localCoords.x}
         y=${this.localCoords.y}
         color=${this.color}
+        name=${this.name}
       ></cursor-quick>
     `
   }

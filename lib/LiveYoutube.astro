@@ -1,0 +1,15 @@
+---
+import './live-youtube'
+
+export interface Props {
+  name: string;
+  'youtube-id': string;
+  controls?: boolean;
+}
+
+const { name, 'video-id': videoId, hideControls } = Astro.props
+---
+
+<live-youtube name={name} video-id={videoId} controls={hideControls ? false : true} client:load>
+  <slot></slot>
+</live-youtube>

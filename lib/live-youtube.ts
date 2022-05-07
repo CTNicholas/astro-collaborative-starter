@@ -19,13 +19,13 @@ type LiveObjectType = {
 @customElement(tagName)
 export class LiveYoutube extends LiveObjectClass {
   @property({ reflect: true })
-  'youtube-id': string = 'QQ_3S-IQm38'
+  name: string
+
+  @property({ reflect: true })
+  'video-id': string
 
   @property({ reflect: true, type: Boolean })
-  controls: boolean = true
-
-  @property()
-  name = 'helloooo'
+  controls?: boolean = true
 
   @state()
   player = null
@@ -36,11 +36,15 @@ export class LiveYoutube extends LiveObjectClass {
   @state()
   bufferedPause: boolean = false
 
-  static styles = css`
-  `
-
   connectedCallback () {
     super.connectedCallback()
+    if (!this.name) {
+      console.error('LiveYoutube component requires a unique name="" attribute')
+    }
+
+    if (!this['video-id']) {
+      console.error('LiveYoutube component requires a video-id="" attribute')
+    }
   }
 
   whenLiveObjectReady () {
@@ -62,7 +66,6 @@ export class LiveYoutube extends LiveObjectClass {
     }
 
     globals.room.subscribe(this.LiveObject, (obj: LiveObject<LiveObjectType>) => {
-      //console.log(obj.get('playerState'))
       const anyBuffering = globals.room.getOthers().toArray().every(({ presence }) => {
         if (!presence || !('youtubeBuffering' in presence)) {
           return true
@@ -71,9 +74,8 @@ export class LiveYoutube extends LiveObjectClass {
         return presence.youtubeBuffering === true
       })
 
-      //console.log(anyBuffering)
-
       if (anyBuffering) {
+        // TODO temporary pause while buffering
         return
       }
 
@@ -94,20 +96,21 @@ export class LiveYoutube extends LiveObjectClass {
 
   protected update (changedProperties: PropertyValues) {
     super.update(changedProperties)
-    if (changedProperties.get('youtube-id') || !this.player) {
+    if (changedProperties.get('video-id') || !this.player) {
       this.setupPlayer()
     }
   }
 
   setupPlayer () {
+    this.render()
     this.player = YouTubePlayer(this.renderRoot.querySelector('#player'), {
       playerVars: {
         origin: window.location.href,
         controls: this.controls ? 1 : 0,
-        autoplay: 1
+        autoplay: 0
       }
     })
-    this.player.loadVideoById(this['youtube-id'])
+    this.player.loadVideoById(this['video-id'])
 
     this.player.on('stateChange', async ({ target, data }) => {
       globals.room.updatePresence({ youtubeBuffering: data === 3 })
@@ -180,11 +183,9 @@ export class LiveYoutube extends LiveObjectClass {
     }
   }
 
-
   render () {
     return html`
       <div id="player"></div>
     `
   }
-
 }

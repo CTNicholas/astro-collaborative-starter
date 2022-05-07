@@ -29,72 +29,30 @@ const roomId =  'astro-collaborative-starter-live-youtube'
     public-key={key}
   >
     <PanelLayout>
-      <Title text="Live YouTube player">
-        Watch YouTube together with &lt;LiveYoutube&gt;
+      <Title text="Random user info">
+        Populate your demo with placeholder users using &lt;RandomUserInfo&gt;
       </Title>
 
-      <Demo>
-        <LiveYoutube name="youtube-demo" video-id="QQ_3S-IQm38" controls />
-      </Demo>
+      <Demo />
+
+      <div class="bg-gray-50 h-40 max-w-screen-sm flex justify-center items-center">
+        Every page in this starter kit uses it
+      </div>
 
       <TitleSmall>
         How to use
       </TitleSmall>
 
       <Paragraph>
-        Add &lt;LiveYoutube&gt;, giving it a unique name="" attribute, and passing a YouTube video id to video-id="".
-        When the video is paused/played or the time is changed, the action is synced across browsers.
-        Adding the hideControls="" attribute will hide the controls.
-      </Paragraph>
-
-      <Paragraph>
-        Example of video-id="" value in bold:
-      </Paragraph>
-
-      <pre class="p-5 bg-gray-50">https://www.youtube.com/watch?v=<strong>dQw4w9WgXcQ</strong></pre>
-
-      <Paragraph>
-        Usage:
+        Add &lt;RandomUserInfo&gt;. This will give each connection a random name, color, status, and a change of an avatar.
       </Paragraph>
 
       <Code lang="astro" code={`
 ---
-import LiveYoutube from 'astro-collab/LiveYoutube.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 ---
 <!-- Basic -->
-<LiveYoutube
-  name="my-video"
-  video-id="dQw4w9WgXcQ"
-/>
-
-<!-- Hide video controls -->
-<LiveYoutube
-  name="my-video"
-  video-id="dQw4w9WgXcQ"
-  hideControls
-/>
-      `}/>
-
-      or
-
-      <Code lang="astro" code={`
----
-import 'astro-collab/live-youtube'
----
-<!-- Basic -->
-<live-youtube
-  name="my-video"
-  video-id="dQw4w9WgXcQ"
-  client:load
-/>
-
-<!-- Hide video controls -->
-<live-youtube
-  name="my-video"
-  video-id="dQw4w9WgXcQ"
-  hideControls
-  client:load
-/>
+<RandomUserInfo/>
       `}/>
 
       <WrapAllNote></WrapAllNote>
