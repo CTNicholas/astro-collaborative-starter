@@ -1,0 +1,128 @@
+---
+import LiveblocksRoom from '/lib/LiveblocksRoom.astro'
+import LiveUsers from '/lib/LiveUsers.astro'
+import RandomUserInfo from '/lib/RandomUserInfo.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import PanelLayout from '../layouts/PanelLayout.astro'
+import Demo from '../components/Demo.astro'
+import Code from '../components/Code.astro'
+import Title from '../components/Title.astro'
+import Paragraph from '../components/Paragraph.astro'
+import InputText from '../components/InputText.astro'
+import TitleSmall from '../components/TitleSmall.astro'
+import WrapAllNote from '../components/WrapAllNote.astro'
+import InputNumber from '../components/InputNumber.astro'
+import InputDropdown from '../components/InputDropdown.astro'
+import '/lib/live-youtube'
+
+// Get your free public key from https://liveblocks.io
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+// The name of the current room
+const roomId =  'astro-collaborative-starter-live-users'
+---
+
+
+<BaseLayout>
+  <RandomUserInfo></RandomUserInfo>
+  <LiveblocksRoom
+    room-id={roomId}
+    public-key={key}
+  >
+    <PanelLayout>
+      <Title text="Live user list">
+        See users currently online with &lt;LiveUsers&gt;
+      </Title>
+
+      <Demo>
+        <live-youtube client:load></live-youtube>
+      </Demo>
+
+      <TitleSmall>
+        How to use
+      </TitleSmall>
+
+      <Paragraph>
+        Add &lt;LiveUsers&gt;. If the user has no picture, a placeholder made from the user's color and name will be displayed.
+        Change size="", show="", self-suffix="" attributes for more options.
+      </Paragraph>
+
+      <Code lang="astro" code={`
+        ---
+        import LiveUsers from 'astro-collab/LiveUsers.astro'
+---
+      <!-- Basic -->
+<LiveUsers></LiveUsers>
+
+      <!-- Change avatar size (pixels) -->
+<LiveUsers size="32"></LiveUsers>
+
+      <!-- Only show your user info -->
+<LiveUsers show="self"></LiveUsers>
+
+      <!-- Only show other people's user info -->
+<LiveUsers show="others"></LiveUsers>
+
+      <!-- Modify the text at the end of your name, default: ' (you)' -->
+<LiveUsers self-suffix=" - this is you"></LiveUsers>
+      `}/>
+
+      or
+
+      <Code lang="astro" code={`
+        ---
+        import 'astro-collab/live-users'
+---
+      <!-- Basic -->
+<live-users client:load></live-users>
+
+      <!-- Change avatar size (pixels) -->
+<live-users size="32" client:load></live-users>
+
+      <!-- Only show your user info -->
+<live-users show="self" client:load></live-users>
+
+      <!-- Only show other people's user info -->
+<live-users show="others" client:load></live-users>
+      `}/>
+
+      <TitleSmall>
+        Customise
+      </TitleSmall>
+
+      <Paragraph>
+        Customise with CSS parts:
+      </Paragraph>
+
+      <Code lang="astro" code={`
+<style is:global>
+  live-users::part(user) {
+    margin-bottom: 12px;
+  }
+
+  live-users::part(name) {
+    font-weight: 500;
+  }
+</style>
+      `} />
+
+      <Paragraph>
+        All CSS parts:
+      </Paragraph>
+
+      <Code code={`
+        user,
+        name,
+        status,
+        avatar,
+        avatar_picture_wrapper,
+        avatar_picture,
+        avatar_fallback
+        `} />
+
+      <WrapAllNote></WrapAllNote>
+
+    </PanelLayout>
+  </LiveblocksRoom>
+</BaseLayout>
+

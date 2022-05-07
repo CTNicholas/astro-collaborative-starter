@@ -24,6 +24,7 @@ export class LiveObjectClass extends StorageClass {
     super.whenStorageReady()
 
     if (!this.name) {
+      console.error('LiveObjectClass requires a name property')
       return
     }
 

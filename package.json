@@ -31,6 +31,7 @@
   "dependencies": {
     "@liveblocks/client": "^0.16.2",
     "@liveblocks/react": "^0.16.2",
-    "perfect-cursors": "^1.0.5"
+    "perfect-cursors": "^1.0.5",
+    "youtube-player": "^5.5.2"
   }
 }
