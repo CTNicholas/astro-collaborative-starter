@@ -16,21 +16,28 @@
     "./LiveblocksRoom.astro": "./lib/LiveblocksRoom.astro",
     "./LiveAvatars.astro": "./lib/LiveAvatars.astro",
     "./LiveCursors.astro": "./lib/LiveCursors.astro",
+    "./LiveDrawing.astro": "./lib/LiveDrawing.astro",
     "./LiveForm.astro": "./lib/LiveForm.astro",
     "./LiveUserForm.astro": "./lib/LiveUserForm.astro",
     "./LiveUsers.astro": "./lib/LiveUsers.astro",
+    "./LiveYoutube.astro": "./lib/LiveYoutube.astro",
     "./RandomUserInfo.astro": "./lib/RandomUserInfo.astro"
   },
   "devDependencies": {
     "@astrojs/lit": "^0.1.2",
+    "@astrojs/react": "^0.1.1",
     "@astrojs/tailwind": "^0.2.1",
     "@webcomponents/template-shadowroot": "^0.1.0",
     "astro": "^1.0.0-beta.19",
-    "lit": "^2.2.2"
+    "lit": "^2.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "dependencies": {
     "@liveblocks/client": "^0.16.2",
     "@liveblocks/react": "^0.16.2",
+    "@tldraw/tldraw": "^1.11.1",
+    "motion": "^10.8.1",
     "perfect-cursors": "^1.0.5",
     "youtube-player": "^5.5.2"
   }

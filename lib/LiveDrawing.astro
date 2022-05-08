@@ -1,0 +1,12 @@
+---
+import LiveDrawing from './LiveDrawing'
+---
+
+<LiveDrawing client:only="react" />
+
+<style is:global>
+  /* Hides cursors */
+  .tldraw svg.tl-user {
+    display: none;
+  }
+</style>

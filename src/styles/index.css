@@ -16,6 +16,10 @@ body {
   overflow-y: auto;
 }
 
+html body {
+  position: absolute !important;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

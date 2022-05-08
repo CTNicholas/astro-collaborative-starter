@@ -1,15 +1,10 @@
 import { html, LitElement, PropertyValues } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
-import { spring } from '../utils/spring'
+import { customElement, property, query } from 'lit/decorators.js'
+import { styleMap } from 'lit/directives/style-map.js'
+import { animate, spring } from 'motion'
 import './cursor-quick'
 
 export const tagName = 'cursor-smooth'
-
-const springSettings = {
-  stiffness: 200,
-  damping: 20,
-  precision: 100,
-}
 
 @customElement(tagName)
 export class CursorSmooth extends LitElement {
@@ -25,32 +20,37 @@ export class CursorSmooth extends LitElement {
   @property({ reflect: true })
   name: string
 
-  @property()
-  localCoords = { x: 0, y: 0 }
-
-  springs = { x: spring(0, springSettings), y: spring(0, springSettings) }
-
-  constructor () {
-    super()
-      this.springs.x.onUpdate(x => {
-        if (x) {
-          this.localCoords.x = x
-        }
-      })
-      this.springs.y.onUpdate(y => {
-        if (y) {
-          this.localCoords.y = y
-        }
-      })
-  }
+  @query('cursor-quick')
+  cursor: HTMLElement
 
   protected update (changedProperties: PropertyValues) {
     super.update(changedProperties)
+
+    if (!this.cursor) {
+      return
+    }
+
     const x = changedProperties.get('x')
     const y = changedProperties.get('y')
-    if (x && y) {
-      this.springs.x.transitionTo(x || this.x)
-      this.springs.y.transitionTo(y || this.y)
+    if (x !== undefined || y !== undefined) {
+      const coords = {
+        x: x || this.x,
+        y: y || this.y
+      }
+      if (this.cursor.style.transform !== 'translateX(var(--motion-translateX)) translateY(var(--motion-translateY))') {
+        animate(this.cursor, coords, { duration: 0 })
+      } else {
+        animate(this.cursor, coords, {
+          easing: spring({
+            stiffness: 300,
+            damping: 30,
+            mass: 0.7
+          })
+        })
+      }
+      this.cursor.style.opacity = '1'
+    } else {
+      this.cursor.style.opacity = '0'
     }
   }
 
@@ -58,8 +58,12 @@ export class CursorSmooth extends LitElement {
     return html`
       <cursor-quick
         exportparts="cursor, cursor_svg, cursor_name"
-        x=${this.localCoords.x}
-        y=${this.localCoords.y}
+        style=${styleMap({
+          position: 'absolute',
+          opacity: '0'
+        })}
+        x=${1}
+        y=${1}
         color=${this.color}
         name=${this.name}
         transition=${false}
