@@ -5,12 +5,19 @@ import type { TldrawApp, TDUser, TDShape, TDBinding, TDDocument } from '@tldraw/
 import { LiveMap, LiveObject } from '@liveblocks/client'
 import { LiveblocksProvider, RoomProvider, useRedo, useUndo, useRoom, useUpdateMyPresence } from '@liveblocks/react'
 import globals from './globals'
+import { useRoomName } from './utils/useRoomName'
 
 export default function LiveDrawing () {
+  const roomName = useRoomName()
+
+  if (!roomName) {
+    return null
+  }
+
   return (
     <LiveblocksProvider client={globals.client}>
-      <RoomProvider id={globals.room.id}>
-        <Editor roomId={globals.room.id} />
+      <RoomProvider id={roomName}>
+        <Editor roomId={roomName} />
       </RoomProvider>
     </LiveblocksProvider>
   )

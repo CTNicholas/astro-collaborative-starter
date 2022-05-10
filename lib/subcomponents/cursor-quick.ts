@@ -34,6 +34,7 @@ export class CursorQuick extends LitElement {
       left: 7px;
       padding: 5px 12px;
       font-size: 0.9em;
+      white-space: nowrap;
     }
   `
 

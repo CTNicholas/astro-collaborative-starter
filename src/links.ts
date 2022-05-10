@@ -30,6 +30,12 @@ export const links = [
     image: 'card-user-form.png'
   },
   {
+    slug: 'live-drawing',
+    name: 'Live drawing',
+    tag: '<LiveDrawing>',
+    image: 'card-drawing.png'
+  },
+  {
     slug: 'live-youtube',
     name: 'Video sharing',
     tag: '<LiveYoutube>',

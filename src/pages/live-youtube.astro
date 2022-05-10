@@ -1,5 +1,6 @@
 ---
 import LiveblocksRoom from '/lib/LiveblocksRoom.astro'
+import LiveVideo from '/lib/LiveVideo.astro'
 import LiveYoutube from '/lib/LiveYoutube.astro'
 import RandomUserInfo from '/lib/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
@@ -8,12 +9,8 @@ import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import Paragraph from '../components/Paragraph.astro'
-import InputText from '../components/InputText.astro'
 import TitleSmall from '../components/TitleSmall.astro'
 import WrapAllNote from '../components/WrapAllNote.astro'
-import InputNumber from '../components/InputNumber.astro'
-import InputDropdown from '../components/InputDropdown.astro'
-import '/lib/live-youtube'
 
 // Get your free public key from https://liveblocks.io
 const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
@@ -34,6 +31,8 @@ const roomId =  'astro-collaborative-starter-live-youtube'
       </Title>
 
       <Demo>
+        <LiveVideo />
+        end
         <LiveYoutube name="youtube-demo" video-id="QQ_3S-IQm38" controls />
       </Demo>
 

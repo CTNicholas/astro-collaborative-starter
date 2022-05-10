@@ -4,6 +4,9 @@ export type User = {
   picture: string
   status?: string
   cursor?: null | { x: number, y: number }
+  video?: {
+    buffering?: boolean
+  }
   [key: string]: any
 }
 
