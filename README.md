@@ -21,6 +21,8 @@
 
 > Buckle up Astroneers 🚀 we're going in **together** 👩‍🚀👨‍🚀
 
+![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)
+
 
 ## [View Demo & Guide](https://astro-collaborative-starter.ctnicholas.dev/)
 
@@ -38,8 +40,7 @@ npm i astro-collab
 ## Components
 
 <a href="https://astro-collaborative-starter.ctnicholas.dev/live-cursors">![Live cursors](https://astro-collaborative-starter.ctnicholas.dev/card-cursors-mini.png)
-</a>
-<a href="https://astro-collaborative-starter.ctnicholas.dev/live-avatars">![Live avatars](https://astro-collaborative-starter.ctnicholas.dev/card-avatars-mini.png)
+</a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-avatars">![Live avatars](https://astro-collaborative-starter.ctnicholas.dev/card-avatars-mini.png)
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-users">![Live users](https://astro-collaborative-starter.ctnicholas.dev/card-users-mini.png)
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-form">![Live form](https://astro-collaborative-starter.ctnicholas.dev/card-form-mini.png)
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-user-form">![Live user form](https://astro-collaborative-starter.ctnicholas.dev/card-user-form-mini.png)
@@ -47,8 +48,6 @@ npm i astro-collab
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/random-user-info">![Random user info](https://astro-collaborative-starter.ctnicholas.dev/card-cursors-mini.png)
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/liveblocks-room">![Liveblocks room](https://astro-collaborative-starter.ctnicholas.dev/card-liveblocks-mini.png)
 </a>
-
-<br>![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)
 
 ## Like what you see?
 I build lots of fun stuff, and write interactive articles too, follow me on [Twitter](https://twitter.com/ctnicholasdev) for more. Here's a few examples:
