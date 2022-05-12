@@ -29,10 +29,10 @@ Take a look at the full guide on the [demo website](https://astro-collaborative-
 npm i astro-collab
 ```
 
-![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)
+<a href="https://liveblocks.io">![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)</a>
 
 ## [Quick start](https://astro-collaborative-starter.ctnicholas.dev/quick-start)
-<a href="https://astro-collaborative-starter.ctnicholas.dev/quick-start">![Live cursors](https://astro-collaborative-starter.ctnicholas.dev/card-main.png)
+<a href="https://astro-collaborative-starter.ctnicholas.dev/quick-start">![Quick start guide](https://astro-collaborative-starter.ctnicholas.dev/card-main.png)
 </a>
 
 
@@ -49,7 +49,7 @@ npm i astro-collab
 </a>
 
 ## Like what you see?
-I build lots of fun stuff, and write interactive articles too, follow me on [Twitter](https://twitter.com/ctnicholasdev) for more. Here's a few examples:
+I build lots of collaborative fun, and write interactive articles too, follow me on [Twitter](https://twitter.com/ctnicholasdev) for more. Here's a few examples:
 
 [![Adding live cursors to Next.js](https://pixelart.liveblocks.app/og-image.png)](https://pixelart.liveblocks.app)
 [![Adding live cursors to Next.js](https://www.ctnicholas.dev/images/custom-thumbnails/live-cursors-with-liveblocks.png)](https://www.ctnicholas.dev/articles/live-cursors-with-liveblocks)
