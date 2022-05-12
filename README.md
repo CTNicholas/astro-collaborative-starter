@@ -44,7 +44,7 @@ npm i astro-collab
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-form">![Live form](https://astro-collaborative-starter.ctnicholas.dev/card-form-mini.png)
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-user-form">![Live user form](https://astro-collaborative-starter.ctnicholas.dev/card-user-form-mini.png)
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-drawing">![Live drawing](https://astro-collaborative-starter.ctnicholas.dev/card-drawing-mini.png)
-</a><a href="https://astro-collaborative-starter.ctnicholas.dev/random-user-info">![Random user info](https://astro-collaborative-starter.ctnicholas.dev/card-cursors-mini.png)
+</a><a href="https://astro-collaborative-starter.ctnicholas.dev/random-user-info">![Random user info](https://astro-collaborative-starter.ctnicholas.dev/card-random-mini.png)
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/liveblocks-room">![Liveblocks room](https://astro-collaborative-starter.ctnicholas.dev/card-liveblocks-mini.png)
 </a>
 
