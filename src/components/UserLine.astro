@@ -1,0 +1,73 @@
+---
+const { name = '', color = '', letterColor = 'white', status = '' } = Astro.props
+
+const avatarStyle = `background: ${color}; color: ${letterColor};`
+---
+
+<div class="user">
+  <div class="avatar">
+    <div part="avatar_picture_wrapper" class="avatar_picture_wrapper" style="width: 40px; height: 40px;">
+      <div part="avatar_fallback" class="avatar_fallback" style={avatarStyle}>
+        {name[0]}
+      </div>
+    </div>
+  </div>
+
+  <div part="info" class="user_info">
+    <div part="name" class="user_name">
+      {name}
+    </div>
+    <div part="status" class="user_status">
+      {status}
+    </div>
+  </div>
+</div>
+
+<style>
+  .user {
+    display: flex;
+    align-items: center;
+  }
+
+  .user_info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 0.75em;
+    overflow-x: hidden;
+  }
+
+  .user_name, .user_status {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .user_status {
+    font-size: 0.9em;
+    opacity: 0.7;
+    margin-top: 0.05em;
+  }
+
+  .avatar {
+    border-radius: 9999px;
+    position: relative;
+    margin-left: -6px;
+    user-select: none;
+    box-shadow: rgb(255, 255, 255) 2px 0 0;
+  }
+
+  .avatar_fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    border-radius: 9999px;
+  }
+</style>

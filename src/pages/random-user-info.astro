@@ -1,7 +1,7 @@
 ---
-import LiveblocksRoom from '/lib/LiveblocksRoom.astro'
-import LiveYoutube from '/lib/LiveYoutube.astro'
-import RandomUserInfo from '/lib/RandomUserInfo.astro'
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import LiveYoutube from 'astro-collab/LiveYoutube.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Demo from '../components/Demo.astro'
@@ -36,7 +36,7 @@ const roomId =  'astro-collaborative-starter-live-youtube'
       <Demo />
 
       <div class="bg-gray-50 h-40 max-w-screen-sm flex justify-center items-center">
-        Every page in this starter kit uses it
+        Every page in this starter kit uses &lt;RandomUserInfo>
       </div>
 
       <TitleSmall>
@@ -44,14 +44,13 @@ const roomId =  'astro-collaborative-starter-live-youtube'
       </TitleSmall>
 
       <Paragraph>
-        Add &lt;RandomUserInfo&gt;. This will give each connection a random name, color, status, and a change of an avatar.
+        Add &lt;RandomUserInfo&gt;. This will give each connection a random name, color, status, and a chance of having an avatar picture.
       </Paragraph>
 
       <Code lang="astro" code={`
 ---
 import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 ---
-<!-- Basic -->
 <RandomUserInfo/>
       `}/>
 
@@ -60,4 +59,3 @@ import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
     </PanelLayout>
   </LiveblocksRoom>
 </BaseLayout>
-

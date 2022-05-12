@@ -1,7 +1,7 @@
 ---
-import LiveblocksRoom from '/lib/LiveblocksRoom.astro'
-import RandomUserInfo from '/lib/RandomUserInfo.astro'
-import '/lib/subcomponents/user-line'
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
+import UserLine from '../components/UserLine.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Box from '../components/Box.astro'
@@ -131,14 +131,12 @@ const key = import&#46;meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
         </Paragraph>
 
         <Box>
-          <user-line
-            class="-mb-2"
-            size="40"
+          <UserLine
             name="Chris"
             color="red"
-            picture=""
+            letterColor="white"
             status="Online"
-          ></user-line>
+          ></UserLine>
         </Box>
 
       <TitleSmall>

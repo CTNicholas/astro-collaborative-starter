@@ -1,7 +1,7 @@
 ---
-import LiveblocksRoom from '/lib/LiveblocksRoom.astro'
-import LiveUserForm from '/lib/LiveUserForm.astro'
-import RandomUserInfo from '/lib/RandomUserInfo.astro'
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import LiveUserForm from 'astro-collab/LiveUserForm.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Demo from '../components/Demo.astro'
@@ -48,8 +48,8 @@ const roomId =  'astro-collaborative-starter-live-user-form'
         How to use
       </TitleSmall>
 
-      <Paragraph>
-        Set the current user's properties (name, color etc.) using child input elements.
+      <Paragraph>Place &lt;input> elements inside &lt;LiveUserForm> to set the current user's
+        properties (name, color etc.) using child &lt;input> elements.
         Updates are propagated on 'input' events.
         Compatible with any &lt;input&gt; with a 'value' property, using 'input' events.
       </Paragraph>

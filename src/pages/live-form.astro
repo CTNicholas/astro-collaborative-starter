@@ -1,7 +1,7 @@
 ---
-import LiveblocksRoom from '/lib/LiveblocksRoom.astro'
-import LiveForm from '/lib/LiveForm.astro'
-import RandomUserInfo from '/lib/RandomUserInfo.astro'
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import LiveForm from 'astro-collab/LiveForm.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Demo from '../components/Demo.astro'
@@ -94,9 +94,10 @@ const roomId =  'astro-collaborative-starter-live-form'
       </TitleSmall>
 
       <Paragraph>
-        Place &lt;input> elements inside of &lt;live-form> to create shared form elements.
-        Both &lt;live-form&gt; and each &lt;input> must have a unique name="" attribute for this to work.
+        Place &lt;input> elements inside &lt;LiveForm> to create shared form elements.
+        Both &lt;LiveForm&gt; and each &lt;input> must have a unique name="" attribute for this to work.
         Updates are propagated on 'input' events.
+        Compatible with any &lt;input&gt; with a 'value' property, using 'input' events.
       </Paragraph>
 
       <Code lang="astro" code={`

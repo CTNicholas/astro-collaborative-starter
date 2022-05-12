@@ -36,12 +36,6 @@ export const links = [
     image: 'card-drawing.png'
   },
   {
-    slug: 'live-youtube',
-    name: 'Video sharing',
-    tag: '<LiveYoutube>',
-    image: 'card-youtube.png'
-  },
-  {
     slug: 'random-user-info',
     name: 'Random user info',
     tag: '<RandomUserInfo>',

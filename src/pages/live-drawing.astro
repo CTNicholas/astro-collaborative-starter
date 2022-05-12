@@ -1,9 +1,10 @@
 ---
-import LiveblocksRoom from '/lib/LiveblocksRoom.astro'
-import LiveDrawing from '/lib/LiveDrawing.astro'
-import RandomUserInfo from '/lib/RandomUserInfo.astro'
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import LiveDrawing from 'astro-collab/LiveDrawing.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
+import Link from '../components/Link.astro'
 import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
@@ -29,7 +30,7 @@ const roomId =  'astro-collaborative-starter-live-drawing'
   >
     <PanelLayout>
       <Title text="LiveDrawing">
-        Any inputs, textareas, selects, with a name="" attribute inside &lt;LiveForm&gt; will be shared
+        Draw together with &lt;LiveDrawing&gt;, powered by <Link href="https://tldraw.com" newTab>tldraw</Link>
       </Title>
 
       <Demo>
@@ -43,30 +44,19 @@ const roomId =  'astro-collaborative-starter-live-drawing'
       </TitleSmall>
 
       <Paragraph>
-        Place &lt;input> elements inside of &lt;live-form> to create shared form elements.
-        Both &lt;live-form&gt; and each &lt;input> must have a unique name="" attribute for this to work.
-        Updates are propagated on 'input' events.
+        Add &lt;LiveDrawing>. Element attributes correspond to <Link href="https://github.com/tldraw/tldraw/blob/main/guides/documentation.md" newTab>tldraw props.</Link>
       </Paragraph>
 
       <Code lang="astro" code={`
-        ---
-        import LiveForm from 'astro-collab/LiveForm.astro'
 ---
-<LiveForm name="myform">
-  <input name="myinput" />
-</LiveForm>
+import LiveDrawing from 'astro-collab/LiveDrawing.astro'
+---
+<!-- Basic -->
+<LiveDrawing />
+
+<!-- Pass any tldraw properties -->
+<LiveDrawing showMenu={false} />
       `}/>
-
-      or
-
-      <Code lang="astro" code={`
-        ---
-        import 'astro-collab/live-form'
----
-<live-form name="myform" client:load>
-  <input name="myinput" />
-</live-form>
-      `} />
 
       <WrapAllNote></WrapAllNote>
 

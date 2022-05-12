@@ -1,6 +1,6 @@
 ---
-import LiveblocksRoom from '/lib/LiveblocksRoom.astro'
-import RandomUserInfo from '/lib/RandomUserInfo.astro'
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Demo from '../components/Demo.astro'
@@ -56,6 +56,9 @@ import LiveCursors from 'astro-collab/LiveCursors.astro'
 
 <!-- A quicker, but less smooth, animation -->
 <LiveCursors movement="quick" />
+
+<!-- A realistic, but delayed, animation -->
+<LiveCursors movement="perfect" />
 
 <!-- CSS selector of pointer event element, default: html -->
 <LiveCursors selector="body" />
