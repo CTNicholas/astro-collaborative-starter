@@ -39,28 +39,20 @@ npm i astro-collab
 
 <a href="https://astro-collaborative-starter.ctnicholas.dev/live-cursors">![Live cursors](https://astro-collaborative-starter.ctnicholas.dev/card-cursors-mini.png)
 </a>
-
 <a href="https://astro-collaborative-starter.ctnicholas.dev/live-avatars">![Live avatars](https://astro-collaborative-starter.ctnicholas.dev/card-avatars-mini.png)
+</a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-users">![Live users](https://astro-collaborative-starter.ctnicholas.dev/card-users-mini.png)
+</a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-form">![Live form](https://astro-collaborative-starter.ctnicholas.dev/card-form-mini.png)
+</a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-user-form">![Live user form](https://astro-collaborative-starter.ctnicholas.dev/card-user-form-mini.png)
+</a><a href="https://astro-collaborative-starter.ctnicholas.dev/live-drawing">![Live drawing](https://astro-collaborative-starter.ctnicholas.dev/card-drawing-mini.png)
+</a><a href="https://astro-collaborative-starter.ctnicholas.dev/random-user-info">![Random user info](https://astro-collaborative-starter.ctnicholas.dev/card-cursors-mini.png)
+</a><a href="https://astro-collaborative-starter.ctnicholas.dev/liveblocks-room">![Liveblocks room](https://astro-collaborative-starter.ctnicholas.dev/card-liveblocks-mini.png)
 </a>
 
-<a href="https://astro-collaborative-starter.ctnicholas.dev/live-users">![Live users](https://astro-collaborative-starter.ctnicholas.dev/card-users-mini.png)
-</a>
+<br>![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)
 
-<a href="https://astro-collaborative-starter.ctnicholas.dev/live-form">![Live form](https://astro-collaborative-starter.ctnicholas.dev/card-form-mini.png)
-</a>
+## Like what you see?
+I build lots of fun stuff, and write interactive articles too, follow me on [Twitter](https://twitter.com/ctnicholasdev) for more. Here's a few examples:
 
-<a href="https://astro-collaborative-starter.ctnicholas.dev/live-user-form">![Live user form](https://astro-collaborative-starter.ctnicholas.dev/card-user-form-mini.png)
-</a>
-
-<a href="https://astro-collaborative-starter.ctnicholas.dev/live-drawing">![Live drawing](https://astro-collaborative-starter.ctnicholas.dev/card-drawing-mini.png)
-</a>
-
-<a href="https://astro-collaborative-starter.ctnicholas.dev/random-user-info">![Random user info](https://astro-collaborative-starter.ctnicholas.dev/card-cursors-mini.png)
-</a>
-
-<a href="https://astro-collaborative-starter.ctnicholas.dev/liveblocks-room">![Liveblocks room](https://astro-collaborative-starter.ctnicholas.dev/card-liveblocks-mini.png)
-</a>
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://github.com/withastro/astro) or jump into our [Discord server](https://astro.build/chat).
+[![Adding live cursors to Next.js](https://pixelart.liveblocks.app/og-image.png)](https://pixelart.liveblocks.app)
+[![Adding live cursors to Next.js](https://www.ctnicholas.dev/images/custom-thumbnails/live-cursors-with-liveblocks.png)](https://www.ctnicholas.dev/articles/live-cursors-with-liveblocks)
+[![Build a live piano](https://livepiano.ctnicholas.dev/screenshot.png)](https://livepiano.ctnicholas.dev)
