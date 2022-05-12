@@ -21,9 +21,6 @@
 
 > Buckle up Astroneers 🚀 we're going in **together** 👩‍🚀👨‍🚀
 
-![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)
-
-
 ## [View Demo & Guide](https://astro-collaborative-starter.ctnicholas.dev/)
 
 Take a look at the full guide on the [demo website](https://astro-collaborative-starter.ctnicholas.dev/). You can clone this repo to use it as a starter kit, or get the collaborative components straight from NPM:
@@ -31,6 +28,8 @@ Take a look at the full guide on the [demo website](https://astro-collaborative-
 ```
 npm i astro-collab
 ```
+
+![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)
 
 ## [Quick start](https://astro-collaborative-starter.ctnicholas.dev/quick-start)
 <a href="https://astro-collaborative-starter.ctnicholas.dev/quick-start">![Live cursors](https://astro-collaborative-starter.ctnicholas.dev/card-main.png)
