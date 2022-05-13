@@ -19,7 +19,7 @@
   </a>
 </p>
 
-> Buckle up Astroneers 🚀 we're going in **together** 👩‍🚀👨‍🚀
+> Buckle up Astronauts 🚀 we're going in **together** 👩‍🚀👨‍🚀
 
 ## [View Demo & Guide](https://astro-collaborative-starter.ctnicholas.dev/)
 
