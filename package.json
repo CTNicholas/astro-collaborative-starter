@@ -9,9 +9,6 @@
   },
   "type": "module",
   "main": "lib/index.js",
-  "files": [
-    "lib"
-  ],
   "exports": {
     "./LiveblocksRoom.astro": "./lib/LiveblocksRoom.astro",
     "./LiveAvatars.astro": "./lib/LiveAvatars.astro",
@@ -37,10 +34,8 @@
     "@liveblocks/client": "^0.16.2",
     "@liveblocks/react": "^0.16.2",
     "@tldraw/tldraw": "^1.11.1",
-    "astro-collab": "^1.0.0",
+    "astro-collab": "^1.0.1",
     "motion": "^10.8.1",
-    "perfect-cursors": "^1.0.5",
-    "react-player": "^2.10.1",
-    "youtube-player": "^5.5.2"
+    "perfect-cursors": "^1.0.5"
   }
 }
