@@ -5,6 +5,7 @@ import UserLine from '../components/UserLine.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Box from '../components/Box.astro'
+import Link from '../components/Link.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import Paragraph from '../components/Paragraph.astro'
@@ -34,11 +35,26 @@ const roomId =  'astro-collaborative-starter-live-form'
         How to use
       </TitleSmall>
 
-      <GetPublicKey />
+      <Paragraph>
+        To use this starter kit you need to sign up to <Link href="https://liveblocks.io" newTab>Liveblocks</Link>
+            and get your free public key. You can find your public key on the
+        <Link href="https://liveblocks.io/dashboard/apikeys" newTab>dashboard</Link> after signing in.
+      </Paragraph>
+
+      <Paragraph>
+        Clone the <Link href="https://github.com/CTNicholas/astro-collaborative-starter" newTab>GitHub repo</Link>
+        and place your key in <code>.env</code> file in the root of the project, then hit refresh:
+      </Paragraph>
+
+      <Code code="PUBLIC_LIVEBLOCKS_PUBLIC_KEY=pk_live_xxxxxxxxxxxxxxxxxxxxxxxxx" />
 
       <TitleSmall>
         Install package
       </TitleSmall>
+
+      <Paragraph>
+        If you're using the collaborative components in your own project, instead of the starter kit, you can install straight from npm:
+      </Paragraph>
 
       <Code lang="shell" code="npm install astro-collab" />
 
