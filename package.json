@@ -1,5 +1,5 @@
 {
-  "name": "astro-collab",
+  "name": "astro-collaboration-starter",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
@@ -9,23 +9,12 @@
   },
   "type": "module",
   "main": "lib/index.js",
-  "exports": {
-    "./LiveblocksRoom.astro": "./lib/LiveblocksRoom.astro",
-    "./LiveAvatars.astro": "./lib/LiveAvatars.astro",
-    "./LiveCursors.astro": "./lib/LiveCursors.astro",
-    "./LiveDrawing.astro": "./lib/LiveDrawing.astro",
-    "./LiveForm.astro": "./lib/LiveForm.astro",
-    "./LiveUserForm.astro": "./lib/LiveUserForm.astro",
-    "./LiveUsers.astro": "./lib/LiveUsers.astro",
-    "./LiveYoutube.astro": "./lib/LiveYoutube.astro",
-    "./RandomUserInfo.astro": "./lib/RandomUserInfo.astro"
-  },
   "devDependencies": {
     "@astrojs/lit": "^0.1.2",
-    "@astrojs/react": "^0.1.1",
+    "@astrojs/react": "^0.1.2",
     "@astrojs/tailwind": "^0.2.1",
     "@webcomponents/template-shadowroot": "^0.1.0",
-    "astro": "^1.0.0-beta.19",
+    "astro": "^1.0.0-beta.28",
     "lit": "^2.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
