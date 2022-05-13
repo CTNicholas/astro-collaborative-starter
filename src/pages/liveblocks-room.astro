@@ -4,13 +4,10 @@ import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Link from '../components/Link.astro'
-import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import Paragraph from '../components/Paragraph.astro'
-import InputText from '../components/InputText.astro'
 import TitleSmall from '../components/TitleSmall.astro'
-import GetPublicKey from '../components/GetPublicKey.astro'
 import ComponentGrid from '../components/ComponentGrid.astro'
 
 // Get your free public key from https://liveblocks.io
@@ -47,7 +44,7 @@ const roomId =  'astro-collaborative-starter-liveblocks-room'
       <Paragraph>
         The room-id="" and public-key="" attributes are required. These correspond to the name of the room
         currently being shared by users, and your Liveblocks public key. User properties can also be set
-        using attributes. Wrap all your multiplayer components inside &lt;LiveblocksRoom>. One &lt;LiveblocksRoom> per page.
+        using attributes. Wrap all your multiplayer components inside &lt;LiveblocksRoom&gt;. One &lt;LiveblocksRoom&gt; per page.
       </Paragraph>
 
       <Code lang="astro" code={`

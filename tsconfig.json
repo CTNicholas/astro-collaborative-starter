@@ -3,6 +3,8 @@
     "target": "es5",
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "isolatedModules": true,
+    "resolveJsonModule": true,
     "jsx": "react",
     "useDefineForClassFields": false
   }

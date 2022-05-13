@@ -5,16 +5,11 @@ import UserLine from '../components/UserLine.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
 import Box from '../components/Box.astro'
-import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
 import Paragraph from '../components/Paragraph.astro'
-import InputText from '../components/InputText.astro'
 import TitleSmall from '../components/TitleSmall.astro'
-import WrapAllNote from '../components/WrapAllNote.astro'
-import InputNumber from '../components/InputNumber.astro'
 import GetPublicKey from '../components/GetPublicKey.astro'
-import InputDropdown from '../components/InputDropdown.astro'
 import ComponentGrid from '../components/ComponentGrid.astro'
 
 // Get your free public key from https://liveblocks.io
@@ -70,7 +65,7 @@ const key = import${'.'}meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
       `}/>
 
       <Paragraph>
-        There can only be a single &lt;LiveblocksRoom> per page.
+        There can only be a single &lt;LiveblocksRoom&gt; per page.
       </Paragraph>
 
       <TitleSmall>
