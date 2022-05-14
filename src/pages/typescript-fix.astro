@@ -1,0 +1,64 @@
+---
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import PanelLayout from '../layouts/PanelLayout.astro'
+import Link from '../components/Link.astro'
+import Code from '../components/Code.astro'
+import Title from '../components/Title.astro'
+import Paragraph from '../components/Paragraph.astro'
+import TitleSmall from '../components/TitleSmall.astro'
+import WrapAllNote from '../components/WrapAllNote.astro'
+
+// Get your free public key from https://liveblocks.io
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+// The name of the current room
+const roomId =  'astro-collaborative-starter-type-fix'
+---
+
+<BaseLayout>
+  <RandomUserInfo></RandomUserInfo>
+  <LiveblocksRoom
+    room-id={roomId}
+    public-key={key}
+  >
+    <PanelLayout>
+      <Title text="'Cannot find module' fix">
+        Fix for "Cannot find module '...' or its corresponding type declarations. ts(2307)"
+      </Title>
+
+      <Paragraph>
+        This is currently occurring because of an <Link href="https://github.com/withastro/astro/issues/3217" newTab>Astro bug</Link> meaning imports must be imported
+        in <Link href="https://github.com/withastro/astro/issues/3053#issuecomment-1103989629" newTab>a different way.</Link>
+      </Paragraph>
+
+      <TitleSmall>
+        How to fix
+      </TitleSmall>
+
+      <Paragraph>
+        Place this in your tsconfig.json file:
+      </Paragraph>
+
+<Code lang="json" code={`"compilerOptions": {
+  "baseUrl": "./",
+  "paths": {
+    "astro-collab/LiveblocksRoom.astro": ["node_modules/astro-collab/lib/LiveblocksRoom.astro"],
+    "astro-collab/LiveAvatars.astro": ["node_modules/astro-collab/lib/LiveAvatars.astro"],
+    "astro-collab/LiveCursors.astro": ["node_modules/astro-collab/lib/LiveCursors.astro"],
+    "astro-collab/LiveDrawing.astro": ["node_modules/astro-collab/lib/LiveDrawing.astro"],
+    "astro-collab/LiveForm.astro": ["node_modules/astro-collab/lib/LiveForm.astro"],
+    "astro-collab/LiveUserForm.astro": ["node_modules/astro-collab/lib/LiveUserForm.astro"],
+    "astro-collab/LiveUsers.astro": ["node_modules/astro-collab/lib/LiveUsers.astro"],
+    "astro-collab/RandomUserInfo.astro": ["node_modules/astro-collab/lib/RandomUserInfo.astro"]
+  }
+}
+`} />
+
+
+      <WrapAllNote></WrapAllNote>
+
+    </PanelLayout>
+  </LiveblocksRoom>
+</BaseLayout>
