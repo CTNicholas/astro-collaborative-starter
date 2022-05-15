@@ -29,8 +29,6 @@ Take a look at the full guide on the [demo website](https://astro-collaborative-
 npm i astro-collab
 ```
 
-<a href="https://liveblocks.io">![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)</a>
-
 ## [Quick start](https://astro-collaborative-starter.ctnicholas.dev/quick-start)
 <a href="https://astro-collaborative-starter.ctnicholas.dev/quick-start">![Quick start guide](https://astro-collaborative-starter.ctnicholas.dev/card-main.png)
 </a>
@@ -47,6 +45,15 @@ npm i astro-collab
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/random-user-info">![Random user info](https://astro-collaborative-starter.ctnicholas.dev/card-random-mini.png)
 </a><a href="https://astro-collaborative-starter.ctnicholas.dev/liveblocks-room">![Liveblocks room](https://astro-collaborative-starter.ctnicholas.dev/card-liveblocks-mini.png)
 </a>
+
+## Technology
+
+- [Liveblocks](https://liveblocks.io) - Liveblocks powers all multiplayer features
+- [Lit](https://lit.dev) - Most components use Lit web components
+- [tldraw](https://tldraw.com) - LiveDrawing component uses tldraw
+- [Astro](https://astro.build) - Starter kit built for Astro
+
+<a href="https://liveblocks.io">![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)</a>
 
 ## Like what you see?
 I build lots of collaborative fun, and write interactive articles too, follow me on [Twitter](https://twitter.com/ctnicholasdev) for more. Here's a few examples:

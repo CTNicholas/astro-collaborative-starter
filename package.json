@@ -1,6 +1,6 @@
 {
   "name": "astro-collaboration-starter",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -23,7 +23,7 @@
     "@liveblocks/client": "^0.16.2",
     "@liveblocks/react": "^0.16.2",
     "@tldraw/tldraw": "^1.11.1",
-    "astro-collab": "^1.0.2",
+    "astro-collab": "^1.0.3",
     "motion": "^10.8.1",
     "perfect-cursors": "^1.0.5"
   }
