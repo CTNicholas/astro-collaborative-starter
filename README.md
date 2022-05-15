@@ -56,8 +56,9 @@ npm i astro-collab
 <a href="https://liveblocks.io">![Powered by Liveblocks](https://astro-collaborative-starter.ctnicholas.dev/poweredbyliveblocks.svg)</a>
 
 ## Like what you see?
-I build lots of collaborative fun, and write interactive articles too, follow me on [Twitter](https://twitter.com/ctnicholasdev) for more. Here's a few examples:
+I build lots of collaborative fun, and write interactive articles too, follow me on [Twitter](https://twitter.com/ctnicholasdev) for more. Here's a few favourites:
 
 [![Adding live cursors to Next.js](https://pixelart.liveblocks.app/og-image.png)](https://pixelart.liveblocks.app)
 [![Adding live cursors to Next.js](https://www.ctnicholas.dev/images/custom-thumbnails/live-cursors-with-liveblocks.png)](https://www.ctnicholas.dev/articles/live-cursors-with-liveblocks)
 [![Build a live piano](https://livepiano.ctnicholas.dev/screenshot.png)](https://livepiano.ctnicholas.dev)
+[![Multiplayer Wordle](https://wordlewars.ctnicholas.dev/screenshot.png)](https://wordlewars.ctnicholas.dev)

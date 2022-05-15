@@ -1,0 +1,21 @@
+---
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import LiveForm from 'astro-collab/LiveForm.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
+
+// Get your free public key from https://liveblocks.io
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+// The name of the current room
+const roomId = 'astro-collaborative-starter-minimal-live-form'
+---
+
+<RandomUserInfo></RandomUserInfo>
+<LiveblocksRoom
+  room-id={roomId}
+  public-key={key}
+>
+  <LiveForm name="my-form">
+    <input name="my-input" type="text" placeholder="Enter words" class="border-2 border-gray-500" value="" />
+  </LiveForm>
+</LiveblocksRoom>

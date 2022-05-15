@@ -3,6 +3,7 @@ import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
 import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
+import Link from '../components/Link.astro'
 import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
@@ -81,6 +82,10 @@ import 'astro-collab/live-cursors'
 <!-- CSS selector of pointer event element, default: body -->
 <live-cursor selector="#app" client:load />
       `} />
+
+      <Paragraph>
+        A minimal working example can be found <Link href="/minimal/live-cursors">here.</Paragraph>
+      </Paragraph>
 
       <TitleSmall>
         Customise

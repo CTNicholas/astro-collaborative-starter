@@ -1,0 +1,19 @@
+---
+import LiveblocksRoom from 'astro-collab/LiveblocksRoom.astro'
+import LiveAvatars from 'astro-collab/LiveAvatars.astro'
+import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
+
+// Get your free public key from https://liveblocks.io
+const key = import.meta.env.PUBLIC_LIVEBLOCKS_PUBLIC_KEY
+
+// The name of the current room
+const roomId = 'astro-collaborative-starter-minimal-live-avatars'
+---
+
+<RandomUserInfo></RandomUserInfo>
+<LiveblocksRoom
+  room-id={roomId}
+  public-key={key}
+>
+  <LiveAvatars></LiveAvatars>
+</LiveblocksRoom>

@@ -4,6 +4,7 @@ import LiveUsers from 'astro-collab/LiveUsers.astro'
 import RandomUserInfo from 'astro-collab/RandomUserInfo.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PanelLayout from '../layouts/PanelLayout.astro'
+import Link from '../components/Link.astro'
 import Demo from '../components/Demo.astro'
 import Code from '../components/Code.astro'
 import Title from '../components/Title.astro'
@@ -81,6 +82,10 @@ import 'astro-collab/live-users'
 <!-- Only show other people's user info -->
 <live-users show="others" client:load></live-users>
       `}/>
+
+      <Paragraph>
+        A minimal working example can be found <Link href="/minimal/live-users">here.</Paragraph>
+      </Paragraph>
 
       <TitleSmall>
         Customise
