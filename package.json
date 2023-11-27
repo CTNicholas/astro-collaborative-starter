@@ -20,10 +20,10 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@liveblocks/client": "^0.16.2",
-    "@liveblocks/react": "^0.16.2",
+    "@liveblocks/client": "^1.8.1",
+    "@liveblocks/react": "^1.8.1",
     "@tldraw/tldraw": "^1.11.1",
-    "astro-collab": "^1.0.4",
+    "astro-collab": "^1.0.6",
     "motion": "^10.8.1",
     "perfect-cursors": "^1.0.5"
   }
